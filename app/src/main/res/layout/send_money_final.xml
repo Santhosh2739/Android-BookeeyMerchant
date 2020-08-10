@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/ypcm_main_layout" android:layout_height="fill_parent"
+    android:layout_width="fill_parent" >
+
+
+
+
+    <TableLayout android:layout_height="40dip"
+        android:id="@+id/ypcm_tbl_down_btns" android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true" android:layout_width="fill_parent">
+        <TableRow >
+            <Button
+                android:id="@+id/ypcm_close"
+                android:textColor="#000000" android:layout_weight="1" android:text="Close"
+                android:textStyle="bold"  />
+
+
+        </TableRow>
+    </TableLayout>
+
+
+    <ScrollView android:layout_width="fill_parent"
+        android:layout_marginBottom="10dip" android:layout_above="@+id/ypcm_tbl_down_btns"
+        android:layout_height="fill_parent" >
+        <RelativeLayout android:orientation="horizontal"
+            android:layout_width="fill_parent" android:layout_height="wrap_content">
+
+            <LinearLayout android:layout_marginLeft="16dip"
+                android:layout_marginRight="16dip"
+                android:orientation="vertical" android:layout_marginTop="10dip"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent">
+
+
+                <TableLayout android:layout_height="wrap_content"
+                    android:layout_below="@+id/ypcm_bgtop"
+                    android:layout_centerHorizontal="true" android:layout_marginTop="10dip"
+                    android:layout_marginLeft="10dip" android:layout_marginRight="10dip"
+                    android:layout_width="fill_parent" android:id="@+id/ypcm2_tableLayout">
+
+                    <TableRow android:id="@+id/ypcm2_status_head_tbl_row">
+                        <TableRow>
+                            <TextView android:text="Status" android:layout_height="wrap_content"
+                                android:layout_weight="1" android:id="@+id/ypcm2_status_head"
+                                android:textColor="#585858" android:textStyle="bold" />
+                        </TableRow>
+                        <TextView android:text="ypcm2status"
+                            android:layout_marginLeft="30dip" android:layout_marginTop="1dp"
+                            android:id="@+id/ypcm2_status" android:layout_weight="1"
+                            android:textColor="#585858" android:textStyle="bold"
+                            android:layout_height="wrap_content" />
+                    </TableRow>
+
+                    <ImageView
+                        android:layout_height="2dip" android:layout_width="fill_parent"
+                        android:id="@+id/ypcm2_line_above_l1time"></ImageView>
+
+                    <TableRow>
+                        <TableRow>
+                            <TextView android:text="Amount" android:layout_weight="1"
+                                android:textStyle="bold" android:id="@+id/ypcm2_amount_head"
+                                android:textColor="#585858" />
+                        </TableRow>
+
+                        <TextView android:text="ypcm2amnt"
+                            android:layout_weight="1" android:textColor="#585858"
+                            android:textStyle="bold" android:layout_marginLeft="30dip"
+                            android:id="@+id/ypcm2_amount" />
+
+                    </TableRow>
+                    <ImageView
+                        android:layout_height="2dip" android:layout_width="fill_parent"
+                        ></ImageView>
+
+
+                    <TableRow>
+                        <TableRow>
+                            <TextView android:text="Service" android:layout_weight="1"
+                                android:id="@+id/ypcm2_service_head" android:textColor="#585858"
+                                android:textStyle="bold" />
+                        </TableRow>
+                        <TextView android:text="ypcm2service"
+                            android:layout_marginLeft="30dip" android:textColor="#585858"
+                            android:textStyle="bold" android:id="@+id/ypcm2_service"
+                            android:layout_weight="1" />
+                    </TableRow>
+
+
+
+
+
+
+
+                    <ImageView
+                        android:layout_height="2dip" android:layout_width="fill_parent"
+                        ></ImageView>
+                    <TableRow>
+                        <TableRow>
+                            <TextView android:text="Cusd Id" android:layout_weight="1"
+                                android:id="@+id/ypcm2_cxid_head" android:textColor="#585858"
+                                android:textStyle="bold" />
+                        </TableRow>
+                        <TextView android:text="ypcm2custid"
+                            android:layout_marginLeft="30dip" android:layout_marginTop="1dp"
+                            android:textColor="#585858" android:textStyle="bold" android:id="@+id/ypcm2_cxid"
+                            android:layout_weight="1" />
+                    </TableRow>
+
+
+                    <ImageView
+                        android:layout_height="2dip" android:layout_width="fill_parent"
+                        android:id="@+id/imageView2"></ImageView>
+
+                    <TableRow>
+                        <TableRow>
+                            <TextView android:text="Txn Type" android:layout_weight="1"
+                                android:id="@+id/ypcm2_txntype_head" android:textColor="#585858"
+                                android:textStyle="bold" />
+                        </TableRow>
+                        <TextView android:text="ypcm2txntype"
+                            android:layout_marginLeft="30dip" android:layout_marginTop="1dp"
+                            android:textColor="#585858" android:textStyle="bold"
+                            android:id="@+id/ypcm2_txntype" android:layout_weight="1" />
+                    </TableRow>
+
+
+
+                    <ImageView
+                        android:layout_height="2dip" android:layout_width="fill_parent"
+                        android:id="@+id/ypcm2_line_above_txn_id"></ImageView>
+
+
+                    <TableRow android:id="@+id/ypcm2_txnid_head_tbl_row">
+                        <TableRow>
+                            <TextView android:text="Transaction Id"
+                                android:layout_weight="1" android:id="@+id/ypcm2_txnid_head"
+                                android:textColor="#585858" android:textStyle="bold" />
+                        </TableRow>
+                        <TextView android:text="ypcm2txnid"
+                            android:layout_marginLeft="30dip" android:textColor="#585858"
+                            android:textStyle="bold" android:id="@+id/ypcm2_txnid"
+                            android:layout_weight="1" />
+                    </TableRow>
+
+                    <ImageView
+                        android:layout_height="2dip" android:layout_width="fill_parent"
+                        android:id="@+id/ypcm2_line_above_status"></ImageView>
+
+
+
+
+                    <TableRow android:id="@+id/ypcm2_txn_time_head_tbl_row">
+                        <TableRow>
+                            <TextView android:text="Time(L1)" android:layout_height="wrap_content"
+                                android:layout_weight="1" android:id="@+id/ypcm2_txn_time_head"
+                                android:textColor="#585858" android:textStyle="bold" />
+                        </TableRow>
+                        <TextView android:text="ypcm2txntime"
+                            android:layout_marginLeft="30dip" android:layout_marginTop="1dp"
+                            android:textColor="#585858" android:textStyle="bold"
+                            android:id="@+id/ypcm2_txn_time" android:layout_weight="1"
+                            android:layout_height="wrap_content" />
+                    </TableRow>
+
+                    <ImageView
+                        android:layout_height="2dip" android:layout_width="fill_parent"
+                        android:id="@+id/ypcm2_line_above_l2time"></ImageView>
+
+
+                    <TableRow android:id="@+id/ypcm2_txn_time_l2_head_tbl_row"
+                        android:layout_height="wrap_content">
+                        <TableRow>
+                            <TextView android:text="Time(L2)" android:layout_height="wrap_content"
+                                android:layout_weight="1" android:id="@+id/ypcm2_txn_time_l2_head"
+                                android:textColor="#585858" android:textStyle="bold" />
+                        </TableRow>
+                        <TextView android:text="ypcm2txntime"
+                            android:layout_marginLeft="30dip" android:layout_marginTop="1dp"
+                            android:layout_height="wrap_content" android:textColor="#585858"
+                            android:textStyle="bold" android:id="@+id/ypcm2_txn_l2_time"
+                            android:layout_weight="1" />
+                    </TableRow>
+
+                    <ImageView
+                        android:layout_height="2dip" android:layout_width="fill_parent"
+                        android:id="@+id/ypcm2_line_above_bal"></ImageView>
+
+
+
+                    <TableRow android:id="@+id/ypcm2_bal_head_tbl_row">
+                        <TableRow>
+                            <TextView android:text="Balance" android:layout_height="wrap_content"
+                                android:layout_weight="1" android:id="@+id/ypcm2_bal_head"
+                                android:textColor="#585858" android:textStyle="bold" />
+                        </TableRow>
+                        <TextView android:text="ypcm2merbal"
+                            android:layout_marginLeft="30dip"
+                            android:layout_marginTop="1dp" android:layout_height="wrap_content"
+                            android:textColor="#585858" android:textStyle="bold" android:id="@+id/ypcm2_bal"
+                            android:layout_weight="1" />
+                    </TableRow>
+
+
+                </TableLayout>
+
+
+
+
+
+            </LinearLayout>
+
+
+        </RelativeLayout>
+    </ScrollView>
+</RelativeLayout>

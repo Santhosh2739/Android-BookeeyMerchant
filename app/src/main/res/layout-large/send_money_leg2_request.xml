@@ -1,0 +1,561 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#df2121"
+    android:orientation="vertical"
+    android:padding="8dp"
+    android:weightSum="10">
+
+
+    <FrameLayout
+        android:layout_width="fill_parent"
+        android:layout_height="0dp"
+        android:layout_weight="3"
+        android:background="#fff">
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="3"
+            android:background="#ffffff"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="0dp"
+                android:layout_weight="2.7"
+                android:background="#ffffff">
+
+                <RelativeLayout
+                    android:id="@+id/back_lo1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:paddingLeft="10dp">
+
+                    <ImageView
+                        android:id="@+id/back"
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:layout_centerVertical="true"
+                        android:visibility="gone" />
+
+                    <ImageView
+                        android:id="@+id/back_logo"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_toRightOf="@+id/back"
+                        android:paddingLeft="10dp"
+                        android:src="@drawable/caribou_logo"
+                        android:visibility="invisible" />
+                </RelativeLayout>
+
+                <TextView
+                    android:id="@+id/merchant_pos_id"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/back_lo1"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginLeft="40dp"
+                    android:gravity="center"
+                    android:text="@string/transaction_details"
+                    android:textColor="#848688"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/merchant_pos_id"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginLeft="40dp"
+                    android:gravity="center"
+                    android:text="@string/branch_address"
+                    android:textColor="#848688"
+                    android:textSize="14sp"
+                    android:visibility="invisible" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/back_lo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="10dp"
+                android:visibility="gone">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:text="Branch Address: OOredoo Tower\nCall Center: 180001"
+                    android:textColor="#848688"
+                    android:textSize="20sp" />
+            </RelativeLayout>
+        </LinearLayout>
+
+
+        <FrameLayout
+            android:id="@+id/main_menu_floating_panel"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:visibility="visible">
+
+            <LinearLayout
+                android:id="@+id/undobar"
+                style="@style/UndoBar">
+
+                <TextView
+                    android:id="@+id/undobar_message"
+                    style="@style/UndoBarMessage" />
+
+                <Button
+                    android:id="@+id/undobar_button"
+                    style="@style/UndoBarButton" />
+            </LinearLayout>
+        </FrameLayout>
+
+
+    </FrameLayout>
+
+    <View
+        android:id="@+id/separator"
+        android:layout_width="fill_parent"
+        android:layout_height="1dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_weight="0.02"
+        android:background="#df2121" />
+
+
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="0dp"
+        android:layout_above="@+id/ypcm_tbl_down_btns"
+        android:layout_weight="6"
+        android:background="#fff"
+        android:paddingBottom="10dip">
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_marginLeft="16dip"
+                android:layout_marginRight="16dip"
+                android:layout_marginTop="10dip"
+                android:gravity="center_horizontal"
+                android:orientation="vertical">
+
+
+                <TableLayout
+                    android:id="@+id/ypcm2_tableLayout"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/ypcm_bgtop"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginLeft="10dip"
+                    android:layout_marginRight="10dip"
+                    android:layout_marginTop="10dip">
+
+                    <ImageView
+                        android:layout_width="fill_parent"
+                        android:layout_height="2dip"></ImageView>
+
+                    <TableRow>
+
+                        <TableRow>
+
+                            <TextView
+                                android:id="@+id/ypcm2_cxid_head"
+                                android:layout_weight="1"
+                                android:text="@string/cust_mobile_no"
+                                android:textColor="#585858"
+                                android:textSize="24sp" />
+                        </TableRow>
+
+                        <TextView
+                            android:id="@+id/ypcm2_cxid"
+                            android:layout_marginLeft="30dip"
+                            android:layout_marginTop="1dp"
+                            android:layout_weight="1"
+                            android:text="ypcm2custid"
+                            android:textColor="#585858"
+                            android:textSize="24sp" />
+                    </TableRow>
+
+                    <ImageView
+                        android:id="@+id/ypcm2_line_above_txn_id"
+                        android:layout_width="fill_parent"
+                        android:layout_height="2dip"></ImageView>
+
+
+                    <TableRow android:id="@+id/ypcm2_txnid_head_tbl_row">
+
+                        <TableRow>
+
+                            <TextView
+                                android:id="@+id/ypcm2_txnid_head"
+                                android:layout_weight="1"
+                                android:text="@string/transaction_id"
+                                android:textColor="#585858"
+                                android:textSize="24sp" />
+                        </TableRow>
+
+                        <TextView
+                            android:id="@+id/ypcm2_txnid"
+                            android:layout_marginLeft="30dip"
+                            android:layout_weight="1"
+                            android:text="ypcm2txnid"
+                            android:textColor="#585858"
+                            android:textSize="24sp" />
+                    </TableRow>
+
+                    <ImageView
+                        android:id="@+id/ypcm2_line_above_l1time"
+                        android:layout_width="fill_parent"
+                        android:layout_height="2dip"></ImageView>
+
+                    <TableRow>
+
+                        <TableRow>
+
+                            <TextView
+                                android:id="@+id/ypcm2_amount_head"
+                                android:layout_weight="1"
+                                android:text="@string/amount"
+                                android:textColor="#585858"
+                                android:textSize="24sp" />
+                        </TableRow>
+
+                        <TextView
+                            android:id="@+id/ypcm2_amount"
+                            android:layout_marginLeft="30dip"
+                            android:layout_weight="1"
+                            android:text="ypcm2amnt"
+                            android:textColor="#585858"
+                            android:textSize="24sp" />
+
+                    </TableRow>
+
+                    <TableRow
+                        android:id="@+id/ypcm2_txn_offer_head_tbl_row"
+                        android:visibility="gone">
+
+                        <TableRow>
+
+                            <TextView
+                                android:id="@+id/ypcm2_txn_offer_id_head"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="Offer Description"
+                                android:textColor="#585858"
+                                android:textSize="24sp" />
+                        </TableRow>
+
+                        <TextView
+                            android:id="@+id/ypcm2_txn_offerID"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="30dip"
+                            android:layout_marginTop="1dp"
+                            android:layout_weight="1"
+                            android:text=""
+                            android:textColor="#585858"
+                            android:textSize="24sp" />
+                    </TableRow>
+
+                    <ImageView
+                        android:layout_width="fill_parent"
+                        android:layout_height="2dip"></ImageView>
+
+
+                    <TableRow android:visibility="gone">
+
+                        <TableRow>
+
+                            <TextView
+                                android:id="@+id/ypcm2_service_head"
+                                android:layout_weight="1"
+                                android:text="Service"
+                                android:textColor="#585858"
+                                android:textSize="24sp" />
+                        </TableRow>
+
+                        <TextView
+                            android:id="@+id/ypcm2_service"
+                            android:layout_marginLeft="30dip"
+                            android:layout_weight="1"
+                            android:text="ypcm2service"
+                            android:textColor="#585858"
+                            android:textSize="24sp" />
+                    </TableRow>
+
+                    <ImageView
+                        android:id="@+id/imageView2"
+                        android:layout_width="fill_parent"
+                        android:layout_height="2dip"></ImageView>
+
+                    <TableRow android:visibility="gone">
+
+                        <TableRow>
+
+                            <TextView
+                                android:id="@+id/ypcm2_txntype_head"
+                                android:layout_weight="1"
+                                android:text="Txn Type"
+                                android:textColor="#585858"
+                                android:textSize="24sp" />
+                        </TableRow>
+
+                        <TextView
+                            android:id="@+id/ypcm2_txntype"
+                            android:layout_marginLeft="30dip"
+                            android:layout_marginTop="1dp"
+                            android:layout_weight="1"
+                            android:text="ypcm2txntype"
+                            android:textColor="#585858"
+                            android:textSize="24sp" />
+                    </TableRow>
+
+                    <ImageView
+                        android:id="@+id/ypcm2_line_above_l2time"
+                        android:layout_width="fill_parent"
+                        android:layout_height="2dip"></ImageView>
+
+
+                    <TableRow
+                        android:id="@+id/ypcm2_txn_time_l2_head_tbl_row"
+                        android:layout_height="wrap_content"
+                        android:visibility="gone">
+
+                        <TableRow>
+
+                            <TextView
+                                android:id="@+id/ypcm2_txn_time_l2_head"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="Time(L2)"
+                                android:textColor="#585858"
+                                android:textSize="24sp" />
+                        </TableRow>
+
+                        <TextView
+                            android:id="@+id/ypcm2_txn_l2_time"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="30dip"
+                            android:layout_marginTop="1dp"
+                            android:layout_weight="1"
+                            android:text="ypcm2txntime"
+                            android:textColor="#585858"
+                            android:textSize="24sp" />
+                    </TableRow>
+
+                    <TableRow
+                        android:id="@+id/ypcm2_txn_discount_per_head_tbl_row"
+                        android:visibility="gone">
+
+                        <TableRow>
+
+                            <TextView
+                                android:id="@+id/ypcm2_txn_discount_per_head"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="Discount"
+                                android:textColor="#585858"
+                                android:textSize="24sp" />
+                        </TableRow>
+
+                        <TextView
+                            android:id="@+id/ypcm2_discount_per"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="30dip"
+                            android:layout_marginTop="1dp"
+                            android:layout_weight="1"
+                            android:text=""
+                            android:textColor="#585858"
+                            android:textSize="24sp" />
+                    </TableRow>
+
+                    <TableRow
+                        android:id="@+id/ypcm2_txn_discount_amt_head_tbl_row"
+                        android:visibility="gone">
+
+                        <TableRow>
+
+                            <TextView
+                                android:id="@+id/ypcm2_txn_discount_amt_head"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="Discount Amt"
+                                android:textColor="#585858"
+                                android:textSize="24sp" />
+                        </TableRow>
+
+                        <TextView
+                            android:id="@+id/ypcm2_txn_discount_amt"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="30dip"
+                            android:layout_marginTop="1dp"
+                            android:layout_weight="1"
+                            android:text=""
+                            android:textColor="#585858"
+                            android:textSize="24sp" />
+                    </TableRow>
+
+                    <TableRow
+                        android:id="@+id/ypcm2_txn_deducted_head_tbl_row"
+                        android:visibility="gone">
+
+                        <TableRow>
+
+                            <TextView
+                                android:id="@+id/ypcm2_txn_deducted_head"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="Txn Amt"
+                                android:textColor="#585858"
+                                android:textSize="24sp" />
+                        </TableRow>
+
+                        <TextView
+                            android:id="@+id/ypcm2_txn_deducted"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="30dip"
+                            android:layout_marginTop="1dp"
+                            android:layout_weight="1"
+                            android:text=""
+                            android:textColor="#585858"
+                            android:textSize="24sp" />
+                    </TableRow>
+
+                    <ImageView
+                        android:id="@+id/ypcm2_line_above_bal"
+                        android:layout_width="fill_parent"
+                        android:layout_height="2dip"></ImageView>
+
+                    <TableRow android:id="@+id/ypcm2_status_head_tbl_row">
+
+                        <TableRow>
+
+                            <TextView
+                                android:id="@+id/ypcm2_status_head"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="@string/status"
+                                android:textColor="#585858"
+                                android:textSize="24sp" />
+                        </TableRow>
+
+                        <TextView
+                            android:id="@+id/ypcm2_status"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="30dip"
+                            android:layout_marginTop="1dp"
+                            android:layout_weight="1"
+                            android:text="ypcm2status"
+                            android:textColor="#585858"
+                            android:textSize="24sp" />
+                    </TableRow>
+
+                    <ImageView
+                        android:id="@+id/ypcm2_line_above_status"
+                        android:layout_width="fill_parent"
+                        android:layout_height="2dip"></ImageView>
+
+
+                    <TableRow android:id="@+id/ypcm2_txn_time_head_tbl_row">
+
+                        <TableRow>
+
+                            <TextView
+                                android:id="@+id/ypcm2_txn_time_head"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="@string/time_l1"
+                                android:textColor="#585858"
+                                android:textSize="24sp" />
+                        </TableRow>
+
+                        <TextView
+                            android:id="@+id/ypcm2_txn_time"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="30dip"
+                            android:layout_marginTop="1dp"
+                            android:layout_weight="1"
+                            android:text="ypcm2txntime"
+                            android:textColor="#585858"
+                            android:textSize="24sp" />
+                    </TableRow>
+
+                    <TableRow
+                        android:id="@+id/ypcm2_bal_head_tbl_row"
+                        android:visibility="gone">
+
+                        <TableRow>
+
+                            <TextView
+                                android:id="@+id/ypcm2_bal_head"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="Balance"
+                                android:textColor="#585858"
+                                android:textSize="24sp" />
+                        </TableRow>
+
+                        <TextView
+                            android:id="@+id/ypcm2_bal"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="30dip"
+                            android:layout_marginTop="1dp"
+                            android:layout_weight="1"
+                            android:text="ypcm2merbal"
+                            android:textColor="#585858"
+                            android:textSize="24sp" />
+                    </TableRow>
+
+
+                </TableLayout>
+
+
+            </LinearLayout>
+
+
+        </RelativeLayout>
+    </ScrollView>
+
+    <TableLayout
+        android:id="@+id/ypcm_tbl_down_btns"
+        android:layout_width="fill_parent"
+        android:layout_height="0dip"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_weight="1"
+        android:background="#fff">
+
+        <TableRow>
+
+            <Button
+                android:id="@+id/ypcm_accept"
+                android:layout_width="wrap_content"
+                android:layout_weight="0.6"
+                android:background="@drawable/rounded_corner_btn_green"
+                android:text="@string/accept"
+                android:textColor="#ffffff"
+                android:textSize="20sp" />
+
+            <Button
+                android:id="@+id/ypcm_decline"
+                android:layout_width="wrap_content"
+                android:layout_marginLeft="50dp"
+                android:layout_weight="0.6"
+                android:background="@drawable/rounded_corner_btn"
+                android:text="@string/reject"
+                android:textColor="#ffffff"
+                android:textSize="20sp" />
+
+        </TableRow>
+    </TableLayout>
+</LinearLayout>

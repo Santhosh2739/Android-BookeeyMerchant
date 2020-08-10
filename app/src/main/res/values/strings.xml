@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Zxing Strings -->
+    <string name="zxing_url">http://code.google.com/p/zxing</string>
+    <string name="history_clear_one_history_text">Clear</string>
+    <string name="result_text"></string>
+    <string name="history_send">Send history</string>
+    <string name="history_clear_text">Clear history</string>
+    <string name="msg_unmount_usb">Sorry, the SD card is not accessible.</string>
+    <string name="button_ok">OK</string>
+    <string name="history_email_title">Barcode Scanner history</string>
+    <!--End-->
+
+    <string name="app_name">BMerchant</string>
+    <string name="logout">Logout</string>
+    <string name="action_settings">Settings</string>
+    <string name="hello_world">Hello world!</string>
+
+    <drawable name="white">#ffffff</drawable>
+    <drawable name="darkgrey">#606060</drawable>
+    <drawable name="grey">#778899</drawable>
+
+
+
+    <string name="facebook_app_id">488671721900166</string>
+    <string name="fb_login_protocol_scheme">fb[488671721900166]</string>
+
+
+    <string name="customer_number">663693338</string>
+    <string name="customer_current_balctv">Current Balance</string>
+    <string name="customer_current_balc_amt">KWD 500.000</string>
+    <string name="recharge_wallet_txt">Recharge Wallet</string>
+    <string name="send_money_txt">Buy</string>
+    <string name="send_money_help">Help</string>
+    <string name="more_text">More</string>
+    <string name="poweredby_tv">Powered by</string>
+    <string name="send_money_others">Others</string>
+    <string name="transactions_txt">Topup/ Payment</string>
+    <string name="qrcode">QRCode</string>
+    <string name="chat_txt">Send Money</string>
+    <string name="undo">Hide</string>
+    <string name="manage_profile"> Manage Profile</string>
+    <string name="transaction_history">Transaction History</string>
+    <string name="about_us">About Us</string>
+    <string name="contact_us">Contact Us</string>
+    <string name="exit_app">Log Off</string>
+    <string name="action_text"></string>
+    <string name="title_activity_sendmoney">Sendmoney</string>
+    <string name="title_activity_success_screen">Success_screen</string>
+
+
+    <string name="transaction">Transaction Is Successfull</string>
+    <string name="forgot_password_underlined"><u>Forgot Password?</u></string>
+    <string name="branch_address">Shuwaikh (Chevrolet),Kuwait</string>
+    <string name="login_username"> mPaySafe</string>
+    <string name="mobile">Mobile Number</string>
+
+    <string name="pay_to_merchant">Pay To Merchant</string>
+    <string name="collectpayment">Collect Payments</string>
+    <string name="invoice">Invoice Creation</string>
+    <string name="online_payments">Online Payments   </string>
+    <string name="collectpayment_history">Transaction History    </string>
+    <string name="consolidated_reports">Consolidated Reports</string>
+    <string name="offers">Merchant Offers</string>
+    <string name="redeem_offer">Redeem Offer</string>
+
+
+
+
+    <string name="GPSAlertDialogTitle">Use GPS</string>
+    <string name="GPSAlertDialogMessage">Do you want to use gps?</string>
+    <string name="cancel">Cancel</string>
+    <string name="profile_btn">Close</string>
+    <string name="contact_us_screen_office_adress">Corporate Office Adress</string>
+    <string name="contact_us_screen_office_adress_detail">Mezzanine Floor , Al Faisal Centre, Dhajeej, Kuwait</string>
+    <string name="contact_us_screen_write_us">Write Us</string>
+    <string name="contact_us_screen_website"></string>
+    <string name="contact_us_screen_mail">Mail:notification@bookeey.com</string>
+    <string name="contact_us_screen_customer_care">Customer Care</string>
+    <string name="contact_us_screen_mobile_number_whatsapp">22023232</string>
+    <string name="contact_us_screen_mobile_number">22023232</string>
+    <string name="contact_us_screen_connect_executive">Connect Executive</string>
+    <string name="international_country_code">+92</string>
+    <string name="international_mobile_no">3214074300</string>
+
+
+    <string name="login_english">English</string>
+    <string name="login_arabic">العربية</string>
+    <string name="app_language">English</string>
+    <string name="proceed">Proceed</string>
+    <string name="accept">Accept</string>
+    <string name="reject">Reject</string>
+    <string name="wallet_payment_receipt">Wallet payment receipt  </string>
+    <string name="invoice_no">Invoice No </string>
+    <string name="mobile_no">Mobile No *</string>
+    <string name="mobile_no_out_star">Mobile No </string>
+    <string name="amount">Amount *</string>
+    <string name="amount_with_out_star">Amount </string>
+    <string name="language">Language</string>
+    <string name="email_id">Email ID</string>
+    <string name="description">Description</string>
+    <string name="submit">Submit</string>
+    <string name="invoice_successfully_created">Invoice successfully created</string>
+    <string name="transaction_details">Transaction Details</string>
+    <string name="select_from_date">Select from date </string>
+    <string name="select_from_time">Select from time</string>
+    <string name="select_to_date">Select to date</string>
+    <string name="select_to_time">Select to time</string>
+    <string name="no_offers_available">No offers available </string>
+
+    //By bita on March 26
+    <string name="status">Status</string>
+    <string name="date">Date</string>
+    <string name="transaction_id">Transaction ID</string>
+    <string name="cust_mobile_no">Cust Mobile No</string>
+    <string name="total_amount">Total Amount</string>
+    <string name="invoice_url">Invoice URL</string>
+    <string name="total_paymnet">Total Payment</string>
+    <string name="thank_you_for_using_bookeey_wallet">Thank you for using Bookeey Wallet</string>
+    <string name="powered_by">Powered by</string>
+    <string name="refresh">Refresh</string>
+    <string name="merchant_information">Merchant Information</string>
+    <string name="merchant_name">Merchant Name</string>
+    <string name="branch_name">Branch Name</string>
+    <string name="close">Close</string>
+    <!--<string name="corporate_office_address">Corporate Office Address</string>-->
+    <!--<string name="write_us">Write Us</string>-->
+    <!--<string name="customer_care">Customer care</string>-->
+    <string name="call_now">Call Now</string>
+    <string name="merchant_login">Merchant Login</string>
+    <string name="merchant_id">Merchant ID</string>
+    <string name="password">Password</string>
+    <string name="login">Login</string>
+    <string name="merchant_info">Merchant Info</string>
+    <string name="check_for_updates">Check for updates</string>
+    <string name="log_off">Log Off</string>
+    <string name="transaction_amount">Transaction Amount</string>
+    <string name="cust_id">Cust ID</string>
+    <string name="time_l1">Time </string>
+    <string name="cancelled_by_merchant">Cancelled by merchant</string>
+    <string name="log_out_successful">Log out successful</string>
+    <string name="success">Success</string>
+    <string name="customer_name">Customer Name</string>
+
+    <string name="reminder">Reminder</string>
+    <string name="edit">Edit</string>
+    <string name="failed">Failed</string>
+    <string name="hold">Hold</string>
+    <string name="rejected">Rejected</string>
+    <string name="pending">Pending</string>
+    <string name="transaction_success">Transaction success</string>
+
+
+    <string name="count_of_transaction">Count of Transaction</string>
+    <string name="sum_of_transaction">Sum of Transaction</string>
+    <string name="send_mail">Send Mail</string>
+    <string name="from">From</string>
+    <string name="to">To</string>
+    <string name="to_time">To time </string>
+    <string name="from_time">From time</string>
+    <string name="please_enter_mobile_number">Please enter mobile number</string>
+    <string name="please_enter_valid_mobile_number">Please enter valid mobile number...</string>
+    <string name="please_enter_amount">Please enter amount</string>
+    <string name="failure_general_server">Failure general server</string>
+    <string name="please_check_your_network_connection">Please check your network connection</string>
+    <string name="log_out">Log out</string>
+    <string name="check_your_internet_connection_and_try_again">Check your internet connection and try again</string>
+    <string name="link_copied_to_clipboard">Link Copied to Clipboard</string>
+    <string name="phone_read_permission_needed">Phone read permission needed. Please allow in App Settings for additional functionality</string>
+    <string name="current_version_is">Current Version is : </string>
+    <string name="your_merchant_application_has_been_updated">Your Merchant application has been updated,Please download the latest version to work all the features properly.\n\nPlease tap on update to get the latest version</string>
+    <string name="location_permission_needed">Location permission needed. Please allow in App Settings for additional functionality</string>
+    <string name="system_error">System Error!</string>
+    <string name="update">UPDATE</string>
+    <string name="all_fields_are_mandatory">All fields are mandatory</string>
+    <string name="please_enter_merchant_id">Please enter merchant ID</string>
+    <string name="please_enter_password">Please enter password</string>
+    <string name="share">SHARE</string>
+    <string name="print">PRINT</string>
+    <string name="reason">Reason</string>
+
+    <string name="registration_attach_image">Attach Image</string>
+    <string name="registration_get_image_from">Get image from</string>
+    <string name="camera">Camera</string>
+    <string name="gallery">Gallery</string>
+    <string name="attached_successfully">Attached Successfully</string>
+    <string name="optional">(Optional)</string>
+
+
+    <!--lock unlock-->
+    <string name="enter_password">Enter Pin</string>
+    <string name="invalid_password">Invalid password.</string>
+    <string name="setting_title">Kiosk Mode Setting</string>
+    <string name="setting_lock_device">Lock</string>
+    <string name="setting_unlock_device">Unlock</string>
+    <string name="setting_device_locked">Device is locked</string>
+    <string name="setting_device_unlocked">Device is unlocked</string>
+
+    <string name="empty"> </string>
+
+    <string name="payment_method">Payment method</string>
+    <string name="fees">Fees</string>
+    <string name="due_to_merchant">Due to merchant</string>
+
+
+
+</resources>

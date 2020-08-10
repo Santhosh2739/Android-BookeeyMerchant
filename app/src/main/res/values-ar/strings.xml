@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="pay_to_merchant">ا توجد عروض متاحة</string>
+    <!--<string name="collectpayment">عملية الدفع</string>-->
+
+    <string name="collectpayment"> تحصيل الدفع </string>
+    <string name="invoice">ارسال فاتورة</string>
+    <string name="online_payments">تقرير عمليات الدفع </string>
+    <string name="collectpayment_history">تقرير عمليات الدفع</string>
+    <string name="consolidated_reports">التقرير المجمع</string>
+    <string name="offers">العروض</string>
+    <string name="redeem_offer">الاستفادة من العرض</string>
+
+
+    <string name="proceed">استمرار</string>
+    <string name="cancel">الغاء</string>
+    <string name="accept">موافقة</string>
+    <string name="reject">رفض</string>
+    <string name="wallet_payment_receipt">ايصال تحصيل المبلغ</string>
+    <string name="invoice_no">رقم الفاتورة</string>
+    <string name="mobile_no">رقم النقال</string>
+    <string name="amount">المبلغ</string>
+    <string name="language">اللغة</string>
+    <string name="customer_name">اسم العميل</string>
+    <string name="email_id">العنوان الالكتروني</string>
+    <string name="description">التفاصيل</string>
+    <string name="submit">تقديم</string>
+    <string name="invoice_successfully_created">تم ارسال الفاتورة بنجاح </string>
+    <string name="transaction_details">تفاصيل المعاملة</string>
+    <string name="select_from_date">اختيار التاريخ من</string>
+    <string name="select_from_time">اختيار الوقت من</string>
+    <string name="select_to_date">اختيار التاريخ الي</string>
+    <string name="select_to_time">اختيار الوقت الي</string>
+    <!--<string name="no_offers_available">لا يوجد عروض </string>-->
+
+    <string name="login_english">English</string>
+    <string name="login_arabic">العربية</string>
+    <string name="app_language">العربية</string>
+
+
+
+    //By bita on March 26
+    <string name="status">الحالة</string>
+    <string name="date">تاريخ</string>
+    <string name="transaction_id"> رقم المعاملة </string>
+    <string name="cust_mobile_no"> رقم نقال العميل </string>
+    <string name="total_amount"> المبلغ الاجمالي </string>
+    <string name="invoice_url">رابط الفاتورة </string>
+    <string name="total_paymnet">اجمالي الدفع</string>
+    <string name="thank_you_for_using_bookeey_wallet">شكرا لاستخدامك بوكي</string>
+    <string name="powered_by">مدعوم من</string>
+    <string name="transaction_history">كشف المعاملات </string>
+    <string name="refresh">تحديث</string>
+    <string name="merchant_information">معلومات التاجر </string>
+    <string name="merchant_name">اسم التاجر </string>
+    <string name="branch_name">الفرع </string>
+    <string name="close">اغلاق </string>
+    <string name="contact_us_screen_office_adress">عنوان المقر الرئيسي</string>
+    <string name="contact_us_screen_write_us">اكتب لنا </string>
+    <string name="contact_us_screen_customer_care">خدمة العملاء </string>
+    <string name="call_now">اتصل الان</string>
+    <string name="merchant_login">تسجيل دخول التاجر</string>
+    <string name="merchant_id">هوية التاجر</string>
+    <string name="password">الرمز السري </string>
+    <string name="login">تسجيل دخول</string>
+    <string name="merchant_info">معلومات التاجر </string>
+    <string name="check_for_updates">التحقق من التحديث</string>
+    <string name="contact_us">التواص معنا </string>
+    <string name="log_off">تسجيل الخروج </string>
+    <string name="transaction_amount">المبلغ الاجمالي</string>
+    <string name="cust_id">هوية العميل</string>
+    <string name="time_l1">الوقت</string>
+    <string name="cancelled_by_merchant">تم الالغاء من طرف التاجر </string>
+    <string name="log_out_successful">تم الخروج بنجاح </string>
+    <string name="no_offers_available">لا يوجد عروض</string>
+    <string name="success">نجاح</string>
+    <!--<string name="customer_name">اسم الزبون</string>-->
+
+    <string name="reminder">تذكير</string>
+    <string name="edit">تعديل</string>
+    <string name="failed">فاشل</string>
+    <string name="hold">معلقة</string>
+    <string name="rejected">مرفوض</string>
+    <string name="pending">قيد الانتظار</string>
+    <string name="transaction_success">تمت العملية بنجاح</string>
+
+
+
+    <string name="count_of_transaction">عدد المعاملات</string>
+    <string name="sum_of_transaction">جمع المعاملات</string>
+    <string name="send_mail">ارسال البريد</string>
+    <string name="from">من</string>
+    <string name="to">الي</string>
+    <string name="to_time"> من وقت </string>
+    <string name="from_time">الي وقت</string>
+    <string name="please_enter_mobile_number">الرجاء ادخال رقم النقال</string>
+    <string name="please_enter_valid_mobile_number">الرجاء ادخال رقم نقال صالح</string>
+    <string name="please_enter_amount">الرجاء ادخال المبلغ</string>
+    <string name="failure_general_server">خلل في الخادم الرئيسي</string>
+    <string name="please_check_your_network_connection">الرجاء تفقد الربط علي الشبكة</string>
+    <string name="log_out">تسجيل الخروج</string>
+    <string name="check_your_internet_connection_and_try_again">الرجاء تفقد الربط بالانترنت و جرب مرة اخري</string>
+    <string name="link_copied_to_clipboard">تم نسخ الرابط علي الحافظة</string>
+    <string name="phone_read_permission_needed">تحتاج الي اذن للقراءة علي الجهاز، الرجاء السماح لاضافة الخاصية من اعدادات التطبيق</string>
+    <string name="current_version_is">الاعداد الحالي: </string>
+    <string name="your_merchant_application_has_been_updated">تم تحديث تطبيق التاجر ، الرجاء تحميل احدث اعداد لعمل جميع المميزات بطريقة صحيحة. الرجاء الضغط علي " تحديث" للحصول علي احدث اعداد</string>
+    <string name="location_permission_needed">تحتاج اذن للموقع ،  الرجاء السماح لاضافة الخاصية من اعدادات التطبيق</string>
+    <string name="system_error">خطأ في النظام</string>
+    <string name="update">التحديث</string>
+    <string name="all_fields_are_mandatory">جميع المعلومات الزامية</string>
+    <string name="please_enter_merchant_id">الرجاء ادخال هوية التاجر</string>
+    <string name="please_enter_password">الرجاء ادخال رمز الدخول</string>
+    <string name="share">مشاركة</string>
+    <string name="print">طباعة</string>
+    <string name="amount_with_out_star">المبلغ</string>
+    <string name="mobile_no_out_star">رقم النقال</string>
+    <string name="reason">السبب</string>
+
+    <string name="registration_attach_image">ارفاق صورة</string>
+    <string name="registration_get_image_from">احصل علي الصورة من</string>
+    <string name="camera">كاميرا</string>
+    <string name="gallery">المعرض</string>
+    <string name="attached_successfully">تم ارفاق الصورة بنجاح</string>
+    <string name="optional">(اختياري)</string>
+
+
+    <string name="payment_method">   طريقة الدفع</string>
+    <string name="fees">  رسوم المعاملة</string>
+    <string name="due_to_merchant">المستحق للتاجر</string>
+
+</resources>

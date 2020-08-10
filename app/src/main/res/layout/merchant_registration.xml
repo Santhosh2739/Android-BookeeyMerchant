@@ -1,0 +1,416 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#ffffff"
+    android:orientation="vertical"
+>
+
+    <FrameLayout
+        android:layout_width="fill_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="3"
+            android:background="#ffffff"
+            android:gravity="center"
+            android:orientation="vertical">
+
+
+
+
+
+                <TextView
+                    android:id="@+id/merchant_pos_id"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Merchant Registration"
+                    android:textColor="#848688"
+                    android:textSize="20sp" />
+
+
+
+
+        </LinearLayout>
+
+
+        <FrameLayout
+            android:id="@+id/main_menu_floating_panel"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:visibility="visible">
+
+            <LinearLayout
+                android:id="@+id/undobar"
+                style="@style/UndoBar">
+
+                <TextView
+                    android:id="@+id/undobar_message"
+                    style="@style/UndoBarMessage" />
+
+                <Button
+                    android:id="@+id/undobar_button"
+                    style="@style/UndoBarButton" />
+            </LinearLayout>
+        </FrameLayout>
+
+
+    </FrameLayout>
+
+    <View
+        android:id="@+id/separator"
+        android:layout_width="fill_parent"
+        android:layout_height="1dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_weight="0.02"
+        android:background="#df2121" />
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="0dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_weight="8"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:weightSum="5.2">
+
+        <LinearLayout
+            android:id="@+id/language_layout"
+            android:layout_width="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:padding="6dp"
+            android:gravity="right|center"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/language_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/app_language"
+                android:gravity="center"
+                android:textColor="@color/black" />
+
+            <ImageView
+                android:id="@+id/coutry_flag_img"
+                android:layout_width="60dp"
+                android:layout_height="80dp"
+                android:layout_marginLeft="10dp"
+                android:src="@drawable/kuwait" />
+
+        </LinearLayout>
+
+
+        <ScrollView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="30dp"
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp">
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="match_parent"
+          android:orientation="vertical"
+           >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:text="Company Name*"
+                android:textColor="@color/red"
+                android:textSize="16sp"
+                android:layout_height="wrap_content"></TextView>
+
+            <EditText
+                android:id="@+id/mer_reg_comp_name"
+                style="@style/BodyTextTxnReg"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/send_money_to_mobile_dotted_line"
+                android:layout_marginTop="12dip"
+                android:hint=""
+                android:maxLength="45"
+                android:singleLine="true"
+                android:textColorHint="#dcdcdc"
+                android:textSize="20sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:text="Contact Name*"
+                android:layout_marginTop="10dp"
+                android:textColor="@color/red"
+                android:textSize="16sp"
+                android:layout_height="wrap_content"></TextView>
+
+            <EditText
+                android:id="@+id/mer_reg_contact_name"
+                style="@style/BodyTextTxnReg"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/send_money_to_mobile_dotted_line"
+                android:layout_marginTop="10dp"
+                android:hint=""
+                android:singleLine="true"
+                android:textColorHint="#dcdcdc"
+                android:textSize="20sp" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:text="Contact No*"
+                android:textColor="@color/red"
+                android:textSize="16sp"
+                android:layout_marginTop="10dp"
+                android:layout_height="wrap_content"></TextView>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:orientation="horizontal"
+                android:layout_height="wrap_content">
+                <EditText
+                    android:padding="2dp"
+                    style="@style/BodyTextTxnReg"
+                    android:layout_width="0dp"
+                    android:enabled="false"
+                    android:layout_marginTop="10dp"
+                    android:layout_weight="1.1"
+                    android:background="@drawable/kuwait_old"
+                    android:textSize="20sp"
+                    android:layout_height="wrap_content">
+
+                </EditText>
+                <EditText
+
+                    android:layout_width="0dp"
+                    android:layout_marginLeft="4dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_weight="1.5"
+                    android:text="+965"
+                    android:enabled="false"
+                    android:textSize="18sp"
+                    android:background="@null"
+                    android:layout_height="wrap_content">
+
+                </EditText>
+            <EditText
+                android:id="@+id/mer_reg_contact_no"
+                style="@style/BodyTextTxnReg"
+                android:layout_width="0dp"
+                android:layout_weight="8"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/send_money_to_mobile_dotted_line"
+                android:layout_marginTop="10dp"
+                android:hint=""
+                android:maxLength="6"
+                android:inputType="phone"
+                android:singleLine="true"
+                android:textColorHint="#dcdcdc"
+                android:textSize="20sp" />
+            </LinearLayout>
+            <TextView
+                android:layout_width="wrap_content"
+                android:text="Email Address*"
+                android:textColor="@color/red"
+                android:textSize="16sp"
+                android:layout_marginTop="10dp"
+                android:layout_height="wrap_content"></TextView>
+            <EditText
+                android:id="@+id/mer_reg_email_address"
+                style="@style/BodyTextTxnReg"
+                android:layout_width="fill_parent"
+                android:inputType="textEmailAddress"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/send_money_to_mobile_dotted_line"
+                android:layout_marginTop="10dp"
+                android:hint=""
+                android:singleLine="true"
+                android:textColorHint="#dcdcdc"
+                android:textSize="20sp" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:text="User Name*"
+                android:textColor="@color/red"
+                android:textSize="16sp"
+                android:layout_marginTop="10dp"
+                android:layout_height="wrap_content"></TextView>
+            <EditText
+                android:id="@+id/mer_reg_user_name"
+                style="@style/BodyTextTxnReg"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/send_money_to_mobile_dotted_line"
+                android:layout_marginTop="10dp"
+                android:hint=""
+                android:singleLine="true"
+                android:textColorHint="#dcdcdc"
+                android:textSize="20sp" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:text="Password*"
+                android:textColor="@color/red"
+                android:textSize="16sp"
+                android:layout_marginTop="10dp"
+                android:layout_height="wrap_content"></TextView>
+            <EditText
+                android:id="@+id/mer_reg_password"
+                style="@style/BodyTextTxnReg"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/send_money_to_mobile_dotted_line"
+                android:layout_marginTop="10dp"
+                android:hint=""
+                android:singleLine="true"
+                android:textColorHint="#dcdcdc"
+                android:textSize="20sp" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:text="Confirm Password*"
+                android:textColor="@color/red"
+                android:textSize="16sp"
+                android:layout_marginTop="10dp"
+                android:layout_height="wrap_content"></TextView>
+            <EditText
+                android:id="@+id/mer_reg_confirm_password"
+                style="@style/BodyTextTxnReg"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/send_money_to_mobile_dotted_line"
+                android:layout_marginTop="10dp"
+                android:hint=""
+                android:singleLine="true"
+                android:textColorHint="#dcdcdc"
+                android:textSize="20sp" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:text="Website"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                android:layout_marginTop="10dp"
+                android:layout_height="wrap_content"></TextView>
+            <EditText
+                android:id="@+id/mer_reg_website"
+                style="@style/BodyTextTxnReg"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/send_money_to_mobile_dotted_line"
+                android:layout_marginTop="16dp"
+                android:hint=""
+                android:singleLine="true"
+                android:textColorHint="#dcdcdc"
+                android:textSize="20sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:text="Business Type"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                android:layout_marginTop="10dp"
+                android:layout_height="wrap_content"></TextView>
+            <Spinner
+                android:id="@+id/business_type"
+                android:layout_marginTop="10dp"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"></Spinner>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:text="Upload logo "
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                android:layout_marginTop="10dp"
+                android:layout_height="wrap_content"></TextView>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_marginRight="6dp"
+                android:layout_marginLeft="6dp"
+                android:layout_marginTop="20dp"
+                android:visibility="visible"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="4">
+
+                <ImageView
+                    android:id="@+id/img_attached_symbol"
+                    android:layout_width="25dp"
+                    android:layout_weight="0.25"
+                    android:layout_gravity="center"
+                    android:src="@drawable/attach_icon"
+                    android:layout_height="25dp" />
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_gravity="center"
+                android:layout_weight="1.8">
+                <TextView
+                    android:id="@+id/attach_tv_btn"
+                    android:layout_width="wrap_content"
+                    android:textStyle="bold"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="0dp"
+                    android:layout_marginRight="0dp"
+                    android:text="@string/registration_attach_image"
+                    android:textAllCaps="true"
+                    android:textColor="@color/light_blue"
+                    android:textSize="14sp" />
+
+
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/img_attached_status"
+                android:layout_width="30dp"
+                android:layout_weight="0.1"
+                android:layout_gravity="center"
+                android:layout_height="30dp" />
+
+            <TextView
+                android:id="@+id/tv_attached_status"
+                android:layout_weight="1.2"
+                android:layout_marginLeft="0dp"
+                android:layout_gravity="center"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text=""/>
+        </LinearLayout>
+
+
+        </LinearLayout>
+
+
+
+        </ScrollView>
+
+
+
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="250dp"
+        android:layout_height="0dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="6dp"
+        android:layout_weight="1"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/register_btn"
+            android:layout_width="fill_parent"
+            android:layout_height="40dp"
+            android:layout_gravity="center_vertical"
+            android:background="@drawable/rounded_corner_btn"
+            android:gravity="center"
+            android:singleLine="true"
+            android:text="Register"
+            android:textColor="#ffffff"
+            android:textSize="24sp" />
+    </LinearLayout>
+
+
+</LinearLayout>

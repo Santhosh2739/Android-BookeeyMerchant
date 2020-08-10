@@ -1,0 +1,38 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/empty"
+        android:icon="@drawable/dot2"
+        android:orderInCategory="101"
+        android:showAsAction="always"
+        android:title="Options">
+        <menu>
+            <item
+                android:id="@+id/action_bar_merchant_info"
+                android:icon="@drawable/manage_profile"
+                android:showAsAction="ifRoom"
+                android:title="@string/merchant_info" />
+
+            <item
+                android:id="@+id/action_bar_check_for_updates"
+                android:icon="@drawable/update"
+                android:showAsAction="ifRoom"
+                android:title="@string/check_for_updates" />
+            <item
+                android:id="@+id/action_bar_contact_us"
+                android:icon="@drawable/contact_us"
+                android:showAsAction="ifRoom"
+                android:title="@string/contact_us" />
+            <!--<item-->
+                <!--android:id="@+id/action_bar_settings"-->
+                <!--android:icon="@mipmap/ic_launcher"-->
+                <!--android:showAsAction="ifRoom"-->
+                <!--android:title="Settings"/>-->
+            <item
+                android:id="@+id/exit_app"
+                android:icon="@drawable/exit_app"
+                android:showAsAction="ifRoom"
+                android:title="@string/log_off" />
+        </menu>
+
+    </item>
+</menu>

@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#df2121"
+    android:padding="8dp"
+    android:orientation="vertical"
+    android:weightSum="10" >
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="0dp"
+        android:layout_weight="3"
+        android:visibility="gone"
+        android:background="#ffffff" >
+
+        <RelativeLayout
+            android:id="@+id/back_lo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:paddingLeft="10dp" >
+
+            <ImageView
+                android:id="@+id/back"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_centerVertical="true"
+                android:visibility="gone" />
+
+            <ImageView
+                android:id="@+id/back_logo_old"
+                android:layout_width="110dp"
+                android:visibility="gone"
+                android:layout_height="110dp"
+                android:layout_toRightOf="@+id/back"
+                android:paddingLeft="10dp"
+                android:src="@drawable/caribou_logo" />
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/merchant_pos_id"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/back_lo"
+            android:layout_centerHorizontal="true"
+            android:layout_marginLeft="40dp"
+            android:gravity="center"
+            android:visibility="gone"
+            android:text="MainMenu"
+            android:layout_marginBottom="10dp"
+            android:textColor="#848688"
+            android:textSize="26sp" />
+
+        <TextView
+            android:id="@+id/merchant_address_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/merchant_pos_id"
+            android:layout_centerHorizontal="true"
+            android:layout_marginLeft="40dp"
+            android:gravity="center"
+            android:singleLine="true"
+            android:visibility="gone"
+            android:text=""
+            android:textColor="#848688"
+            android:textSize="16sp" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1.7"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:background="#fff">
+        <ImageView
+            android:id="@+id/back_logo"
+            android:padding="10dp"
+            android:layout_width="110dp"
+            android:layout_height="110dp"
+            android:layout_gravity="center"/>
+    </LinearLayout>
+
+    <View
+        android:id="@+id/separator"
+        android:layout_width="fill_parent"
+        android:layout_height="1dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_weight="0.02"
+        android:background="#df2121" />
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="0dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_weight="8"
+        android:background="#fff"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:weightSum="6.2" >
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:gravity="center_horizontal" >
+
+
+            <LinearLayout
+                android:id="@+id/language_layout"
+                android:layout_alignParentRight="true"
+                android:layout_gravity="right"
+                android:padding="6dp"
+                android:layout_width="100dp"
+                android:layout_marginTop="10dp"
+                android:layout_height="40dp"
+                android:gravity="right|center"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/language_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/app_language"
+                    android:gravity="center"
+                    android:visibility="gone"
+                    android:textColor="@color/black" />
+
+                <ImageView
+                    android:id="@+id/coutry_flag_img"
+                    android:layout_width="80dp"
+                    android:layout_height="100dp"
+                    android:layout_marginLeft="10dp"
+                    android:src="@drawable/usa" />
+
+            </LinearLayout>
+
+
+            <GridView
+                android:id="@+id/gvMain"
+                android:visibility="gone"
+                android:layout_width="wrap_content"
+                android:layout_height="fill_parent"
+                android:layout_above="@+id/main_menu_merchant_layout__bottom_tiltle"
+                android:layout_centerHorizontal="true"
+                android:layout_gravity="left"
+                android:columnWidth="800dp"
+                android:gravity="left"
+                android:horizontalSpacing="14dp"
+                android:numColumns="1"
+                android:paddingLeft="20dp"
+                android:paddingTop="14dip"
+                android:stretchMode="none"
+                android:verticalSpacing="10dp" />
+
+
+            <ListView
+                android:layout_marginLeft="20dp"
+                android:layout_below="@+id/language_layout"
+                android:id="@+id/listMain"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:divider="@null"
+                android:dividerHeight="0dp"></ListView>
+
+
+            <LinearLayout
+                android:id="@+id/main_menu_merchant_layout__bottom_tiltle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:orientation="vertical">
+                <TextView
+                    android:id="@+id/main_menu_merchant_name__bottom_tiltle"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#df2121"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    android:text="Merchant Name"
+                    android:textColor="#FFFFFF"
+                    android:textSize="21sp"
+                    android:textStyle="bold"></TextView>
+                <TextView
+                    android:id="@+id/main_menu_branch_name__bottom_tiltle"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#df2121"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    android:text="Branch Location"
+                    android:textColor="#FFFFFF"
+                    android:textSize="21sp"
+                    android:textStyle="bold"></TextView>
+                <TextView
+                    android:id="@+id/main_menu_merchant_refid__bottom_tiltle"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#df2121"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    android:text="Merchant Ref ID"
+                    android:textColor="#FFFFFF"
+                    android:visibility="visible"
+                    android:textSize="21sp"
+                    android:textStyle="bold"></TextView>
+
+            </LinearLayout>
+
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:layout_marginRight="20dp"
+                android:layout_above="@+id/main_menu_merchant_layout__bottom_tiltle"
+                android:layout_marginTop="30dp"
+                android:layout_weight="1.3"
+                android:gravity="bottom|right|center_vertical" >
+
+                <TextView
+                    android:id="@+id/powered_by_text_id"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:gravity="center_vertical"
+                    android:text="@string/powered_by" />
+
+                <ImageView
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginLeft="6dp"
+                    android:layout_centerVertical="true"
+                    android:layout_toRightOf="@+id/powered_by_text_id"
+                    android:background="@drawable/icon2"
+                    android:gravity="center_vertical" />
+            </RelativeLayout>
+        </RelativeLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

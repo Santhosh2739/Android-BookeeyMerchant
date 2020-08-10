@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#fff"
+    android:gravity="center">
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:padding="20dp"
+        android:text="New version of apk is available kindly update it."
+        android:textColor="#000"
+        android:textSize="18sp"/>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="70dp"
+        android:layout_marginRight="70dp"
+        android:text="Update"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/button_rounded_corners"
+        android:textColor="#fff"
+        android:textSize="20sp"
+        android:textAllCaps="true"
+        android:id="@+id/notification_update_btn"
+
+    />
+
+</LinearLayout>

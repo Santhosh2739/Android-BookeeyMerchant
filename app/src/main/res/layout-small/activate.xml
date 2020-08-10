@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#dcdcdc"
+    android:orientation="vertical"
+    android:weightSum="10" >
+
+    <FrameLayout
+        android:layout_width="fill_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1.5" >
+
+        <fragment
+            android:id="@+id/generate_activation_code_top_fragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            class="wallet.ooredo.com.live.supportinterfaces.CommonHeaderFragmentOoredoo" >
+        </fragment>
+
+        <FrameLayout
+            android:id="@+id/main_menu_floating_panel"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:visibility="visible" >
+
+            <LinearLayout
+                android:id="@+id/undobar"
+                style="@style/UndoBar" >
+
+                <TextView
+                    android:id="@+id/undobar_message"
+                    style="@style/UndoBarMessage" />
+
+                <Button
+                    android:id="@+id/undobar_button"
+                    style="@style/UndoBarButton" />
+            </LinearLayout>
+        </FrameLayout>
+    </FrameLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="0dp"
+        android:layout_weight="8.5"
+        android:background="@drawable/white"
+        android:orientation="vertical"
+        android:padding="15dip" >
+
+        <TextView
+            android:id="@+id/gen_act_data_mobile_no"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="5dip"
+            android:layout_weight="1.5"
+            android:text="MOBILE NUMBER"
+            android:textColor="#000000"
+            android:textSize="13sp" >
+        </TextView>
+
+        <EditText
+            android:id="@+id/gen_act_data_mobile_no_edit"
+            style="@style/BodyTextTxn"
+            android:layout_width="fill_parent"
+            android:layout_height="0dp"
+            android:layout_gravity="center_horizontal|center_vertical"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:hint="8 DIGIT MOBILE NUMBER"
+            android:inputType="number"
+            android:maxLength="8"
+            android:numeric="integer"
+            android:singleLine="true"
+            android:text="" >
+        </EditText>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="25dip"
+            android:layout_weight="2.5" >
+
+            <ImageView
+              
+                android:layout_width="90dip"
+                android:layout_height="90dip"
+                android:layout_gravity="center_horizontal"
+                android:background="@drawable/tap"
+                android:visibility="gone" />
+
+            <Button
+                android:id="@+id/gen_act_data_btn"
+                android:layout_width="100dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_margin="5dp"
+                android:background="@drawable/rounded_corner_btn"
+                android:text=" OK "
+                android:textColor="#ffffff"
+                android:textSize="15sp" >
+            </Button>
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/gen_act_data_mobile_no"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_weight="1"
+            android:text="TAP HERE TO GENERATE"
+            android:textColor="#808080"
+            android:textSize="13sp" >
+        </TextView>
+
+        <TextView
+            android:id="@+id/gen_act_data_mobile_no"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_weight="1"
+            android:text="ACTIVATION CODE"
+            android:textColor="#808080"
+            android:textSize="13sp" >
+        </TextView>
+
+        <TextView
+            android:id="@+id/gen_act_data_mobile_no"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="8dip"
+            android:layout_weight="1"
+            android:text="CHECK YOUR INBOX FOR ACTIVATION CODE"
+            android:textColor="#6C006C"
+            android:textSize="10sp"
+            android:visibility="gone" >
+        </TextView>
+
+        <TextView
+            android:id="@+id/gen_act_data_mobile_no"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="8dip"
+            android:layout_weight="1"
+            android:text="KINDLY NOTE YOU WILL BE CHARGED FOR 2 SMS"
+            android:textColor="#808080"
+            android:textSize="11sp"
+            android:visibility="gone" >
+        </TextView>
+
+        <TextView
+            android:id="@+id/gen_act_data_mobile_no"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_weight="1"
+            android:text="AS PER STANDARD OPERATOR CHARGES"
+            android:textColor="#808080"
+            android:textSize="11sp"
+            android:visibility="gone" >
+        </TextView>
+    </LinearLayout>
+
+</LinearLayout>

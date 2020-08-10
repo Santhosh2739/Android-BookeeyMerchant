@@ -1,0 +1,514 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/drawer_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/white" >
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical" >
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="0dp"
+                android:layout_marginTop="2dp"
+                android:layout_weight="2"
+                android:background="#ffffff"
+                android:orientation="vertical"
+                android:visibility="gone" >
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical" >
+
+                    <wallet.ooredo.com.live.supportinterfaces.FontedTextView
+                        android:id="@+id/main_menu_greetings_header"
+                        android:layout_width="fill_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="1.2"
+                        android:paddingLeft="20dp"
+                        android:paddingTop="10dp"
+                        android:text="1000.000 KWD"
+                        android:textColor="#df2121"
+                        android:textSize="18.82dp" >
+                    </wallet.ooredo.com.live.supportinterfaces.FontedTextView>
+
+                    <wallet.ooredo.com.live.supportinterfaces.FontedTextView
+                        android:id="@+id/main_menu_greetings_footer"
+                        android:layout_width="fill_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight=".8"
+                        android:paddingLeft="20dp"
+                        android:text="Walllet Balance"
+                        android:textSize="18.82dp" >
+                    </wallet.ooredo.com.live.supportinterfaces.FontedTextView>
+                </LinearLayout>
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="0dp"
+                android:layout_weight="0.5"
+                android:text="dummy"
+                android:textSize="22sp"
+                android:visibility="gone" />
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="0dp"
+                android:layout_margin="6dp"
+                android:layout_weight="1.8"
+                android:background="@drawable/border_rounded_corner"
+                android:gravity="center_horizontal"
+                android:orientation="horizontal"
+                android:padding="6dp"
+                android:visibility="gone"
+                android:weightSum="5" >
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="12dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_weight="2.8"
+                    android:orientation="vertical" >
+
+                    <TextView
+                        android:id="@+id/main_wallet_bal_id"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:text="10000 KWD"
+                        android:textColor="#FF0000"
+                        android:textSize="22sp" />
+
+                    <TextView
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Wallet balance"
+                        android:textSize="14sp" />
+                </LinearLayout>
+
+                <View
+                    android:layout_width="2dp"
+                    android:layout_height="fill_parent"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginLeft="14dp"
+                    android:layout_marginRight="14dp"
+                    android:layout_marginTop="10dp"
+                    android:background="#dcdcdc"
+                    android:visibility="gone" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="10dp"
+                    android:layout_weight="2.2"
+                    android:gravity="center_vertical"
+                    android:orientation="vertical"
+                    android:visibility="gone" >
+
+                    <Button
+                        android:id="@+id/main_add_credit_btn"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/rounded_corner_btn_less_radious"
+                        android:gravity="center_vertical"
+                        android:paddingLeft="8dp"
+                        android:paddingRight="8dp"
+                        android:text="Add Credit"
+                        android:textColor="#ffffff"
+                        android:textSize="16sp" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="0dp"
+                android:layout_weight="0.5"
+                android:text="dummy"
+                android:textSize="22sp"
+                android:visibility="gone" />
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:orientation="vertical" >
+
+                <!-- Logo_Header -->
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:layout_marginTop="0dp"
+                    android:layout_weight="4"
+                    android:padding="6dp" >
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                      android:layout_centerHorizontal="true"
+                        android:src="@drawable/ooredoo_logo" />
+
+                    <ImageView
+                        android:id="@+id/main_menu_pop_up_img_id"
+                        android:layout_width="8dp"
+                        android:layout_height="41dp"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_gravity="right"
+                        android:layout_marginRight="16dp"
+                        android:src="@drawable/dot2" />
+                </RelativeLayout>
+
+                <FrameLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="4.5" >
+
+                    <FrameLayout
+                        android:id="@+id/main_menu_profile_fragment"
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent" >
+                    </FrameLayout>
+
+                    <FrameLayout
+                        android:id="@+id/main_menu_floating_panel"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:visibility="visible" >
+
+                        <include layout="@layout/main_menu_profile_offers_fragment_layout"/>
+                    </FrameLayout>
+                </FrameLayout>
+
+                <!-- CustomerInfo -->
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_weight="4"
+                    android:background="@drawable/customerinfo_bg"
+                    android:orientation="horizontal"
+                    android:visibility="gone"
+                    android:weightSum="5" >
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_weight="2"
+                        android:orientation="vertical" >
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="left"
+                            android:padding="5dp"
+                            android:text="@string/customer_name"
+                            android:textColor="#fff"
+                            android:textSize="16sp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="left"
+                            android:padding="5dp"
+                            android:text="@string/customer_number"
+                            android:textColor="#fff"
+                            android:textSize="16sp" />
+                    </LinearLayout>
+
+                    <ImageView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_weight="1"
+                        android:src="@drawable/profile" />
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_weight="2"
+                        android:orientation="vertical" >
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="right"
+                            android:padding="5dp"
+                            android:text="@string/customer_current_balctv"
+                            android:textColor="#fff"
+                            android:textSize="16sp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="right"
+                            android:padding="5dp"
+                            android:text="@string/customer_current_balc_amt"
+                            android:textColor="#fff"
+                            android:textSize="16sp" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <!-- Buttons -->
+
+                <HorizontalScrollView
+                    android:id="@+id/horizontal_scroll_id"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" >
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal" >
+
+                        <RelativeLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="10dp"
+                            android:layout_marginLeft="20dp"
+                            android:layout_marginRight="20dp"
+                            android:layout_marginTop="10dp" >
+
+                            <Button
+                                android:id="@+id/btn_recharge_wallet"
+                                android:layout_width="140dp"
+                                android:layout_height="140dp"
+                                android:layout_marginRight="20dp"
+                                android:background="@drawable/button_bg"
+                                android:drawableTop="@drawable/recharge_wallet"
+                                android:paddingBottom="15dp"
+                                android:paddingTop="20dp"
+                                android:text="@string/recharge_wallet_txt"
+                                android:textColor="#58595b"
+                                android:textSize="16sp" />
+
+                            <Button
+                                android:id="@+id/btn_send_money"
+                                android:layout_width="140dp"
+                                android:layout_height="140dp"
+                                android:layout_alignBottom="@+id/btn_recharge_wallet"
+                                android:layout_marginRight="20dp"
+                                android:layout_toRightOf="@+id/btn_recharge_wallet"
+                                android:background="@drawable/button_bg"
+                                android:drawableTop="@drawable/buy"
+                                android:paddingBottom="15dp"
+                                android:paddingTop="20dp"
+                                android:text="@string/send_money_txt"
+                                android:textColor="#58595b"
+                                android:textSize="16sp" />
+
+                            <Button
+                                android:id="@+id/btn_transactions"
+                                android:layout_width="140dp"
+                                android:layout_height="140dp"
+                                android:layout_marginRight="20dp"
+                                android:layout_toRightOf="@+id/btn_send_money"
+                                android:background="@drawable/button_bg"
+                                android:drawableTop="@drawable/topup_payment"
+                                android:paddingBottom="15dp"
+                                android:paddingTop="20dp"
+                                android:text="@string/transactions_txt"
+                                android:textColor="#58595b"
+                                android:textSize="16sp" />
+
+                            <!-- <Button
+                                android:id="@+id/btn_qrcode"
+                                android:layout_width="140dp"
+                                android:layout_height="140dp"
+                                android:layout_alignBottom="@+id/btn_transactions"
+                                android:layout_alignLeft="@+id/btn_recharge_wallet"
+                                android:layout_below="@+id/btn_recharge_wallet"
+                                android:layout_marginRight="20dp"
+                                android:layout_marginTop="20dp"
+                                android:background="@drawable/button_bg"
+                                android:drawableTop="@drawable/topup_payment"
+                                android:paddingBottom="8dp"
+                                android:paddingTop="16dp"
+                                android:text="@string/transactions_txt"
+                                android:textColor="#58595b"
+                                android:textSize="16sp" />
+
+                            <Button
+                                android:id="@+id/btn_chat"
+                                android:layout_width="140dp"
+                                android:layout_height="140dp"
+                                android:layout_alignBottom="@+id/btn_transactions"
+                                android:layout_below="@+id/btn_send_money"
+                                android:layout_marginRight="20dp"
+                                android:layout_marginTop="20dp"
+                                android:layout_toRightOf="@+id/btn_transactions"
+                                android:background="@drawable/button_bg"
+                                android:drawableTop="@drawable/send_money"
+                                android:paddingBottom="15dp"
+                                android:paddingTop="20dp"
+                                android:text="@string/chat_txt"
+                                android:textColor="#58595b"
+                                android:textSize="16sp" />
+
+                            <Button
+                                android:id="@+id/btn_quries"
+                                android:layout_width="140dp"
+                                android:layout_height="140dp"
+                                android:layout_alignRight="@+id/btn_help"
+                                android:layout_below="@+id/btn_help"
+                                android:layout_marginTop="20dp"
+                                android:layout_toRightOf="@+id/btn_chat"
+                                android:background="@drawable/button_bg"
+                                android:drawableTop="@drawable/others"
+                                android:paddingBottom="15dp"
+                                android:paddingTop="20dp"
+                                android:text="@string/send_money_others"
+                                android:textColor="#58595b"
+                                android:textSize="16sp" /> -->
+                                <Button
+                                android:id="@+id/btn_qrcode"
+                                android:layout_width="140dp"
+                                android:layout_height="140dp"
+                                android:layout_alignBottom="@+id/btn_qrcode"
+                                android:layout_alignLeft="@+id/btn_recharge_wallet"
+                                android:layout_below="@+id/btn_recharge_wallet"
+                                android:layout_marginRight="20dp"
+                                android:layout_marginTop="20dp"
+                                android:background="@drawable/button_bg"
+                                android:drawableTop="@drawable/qrcode"
+                                android:paddingBottom="15dp"
+                                android:paddingTop="20dp"
+                                android:text="@string/qrcode"
+                                android:textColor="#58595b"
+                                android:textSize="16sp" />
+                                <Button
+                                android:id="@+id/btn_chat"
+                                android:layout_width="140dp"
+                                android:layout_height="140dp"
+                                android:layout_alignBottom="@+id/btn_chat"
+                                android:layout_below="@+id/btn_send_money"
+                                android:layout_marginRight="20dp"
+                                android:layout_marginTop="20dp"
+                                android:layout_toRightOf="@+id/btn_qrcode"
+                                android:background="@drawable/button_bg"
+                                android:drawableTop="@drawable/send_money"
+                                android:paddingBottom="15dp"
+                                android:paddingTop="20dp"
+                                android:text="@string/chat_txt"
+                                android:textColor="#58595b"
+                                android:textSize="16sp" />
+                                <Button
+                                android:id="@+id/btn_quries"
+                                android:layout_width="140dp"
+                                android:layout_height="140dp"
+                                android:layout_below="@+id/btn_transactions"
+                                android:layout_marginTop="20dp"
+                                android:layout_toRightOf="@+id/btn_chat"
+                                android:background="@drawable/button_bg"
+                                android:drawableTop="@drawable/others"
+                                android:paddingBottom="15dp"
+                                android:paddingTop="20dp"
+                                android:text="@string/send_money_others"
+                                android:textColor="#58595b"
+                                android:textSize="16sp" />
+                                
+                        </RelativeLayout>
+                    </LinearLayout>
+                </HorizontalScrollView>
+
+                <LinearLayout
+                    android:id="@+id/more_box"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_weight="2"
+                    android:background="@drawable/customerinfo_bg"
+                    android:gravity="center_horizontal"
+                    android:orientation="horizontal" >
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_weight="1"
+                        android:orientation="vertical" >
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="left"
+                            android:paddingLeft="20dp"
+                            android:text="@string/more_text"
+                            android:textColor="#fff"
+                            android:textSize="20sp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:paddingRight="20dp" >
+
+                        <ImageView
+                            android:layout_width="30dp"
+                            android:layout_height="20dp"
+                            android:layout_gravity="right"
+                            android:background="@drawable/arrow"
+                            android:paddingRight="20dp" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginBottom="16dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginTop="20dp"
+                    android:background="#e3e3e4" />
+
+                <RelativeLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="0dp"
+                    android:layout_gravity="right"
+                    android:layout_marginBottom="4dp"
+                    android:layout_weight="1"
+                    android:orientation="horizontal"
+                    android:paddingRight="10dp" >
+
+                    <TextView
+                        android:id="@+id/poweredby_tv_kib"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginRight="60dp"
+                        android:gravity="right"
+                        android:text="@string/poweredby_tv"
+                        android:textColor="#b9b9ba" />
+
+                    <ImageView
+                        android:id="@+id/mpaysafe_img_kib"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:src="@drawable/mpaysafe" />
+                </RelativeLayout>
+
+                <!-- Footer -->
+
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+</android.support.v4.widget.DrawerLayout>

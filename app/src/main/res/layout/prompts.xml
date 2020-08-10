@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/layout_root"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical"
+    android:padding="10dp" >
+
+    <ImageView
+        android:layout_gravity="center"
+        android:layout_width="70dp"
+        android:src="@drawable/bookeey_medium_with_space"
+        android:layout_height="70dp" />
+
+    <TextView
+        android:id="@+id/textView1"
+        android:textColor="@color/black"
+        android:gravity="center_horizontal"
+        android:layout_marginTop="10dp"
+        android:layout_gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Please scan QR Code with scanner"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <FrameLayout
+        android:layout_width="wrap_content"
+        android:layout_gravity="center"
+        android:layout_height="80dp">
+
+        <EditText
+            android:id="@+id/editTextDialogUserInput"
+            android:layout_width="match_parent"
+            android:textCursorDrawable="@null"
+            android:textColor="@color/transparent"
+            android:layout_height="wrap_content"
+            android:background="@null">
+        </EditText>
+
+
+
+
+    </FrameLayout>
+
+
+
+
+
+
+</LinearLayout>

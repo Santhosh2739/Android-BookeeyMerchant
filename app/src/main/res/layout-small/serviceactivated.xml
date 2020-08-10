@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/white"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:id="@+id/whole_summary_layout"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_above="@+id/whole_summary_bottom_layout"
+        android:gravity="center_horizontal"
+        android:padding="10dip" >
+
+        <TextView
+            android:id="@+id/adminqueue_welcome_text"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:text="Dear User:\n\nWelcome to the new revolution in payments,the mobile wallet &apos;mPaySafe&apos;,\n\nAn excellent pre-paid instrument alternative to cash,credit or debit cards and can be used to make a variety of paymnets."
+            android:textColor="#000000"
+            android:textSize="13sp"
+            android:visibility="visible" />
+
+        <TextView
+            android:id="@+id/adminqueue_services_activated_title"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/adminqueue_welcome_text"
+            android:layout_gravity="left"
+            android:layout_marginTop="5dip"
+            android:text="SERVICES ACTIVATED"
+            android:textColor="#580058"
+            android:textSize="13sp"
+            android:textStyle="bold"
+            android:visibility="visible" />
+
+        <ExpandableListView
+            android:id="@+id/lvExp"
+            android:layout_width="fill_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/adminqueue_services_activated_title"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="5dip"
+            android:cacheColorHint="#00000000"
+            android:groupIndicator="@android:color/transparent"
+            android:visibility="visible" />
+
+        <TextView
+            android:id="@+id/adminqueue_final_summary_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/lvExp"
+            android:layout_centerHorizontal="true"
+            android:textColor="#000000"
+            android:textSize="13sp"
+            android:visibility="visible" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/whole_summary_bottom_layout"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:gravity="center_horizontal"
+        android:orientation="vertical" >
+
+        <Button
+            android:id="@+id/ok_button"
+            android:layout_width="160dip"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="5dip"
+            android:background="@drawable/rounded_corner_btn"
+            android:text=" TAP TO BEGIN "
+            android:textColor="#ffffff"
+            android:textSize="16sp" >
+        </Button>
+
+        <TextView
+            android:id="@+id/adminqueue_proudly_made_in_india"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="3dip"
+            android:text=""
+            android:textColor="#000000"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            android:visibility="visible" />
+    </LinearLayout>
+
+</RelativeLayout>

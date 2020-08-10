@@ -1,0 +1,338 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/white"
+    android:orientation="vertical"
+    android:weightSum="10.2" >
+
+    <FrameLayout
+        android:layout_width="fill_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1.5" >
+
+        <fragment
+            android:id="@+id/send_money_mobile_top_fragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            class="wallet.ooredo.com.live.supportinterfaces.CommonHeaderFragmentOoredoo" >
+        </fragment>
+
+        <FrameLayout
+            android:id="@+id/main_menu_floating_panel"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:visibility="visible" >
+
+            <LinearLayout
+                android:id="@+id/undobar"
+                style="@style/UndoBar" >
+
+                <TextView
+                    android:id="@+id/undobar_message"
+                    style="@style/UndoBarMessage" />
+
+                <Button
+                    android:id="@+id/undobar_button"
+                    style="@style/UndoBarButton" />
+            </LinearLayout>
+        </FrameLayout>
+    </FrameLayout>
+
+    <Button
+        android:id="@+id/send_money_mobile_wallet_balance_id"
+        android:layout_width="fill_parent"
+        android:layout_height="0dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_margin="10dip"
+        android:layout_marginTop="30dp"
+        android:layout_weight="1"
+        android:background="@drawable/rounded_corner_btn_less_radious"
+        android:clickable="false"
+        android:gravity="center"
+        android:paddingBottom="4dp"
+        android:paddingLeft="4dp"
+        android:paddingRight="4dp"
+        android:paddingTop="4dp"
+        android:singleLine="true"
+        android:text=" OWallet Balance: 1000.000 KD"
+        android:textColor="#ffffff"
+        android:textSize="18sp" />
+
+    <ScrollView
+        android:id="@+id/send_money_to_mobile_scroll"
+        android:layout_width="fill_parent"
+        android:layout_height="0dp"
+        android:layout_weight="6.5"
+        android:background="#ffffff" >
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dip"
+            android:paddingBottom="16dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:paddingTop="14dp" >
+
+            <Spinner
+                android:id="@+id/send_money_to_mobile_contact_spinner"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:visibility="gone" >
+            </Spinner>
+
+           
+
+
+
+             <EditText
+                android:id="@+id/send_money_to_mobile_recepient_name_edit"
+                style="@style/BodyTextTxn"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/send_money_to_mobile_dotted_line"
+                android:layout_marginTop="12dip"
+                android:hint="RECIPIENT NAME"
+                android:maxLength="45"
+                android:singleLine="true"
+                android:visibility="gone"
+                android:textColorHint="#5f5e5e" />
+
+            <TableLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/send_money_to_mobile_recepient_name_edit"
+                android:layout_marginTop="12dp"
+                android:background="@drawable/border_rounded_corner"
+                android:paddingBottom="16dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:paddingTop="14dp" >
+                
+                <TableRow> 
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_column="1"
+                        android:text="Name:"
+                        android:textSize="18sp" />
+                    
+                       <EditText
+                        android:id="@+id/send_money_to_mobile_recepient_names_edit"
+                        style="@style/BodyTextTxn"
+                        android:layout_width="180dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="4dp"   
+                        android:layout_marginBottom="7dp"                     
+                        android:hint="Enter Name"
+                        android:inputType="textPersonName"
+                        android:maxLength="15"
+                        android:singleLine="true"
+                        android:width="100dp" />
+                     
+                    </TableRow>
+
+                <TableRow>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_column="1"
+                        android:text="Mobile:"
+                        android:textSize="18sp" />
+
+                    <EditText
+                        android:id="@+id/send_money_to_mobile_recepient_mobile_no_edit"
+                        style="@style/BodyTextTxn"
+                        android:layout_width="180dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="4dp"
+                        android:digits="0123456789"
+                        android:hint="Enter Mobile"
+                        android:inputType="phone"
+                        android:maxLength="8"
+                        android:singleLine="true"
+                        android:width="100dp" />
+                </TableRow>
+
+                <TableRow android:layout_marginTop="6dp" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_column="1"
+                        android:text="Amount:"
+                        android:textSize="18sp" />
+
+                    <EditText
+                        android:id="@+id/send_money_to_mobile_amount_edit"
+                        style="@style/BodyTextTxn"
+                        android:layout_width="180dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="4dp"
+                        android:hint="Enter Amount KD/-"
+                        android:inputType="numberDecimal"
+                        android:singleLine="true"
+                        android:width="100dp" />
+                </TableRow>
+            </TableLayout>
+
+            <TableLayout
+                android:id="@+id/send_money_to_mobile_recepient_mobile_no_tabl_layout"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/send_money_to_mobile_recepient_name_edit"
+                android:layout_marginTop="12dip"
+                android:visibility="gone" >
+
+                <TableRow  >
+
+                    <EditText
+                        android:id="@+id/send_money_to_mobile_recepient_mobile_no_dummmy_edit"
+                        style="@style/BodyTextTxn"
+                        android:layout_width="55dip"
+                        android:layout_height="wrap_content"
+                        android:editable="false"
+                        android:focusable="false"
+                        android:text="+91"
+                        android:textColor="#000000" />
+
+                    <EditText
+                        android:id="@+id/send_money_to_mobile_recepient_mobile_no_edit"
+                        style="@style/BodyTextTxn"
+                        android:layout_width="210dip"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:digits="0123456789"
+                        android:hint="RECIPIENT MOBILE NO"
+                        android:inputType="phone"
+                        android:maxLength="8"
+                        android:singleLine="true"
+                        android:textAllCaps="true"
+                        android:textColor="#000000"
+                        android:textColorHint="#5f5e5e" />
+                </TableRow>
+            </TableLayout>
+
+            <CheckBox
+                android:id="@+id/send_money_to_mobile_checkbox"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/send_money_to_mobile_recepient_mobile_no_tabl_layout"
+                android:layout_weight="1"
+                android:text="SAVE IT FOR FUTURE USE"
+                android:textAllCaps="true"
+                android:textColor="#000000"
+                android:textSize="14sp"
+                android:visibility="gone" />
+
+            <EditText
+                android:id="@+id/send_money_to_mobile_amount_edit"
+                style="@style/BodyTextTxn"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/send_money_to_mobile_checkbox"
+                android:layout_marginTop="12dip"
+                android:hint="ENTER AMOUNT  KD/-"
+                android:inputType="numberDecimal"
+                android:singleLine="true"
+                android:textAllCaps="true"
+                android:textColorHint="#5f5e5e"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/send_money_to_mobile_wallet_header"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/send_money_to_mobile_amount_edit"
+                android:text="SELECT WALLET"               
+                android:textAllCaps="true"
+                android:textColor="#000000" />
+
+            <Spinner
+                android:id="@+id/send_money_to_mobile_wallet_select"
+                android:layout_width="fill_parent"
+                android:visibility="gone"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/send_money_to_mobile_wallet_header"
+                android:textAllCaps="true" >
+            </Spinner>
+
+            <TextView
+                android:id="@+id/send_money_to_mobile_wallet_static"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/send_money_to_mobile_wallet_select"
+                android:layout_marginTop="7dip"
+                android:text="Wallet  Static"
+                android:textAllCaps="false"
+                android:textColor="#000000"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/send_money_recharge_mobile_sms_daak"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/send_money_to_mobile_wallet_static"
+                android:layout_marginTop="10dip"
+                android:text="Provided By SMS Daak"  android:visibility="gone"
+                android:textColor="#000000" />
+
+            <TextView
+                android:id="@+id/send_money_recharge_mobile_note_text_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"  android:visibility="gone"
+                android:layout_below="@+id/send_money_recharge_mobile_sms_daak"
+                android:layout_marginTop="5dip"
+                android:text="NOTE:"
+                android:textColor="#000000" />
+
+            <TextView
+                android:id="@+id/send_money_recharge_mobile_note_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"  android:visibility="gone"
+                android:layout_below="@+id/send_money_recharge_mobile_note_text_title"
+                android:text="Please check with your operator on valid denominations with respect to Offers/tariff. YPayCash holds no responsibility for wrong recharge/plan change"
+                android:textColor="#000000" />
+        </RelativeLayout>
+    </ScrollView>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1.2"
+        android:background="#ffffff"
+        android:orientation="horizontal"
+        android:weightSum="2" >
+
+        <Button
+            android:id="@+id/send_money_to_mobile_cancel_button"
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:layout_centerHorizontal="true"
+            android:layout_margin="5dp"
+            android:layout_weight="1"
+            android:background="@drawable/rounded_corner_btn"
+            android:focusable="true"
+            android:text=" Cancel "
+            android:textColor="#ffffff"
+            android:textSize="15sp" >
+        </Button>
+
+        <Button
+            android:id="@+id/send_money_to_mobile_ok_button"
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:layout_centerHorizontal="true"
+            android:layout_margin="5dp"
+            android:layout_weight="1"
+            android:background="@drawable/rounded_corner_btn"
+            android:focusable="true"
+            android:text=" Confirm "
+            android:textColor="#ffffff"
+            android:textSize="15sp" >
+        </Button>
+    </LinearLayout>
+
+</LinearLayout>

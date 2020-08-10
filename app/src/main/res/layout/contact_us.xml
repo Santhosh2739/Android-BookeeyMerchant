@@ -1,0 +1,167 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:andrroid="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:background="#ffffff">
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="@color/red"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="12"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/contact_us_screen_office_adress_text"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:layout_weight="0.8"
+            android:gravity="center"
+            android:textStyle="bold"
+            android:text="@string/contact_us_screen_office_adress"
+            android:textColor="@color/black"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/contact_us_screen_office_adress_detail_text"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_gravity="center"
+            android:layout_weight="2.5"
+            android:gravity="center"
+            android:text="@string/contact_us_screen_office_adress_detail"
+            android:textColor="@color/light_black"
+            android:textSize="13sp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.1dp"
+            android:background="@color/black" />
+
+        <TextView
+            android:id="@+id/contact_us_screen_write_us_text"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:textStyle="bold"
+            android:text="@string/contact_us_screen_write_us"
+            android:textColor="@color/black"
+            android:textSize="15sp" />
+
+
+
+        <TextView
+            android:id="@+id/contact_us_screen_mail_text"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_gravity="center"
+            android:layout_marginBottom="10dp"
+            android:layout_weight="0.5"
+            android:gravity="center"
+            android:text="@string/contact_us_screen_mail"
+            android:textColor="@color/light_black"
+            android:textSize="13sp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.1dp"
+            android:background="@color/black" />
+
+        <TextView
+            android:id="@+id/contact_us_screen_customer_care_text"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_gravity="center"
+            android:layout_weight="1.5"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:text="@string/contact_us_screen_customer_care"
+            android:textColor="@color/black"
+            android:textSize="15sp" />
+
+        <LinearLayout
+            android:layout_width="100dp"
+            android:layout_height="0dp"
+            android:layout_gravity="center"
+            android:layout_weight="0.6"
+            android:weightSum="5"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:id="@+id/contact_us_screen_mobile_number_whatsapp_text"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="4.5"
+                android:maxLines="1"
+                android:text="@string/contact_us_screen_mobile_number_whatsapp"
+                android:textColor="@color/light_black"
+                android:textSize="13sp" />
+
+            <ImageView
+                android:id="@+id/contact_us_screen_whatsapp_image"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_gravity="center"
+                android:layout_weight="0.5"
+                android:paddingBottom="0dp"
+                android:src="@drawable/whatsapp_image" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/contact_us_screen_mobile_number_text"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_gravity="center"
+            android:layout_weight="0.5"
+            android:gravity="center"
+            android:text="@string/contact_us_screen_mobile_number"
+            android:textColor="@color/light_black"
+            android:textSize="13sp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="2.5" >
+        </View>
+
+        <Button
+            android:id="@+id/contact_us_screen_connect_executive_button"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_gravity="center"
+            android:layout_marginBottom="10dp"
+            android:layout_weight="1"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="50dp"
+            android:background="@drawable/button_rounded_corners"
+            android:gravity="center"
+            android:textStyle="bold"
+            android:padding="8dp"
+            android:text="@string/call_now"
+            android:textAllCaps="true"
+            android:textColor="@color/white"
+            android:textSize="14sp" />
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="5dp"
+            android:layout_weight="1" >
+
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

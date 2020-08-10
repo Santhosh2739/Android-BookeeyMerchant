@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/white"
+    android:orientation="vertical"
+    android:weightSum="10" >
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="0dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="40dp"
+        android:layout_weight="1.5"
+        android:gravity="center_horizontal" >
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ooredoo_logo_style1" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="0dp"
+        android:layout_marginBottom="20dp"
+        android:layout_marginTop="30dp"
+        android:layout_weight="2.2"
+        android:gravity="center_horizontal"
+        android:orientation="vertical" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Mobile Payment"
+            android:textSize="22sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Any where, Anytime"
+            android:textColor="@drawable/darkgrey"
+            android:textSize="20sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="0dp"
+        android:layout_weight="5"
+        android:gravity="center_horizontal|center_vertical"
+        android:orientation="vertical"
+        android:weightSum="4" >
+
+        <Button
+            android:id="@+id/continue_tcBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_marginTop="10dp"
+            android:layout_weight="1"
+            android:background="@drawable/rounded_corner_btn"
+            android:focusable="true"
+            android:paddingBottom="8dp"
+            android:paddingLeft="60dp"
+            android:paddingRight="60dp"
+            android:paddingTop="8dp"
+            android:text=" Register "
+            android:textColor="#ffffff"
+            android:textSize="20sp"
+            android:textStyle="bold" >
+        </Button>
+
+        <Button
+            android:id="@+id/dummy_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="0.5"
+            android:background="@drawable/rounded_corner_btn"
+            android:focusable="true"
+            android:paddingLeft="60dp"
+            android:paddingRight="60dp"
+            android:text=" Register "
+            android:textColor="#ffffff"
+            android:textSize="6sp"
+            android:textStyle="bold"
+            android:visibility="invisible" >
+        </Button>
+
+        <Button
+            android:id="@+id/main_menu_ooredoo_register_arabic_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_margin="6dp"
+            android:layout_marginTop="40dp"
+            android:layout_weight="1"
+            android:background="@drawable/rounded_corner_btn"
+            android:focusable="true"
+            android:paddingBottom="8dp"
+            android:paddingLeft="64dp"
+            android:paddingRight="64dp"
+            android:paddingTop="8dp"
+            android:text=" تسجيل "
+            android:textColor="#ffffff"
+            android:textSize="20sp"
+            android:textStyle="bold" >
+        </Button>
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="0dp"
+        android:layout_marginBottom="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_weight="1.3"
+        android:gravity="bottom|right" >
+
+        <TextView
+            android:id="@+id/powered_by_text_id"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:text="Powered by " />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/powered_by_text_id"
+            android:background="@drawable/powered_by"
+            android:gravity="center_vertical" />
+    </RelativeLayout>
+
+</LinearLayout>

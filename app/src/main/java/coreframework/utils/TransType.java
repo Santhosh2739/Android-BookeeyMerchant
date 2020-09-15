@@ -47,7 +47,7 @@ public enum TransType {
 
 
     /*-----------------------------------DEMO SERVER----------------------------------------------*/
-    ADDRESS_BASE("https://demo.bookeey.com/mno/ooredooServerRequest"),
+   // ADDRESS_BASE("https://demo.bookeey.com/mno/ooredooServerRequest"),
 
 
 
@@ -70,7 +70,7 @@ public enum TransType {
 //    ADDRESS_BASE("https://www.bookeey.com/mno/ooredooServerRequest"),
 
     //LIVE
-//    ADDRESS_BASE("https://api.bookeey.com/mno/ooredooServerRequest"),
+    ADDRESS_BASE("https://api.bookeey.com/mno/ooredooServerRequest"),
 
 
 
@@ -142,11 +142,11 @@ public enum TransType {
 
     private String server_controller_mapping;
 
-    private TransType() {
+    TransType() {
         this.server_controller_mapping = null;
     }
 
-    private TransType(String url) {
+    TransType(String url) {
         this.server_controller_mapping = url;
     }
 

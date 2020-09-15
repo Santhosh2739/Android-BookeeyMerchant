@@ -1,6 +1,7 @@
 package ycash.wallet.json.pojo;
 
 import android.content.Context;
+import android.provider.Settings;
 import android.telephony.TelephonyManager;
 
 import java.lang.reflect.Method;
@@ -61,9 +62,9 @@ public class TelephonyInfo  {
                 telephonyInfo = new TelephonyInfo();
 
 
-                TelephonyManager telephonyManager = ((TelephonyManager) context.getSystemService(Context.TELEPHONY_SERVICE));
+                //TelephonyManager telephonyManager = ((TelephonyManager) context.getSystemService(Context.TELEPHONY_SERVICE));
 
-                telephonyInfo.imsiSIM1 = telephonyManager.getDeviceId();;
+                telephonyInfo.imsiSIM1 = Settings.Secure.getString(context.getContentResolver(), Settings.Secure.ANDROID_ID);
                 telephonyInfo.imsiSIM2 = null;
 
                 try {
@@ -81,7 +82,7 @@ public class TelephonyInfo  {
                     }
                 }
 
-                telephonyInfo.isSIM1Ready = telephonyManager.getSimState() == TelephonyManager.SIM_STATE_READY;
+                telephonyInfo.isSIM1Ready = false;
                 telephonyInfo.isSIM2Ready = false;
 
                 try {
@@ -108,7 +109,7 @@ public class TelephonyInfo  {
 
             String imsi = null;
 
-            TelephonyManager telephony = (TelephonyManager) context.getSystemService(Context.TELEPHONY_SERVICE);
+            /*//TelephonyManager telephony = (TelephonyManager) context.getSystemService(Context.TELEPHONY_SERVICE);
 
             try{
 
@@ -130,7 +131,7 @@ public class TelephonyInfo  {
                 e.printStackTrace();
                 throw new GeminiMethodNotFoundException(predictedMethodName);
             }
-
+*/
             return imsi;
         }
 
@@ -138,7 +139,7 @@ public class TelephonyInfo  {
 
             boolean isReady = false;
 
-            TelephonyManager telephony = (TelephonyManager) context.getSystemService(Context.TELEPHONY_SERVICE);
+           /*// TelephonyManager telephony = (TelephonyManager) context.getSystemService(Context.TELEPHONY_SERVICE);
 
             try{
 
@@ -161,7 +162,7 @@ public class TelephonyInfo  {
             } catch (Exception e) {
                 e.printStackTrace();
                 throw new GeminiMethodNotFoundException(predictedMethodName);
-            }
+            }*/
 
             return isReady;
         }

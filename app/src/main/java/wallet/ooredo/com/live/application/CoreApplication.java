@@ -153,25 +153,17 @@ public class CoreApplication extends Application{
        /* TelephonyManager mngr = (TelephonyManager)getSystemService(Context.TELEPHONY_SERVICE);
        String android_id=  mngr.getDeviceId();*/
 
-        if(checkPermission()) {
+       /* if(checkPermission()) {
             TelephonyInfo telephonyInfo = TelephonyInfo.getInstance(this);
             String imsiSIM1 = telephonyInfo.getImsiSIM1();
             String imsiSIM2 = telephonyInfo.getImsiSIM2();
-        }
+        }*/
         return android_id;
 
     }
     private boolean checkPermission(){
         int result = ContextCompat.checkSelfPermission(getApplicationContext(), android.Manifest.permission.READ_PHONE_STATE);
-        if (result == PackageManager.PERMISSION_GRANTED){
-
-            return true;
-
-        } else {
-
-            return false;
-
-        }
+        return result == PackageManager.PERMISSION_GRANTED;
     }
 
 }

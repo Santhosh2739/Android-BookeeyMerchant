@@ -36,7 +36,7 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
-import android.support.v4.content.LocalBroadcastManager;;
+import android.support.v4.content.LocalBroadcastManager;
 import android.support.v7.internal.view.ContextThemeWrapper;
 import android.telephony.TelephonyManager;
 import android.text.Html;
@@ -139,7 +139,7 @@ public class MainActivity extends MainGenericActivity implements YPCHeadlessCall
     static final String tag = MainActivity.class.getCanonicalName();
     //    private GridView mGridMain;
     private final static int PLAY_SERVICES_RESOLUTION_REQUEST = 9000;
-    List<MainMenuGridInfo> listAppInfo = new ArrayList<MainMenuGridInfo>();
+    List<MainMenuGridInfo> listAppInfo = new ArrayList<>();
     //    MainMenuGridViewAdapter processAdapter;
     MainMenuListViewAdapter processAdapter;
 
@@ -1306,18 +1306,18 @@ public class MainActivity extends MainGenericActivity implements YPCHeadlessCall
 
     private String getUniqueIMEIId() {
         try {
-            TelephonyManager telephonyManager = (TelephonyManager) getSystemService(Context.TELEPHONY_SERVICE);
-            if (ActivityCompat.checkSelfPermission(MainActivity.this, android.Manifest.permission.READ_PHONE_STATE) != PackageManager.PERMISSION_GRANTED) {
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-                    if (!checkPermissionForPhoneState()) {
-                        Log.i("IF", "if");
-                        requestPermissionForPhone(1002);
-                        imeinumber = telephonyManager.getDeviceId();
-                    }
-                }
-                return imeinumber;
-            }
-            imeinumber = telephonyManager.getDeviceId();
+//            TelephonyManager telephonyManager = (TelephonyManager) getSystemService(Context.TELEPHONY_SERVICE);
+//////            if (ActivityCompat.checkSelfPermission(MainActivity.this, android.Manifest.permission.READ_PHONE_STATE) != PackageManager.PERMISSION_GRANTED) {
+//////                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+//////                    if (!checkPermissionForPhoneState()) {
+//////                        Log.i("IF", "if");
+//////                        requestPermissionForPhone(1002);
+//////                        imeinumber = Settings.Secure.getString(getBaseContext().getContentResolver(), Settings.Secure.ANDROID_ID);
+//////                    }
+//////                }
+//////                return imeinumber;
+//////            }
+            imeinumber = Settings.Secure.getString(getBaseContext().getContentResolver(), Settings.Secure.ANDROID_ID);
             Log.e("imei", "=" + imeinumber);
             if (imeinumber != null && !imeinumber.isEmpty()) {
                 return imeinumber;
@@ -1575,8 +1575,8 @@ public class MainActivity extends MainGenericActivity implements YPCHeadlessCall
                 getDeviceImei();
             }
         } else {
-            TelephonyManager mTelephonyManager = (TelephonyManager) getSystemService(Context.TELEPHONY_SERVICE);
-            String imei = mTelephonyManager.getDeviceId();
+          //  TelephonyManager mTelephonyManager = (TelephonyManager) getSystemService(Context.TELEPHONY_SERVICE);
+            String imei = Settings.Secure.getString(getBaseContext().getContentResolver(), Settings.Secure.ANDROID_ID);
             Log.d("msg", "DeviceImei " + imei);
             CustomSharedPreferences.saveStringData(getBaseContext(), imei, CustomSharedPreferences.SP_KEY.IMEI_NO);
 //        Toast.makeText(MainActivity.this,"IMEI: "+imei,Toast.LENGTH_LONG).show();
@@ -1588,9 +1588,9 @@ public class MainActivity extends MainGenericActivity implements YPCHeadlessCall
 
     private void getDeviceImei() {
 
-        TelephonyManager mTelephonyManager = (TelephonyManager) getSystemService(Context.TELEPHONY_SERVICE);
-        String imei = mTelephonyManager.getImei();
-        Log.d("msg", "DeviceImei " + imei);
+       // TelephonyManager mTelephonyManager = (TelephonyManager) getSystemService(Context.TELEPHONY_SERVICE);
+        String imei = Settings.Secure.getString(getBaseContext().getContentResolver(), Settings.Secure.ANDROID_ID);//mTelephonyManager.getImei();
+        Log.d("msg", "DeviceImeiANDROID_ID " + imei);
         CustomSharedPreferences.saveStringData(getBaseContext(), imei, CustomSharedPreferences.SP_KEY.IMEI_NO);
 //        Toast.makeText(MainActivity.this,"IMEI: "+imei,Toast.LENGTH_LONG).show();
 
@@ -1820,8 +1820,8 @@ public class MainActivity extends MainGenericActivity implements YPCHeadlessCall
                 String merchant_ref_id = CustomSharedPreferences.getStringData(getBaseContext(), CustomSharedPreferences.SP_KEY.USERNAME);
                 String imeinumber = null;
                 if (checkPermission()) {
-                    TelephonyManager telephonyManager = (TelephonyManager) getSystemService(Context.TELEPHONY_SERVICE);
-                    imeinumber = telephonyManager.getDeviceId();
+                   // TelephonyManager telephonyManager = (TelephonyManager) getSystemService(Context.TELEPHONY_SERVICE);
+                    imeinumber = Settings.Secure.getString(getBaseContext().getContentResolver(), Settings.Secure.ANDROID_ID);//telephonyManager.getDeviceId();
                 }
 
 

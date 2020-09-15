@@ -8,6 +8,7 @@ import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.os.Build;
 import android.os.Bundle;
+import android.provider.Settings;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.telephony.TelephonyManager;
@@ -326,26 +327,26 @@ public class MerchantLoginActivity extends GenericActivity implements YPCHeadles
 
     private String getUniqueIMEIId() {
         try {
-            TelephonyManager telephonyManager = (TelephonyManager) getSystemService(Context.TELEPHONY_SERVICE);
-            if (ActivityCompat.checkSelfPermission(MerchantLoginActivity.this, android.Manifest.permission.READ_PHONE_STATE) != PackageManager.PERMISSION_GRANTED) {
-                // TODO: Consider calling
-                //    ActivityCompat#requestPermissions
-                // here to request the missing permissions, and then overriding
-                //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
-                //                                          int[] grantResults)
-                // to handle the case where the user grants the permission. See the documentation
-                // for ActivityCompat#requestPermissions for more details.
-
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-                    if (!checkPermissionForPhoneState()) {
-                        Log.i("IF", "if");
-                        requestPermissionForIMEI(1002);
-                        imeinumber = telephonyManager.getDeviceId();
-                    }
-                }
-                return imeinumber;
-            }
-            imeinumber = telephonyManager.getDeviceId();
+//            TelephonyManager telephonyManager = (TelephonyManager) getSystemService(Context.TELEPHONY_SERVICE);
+//            if (ActivityCompat.checkSelfPermission(MerchantLoginActivity.this, android.Manifest.permission.READ_PHONE_STATE) != PackageManager.PERMISSION_GRANTED) {
+//                // TODO: Consider calling
+//                //    ActivityCompat#requestPermissions
+//                // here to request the missing permissions, and then overriding
+//                //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
+//                //                                          int[] grantResults)
+//                // to handle the case where the user grants the permission. See the documentation
+//                // for ActivityCompat#requestPermissions for more details.
+//
+//                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+//                    if (!checkPermissionForPhoneState()) {
+//                        Log.i("IF", "if");
+//                        requestPermissionForIMEI(1002);
+//                        imeinumber = telephonyManager.getDeviceId();
+//                    }
+//                }
+//                return imeinumber;
+//            }
+            imeinumber = Settings.Secure.getString(getBaseContext().getContentResolver(), Settings.Secure.ANDROID_ID);
             Log.e("imei", "=" + imeinumber);
             if (imeinumber != null && !imeinumber.isEmpty()) {
                 return imeinumber;

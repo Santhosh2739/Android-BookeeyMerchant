@@ -1,21 +1,21 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 28
-    buildToolsVersion '26'
+    compileSdkVersion 30
+   // buildToolsVersion '26'
     useLibrary 'org.apache.http.legacy'
     defaultConfig {
         applicationId 'wallet.ooredo.com.ooredolive.mx'
         minSdkVersion 19
-        targetSdkVersion 28
+        targetSdkVersion 30
 
         //For 'Check for updates, with debug keystore'
 //        versionCode 25
 //        versionName "3.3"
 
         //For Live in Google Play Beta
-        versionCode 43
-        versionName "5.1"
+        versionCode 45
+        versionName "5.3"
     }
     buildTypes {
         release {
@@ -34,21 +34,22 @@ android {
 }
 
 dependencies {
-    compile fileTree(include: ['*.jar'], dir: 'libs')
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
     //noinspection GradleCompatible
-    compile 'com.android.support:appcompat-v7:23.0.1'
-    compile 'com.android.support:support-v13:26.0.1'
-    compile 'com.google.code.gson:gson:2.2.4'
-    compile files('libs/jsoup-1.8.3.jar')
-    compile 'com.google.android.gms:play-services:8.1.0'
+    implementation 'com.android.support:appcompat-v7:23.0.1'
+    //noinspection GradleCompatible
+    implementation 'com.android.support:support-v13:26.0.1'
+    implementation 'com.google.code.gson:gson:2.8.6'
+    implementation files('libs/jsoup-1.8.3.jar')
+    implementation 'com.google.android.gms:play-services:12.0.1'
     //compile 'com.google.android.gms:play-services:10.0.1'
 
     //For POS printing
-    compile files('libs/SDK4BaseBinderV2.1.4.jar')
-    compile files('libs/SDK4EmvBinderV2.1.4.jar')
-    compile files('libs/SDK4KeyManagerBinderV2.1.4.jar')
+    implementation files('libs/SDK4BaseBinderV2.1.4.jar')
+    implementation files('libs/SDK4EmvBinderV2.1.4.jar')
+    implementation files('libs/SDK4KeyManagerBinderV2.1.4.jar')
     //compile 'com.google.android.gms:play-services:10.0.1'
 
     //Facebook
-    compile 'com.facebook.android:facebook-android-sdk:4.7.0'
+    implementation 'com.facebook.android:facebook-android-sdk:4.42.0'
 }

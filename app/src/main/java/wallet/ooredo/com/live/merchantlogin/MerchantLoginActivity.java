@@ -83,7 +83,9 @@ public class MerchantLoginActivity extends GenericActivity implements YPCHeadles
 //        ((EditText) findViewById(R.id.login_user_id)).setText("mref18000289");
 //        ((EditText) findViewById(R.id.login_password)).setText("9817");
 
-
+//DEMO TEST
+       // ((EditText) findViewById(R.id.login_user_id)).setText("mref18000301");
+     //   ((EditText) findViewById(R.id.login_password)).setText("4140");
 
 
         findViewById(R.id.login_btn).setOnClickListener(new View.OnClickListener() {

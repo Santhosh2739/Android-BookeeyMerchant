@@ -19,7 +19,7 @@
         android:layout_below="@+id/update_version_title"
         android:gravity="center"
         android:padding="30dp"
-        android:text="Do you want to update to the latest version?"
+        android:text="@string/update_app_dialogue_desc"
         android:textColor="#000"
         android:textSize="18sp" />
 

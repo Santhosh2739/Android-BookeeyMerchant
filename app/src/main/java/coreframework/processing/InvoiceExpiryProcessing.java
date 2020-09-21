@@ -17,6 +17,7 @@ package coreframework.processing;
         import coreframework.taskframework.ProgressDialogFrag;
         import coreframework.utils.TransType;
         import coreframework.utils.URLUTF8Encoder;
+        import wallet.ooredo.com.live.R;
         import wallet.ooredo.com.live.application.CoreApplication;
         import wallet.ooredo.com.live.invoice.InvoiceSuccess;
         import wallet.ooredo.com.live.mainmenu.MainActivity;
@@ -111,7 +112,7 @@ public class InvoiceExpiryProcessing extends BackgroundProcessingAbstractFilter 
     public void performUserInterfaceAndDismiss(Activity activity, ProgressDialogFrag dialogueFragment) {
         dialogueFragment.dismiss();
         if (success) {
-            Toast.makeText(activity, "Invoice Expired Successfully!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(activity, R.string.invoice_expire_success, Toast.LENGTH_SHORT).show();
 
 //            CustomSharedPreferences.saveStringData(activity,"", CustomSharedPreferences.SP_KEY.RECENT_INVOICE_NO);
 //            CustomSharedPreferences.saveStringData(activity,"", CustomSharedPreferences.SP_KEY.RECENT_INVOICE_AMOUNT);

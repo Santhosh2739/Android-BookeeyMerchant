@@ -132,10 +132,10 @@ public class InvoiceSuccess extends GenericActivity implements View.OnClickListe
                 invoice_success_customer_name_text.setText(response_obj.getCustName());
 
                 invoice_success_amount_text.setText(String.valueOf(response_obj.getAmount()));
-                if (response_obj.getInvoiceLink() != null && !response_obj.getInvoiceLink().isEmpty()) {
+                /*if (response_obj.getInvoiceLink() != null && !response_obj.getInvoiceLink().isEmpty()) {
                     invoice_success_link_tr.setVisibility(View.VISIBLE);
                     invoice_success_invoice_link_text.setText(response_obj.getInvoiceLink());
-                }
+                }*/
 
                 //merchant hospital newly added
                 if (response_obj.getMedFileNo() != "" && response_obj.getMedFileNo() != null) {

@@ -23,6 +23,7 @@ import android.location.Address;
 import android.location.Geocoder;
 import android.location.Location;
 import android.location.LocationManager;
+import android.net.Uri;
 import android.nfc.NdefMessage;
 import android.nfc.NfcAdapter;
 import android.nfc.NfcManager;
@@ -69,6 +70,10 @@ import com.google.android.gms.location.LocationServices;
 import com.google.gson.Gson;
 
 import org.json.JSONObject;
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+import org.jsoup.nodes.Element;
+import org.jsoup.select.Elements;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedReader;
@@ -87,6 +92,7 @@ import java.util.TimeZone;
 
 import br.com.google.zxing.client.android.CaptureActivity;
 import coreframework.database.CustomSharedPreferences;
+import coreframework.processing.CheckForUpdateProcessing;
 import coreframework.processing.DecodeIncomingQrPaymentCode;
 import coreframework.processing.OffersProcessing;
 import coreframework.processing.PayToMerchantPhase1Processing;
@@ -98,6 +104,7 @@ import coreframework.utils.Hex;
 import coreframework.utils.TransType;
 import coreframework.utils.URLUTF8Encoder;
 import push_notifications.SendingVersionNumberProcessing;
+import wallet.ooredo.com.live.BuildConfig;
 import wallet.ooredo.com.live.R;
 import wallet.ooredo.com.live.application.CoreApplication;
 import wallet.ooredo.com.live.barcodepaymentcollection.DisplayAmountToMerchantActivity;
@@ -133,7 +140,7 @@ import com.google.android.gms.maps.model.LatLng;
 public class MainActivity extends MainGenericActivity implements YPCHeadlessCallback, GoogleApiClient.ConnectionCallbacks,
         GoogleApiClient.OnConnectionFailedListener,
         com.google.android.gms.location.LocationListener {
-
+    String versionname;
     public static final int MY_PERMISSIONS_REQUEST_LOCATION = 99;
 
     static final String tag = MainActivity.class.getCanonicalName();
@@ -419,7 +426,9 @@ public class MainActivity extends MainGenericActivity implements YPCHeadlessCall
         mLocationManager = (LocationManager) this.getSystemService(Context.LOCATION_SERVICE);
 
         checkLocation();
-
+        versionname = BuildConfig.VERSION_NAME;
+        VersionChecker versionChecker = new VersionChecker();
+        versionChecker.execute();
     }
 
     private boolean checkLocation() {
@@ -2096,6 +2105,97 @@ public class MainActivity extends MainGenericActivity implements YPCHeadlessCall
             progress.setCancelable(true);
             progress.setArguments(bundle);
             progress.show(getFragmentManager(), "progress_dialog");
+        }
+    }
+
+    public class VersionChecker extends AsyncTask<String, String, String> {
+        private String newVersion;
+
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+//        showIfNotVisible("");
+
+        }
+
+        @Override
+        protected void onPostExecute(String latestVersion) {
+//        hideIfVisible();
+
+            Log.e("Version",""+latestVersion);
+
+            if (latestVersion != null && !latestVersion.isEmpty()) {
+                double live_version = Double.parseDouble(latestVersion);
+                double local_version = Double.parseDouble(versionname);
+
+                if (local_version < live_version) {
+                    LayoutInflater li = LayoutInflater.from(MainActivity.this);
+                    View promptsView = li.inflate(R.layout.custom_update_playstore_dialog, null);
+                    final AlertDialog.Builder alertDialog = new AlertDialog.Builder(MainActivity.this);
+                    alertDialog.setView(promptsView);
+                    alertDialog.setPositiveButton(getResources().getString(R.string.update), new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int which) {
+                            Intent intent = new Intent(Intent.ACTION_VIEW);
+                            intent.setData(Uri.parse("https://play.google.com/store/apps/details?id=" + getApplicationContext().getPackageName()));
+                            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                            startActivity(intent);
+                        }
+                    });
+
+/*                    alertDialog.setNegativeButton(getResources().getString(R.string.no_newflow), new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int which) {
+
+                            dialog.dismiss();
+                        }
+                    });*/
+
+
+                    alertDialog.setCancelable(false);
+                    alertDialog.show();
+
+                } else {
+//                check_for_updates_up_to_date.setText(getResources().getString(R.string.check_up_to_date));
+//                check_for_updates_version_no.setText(getResources().getString(R.string.current_version) + versionname);
+                }
+            }
+        }
+
+        @Override
+        protected String doInBackground(String... params) {
+
+            try {
+                //new way to get version number
+               /* newVersion = Jsoup.connect("https://play.google.com/store/apps/details?id=" + "trai.gov.in.dnd" + "&hl=en")
+                        .timeout(30000)
+                        .userAgent("Mozilla/5.0 (Windows; U; WindowsNT 5.1; en-US; rv1.8.1.6) Gecko/20070725 Firefox/2.0.0.6")
+                        .referrer("http://www.google.com")
+                        .get()
+                        .select(".xyOfqd .hAyfc:nth-child(4) .htlgb span")
+                        .get(0)
+                        .ownText();*/
+
+                Document document = Jsoup.connect("https://play.google.com/store/apps/details?id=" + BuildConfig.APPLICATION_ID + "&hl=en")
+                        .timeout(30000)
+                        .userAgent("Mozilla/5.0 (Windows; U; WindowsNT 5.1; en-US; rv1.8.1.6) Gecko/20070725 Firefox/2.0.0.6")
+                        .referrer("http://www.google.com")
+                        .get();
+                if (document != null) {
+                    Elements element = document.getElementsContainingOwnText("Current Version");
+                    for (Element ele : element) {
+                        if (ele.siblingElements() != null) {
+                            Elements sibElemets = ele.siblingElements();
+                            for (Element sibElemet : sibElemets) {
+                                newVersion = sibElemet.text();
+                            }
+                        }
+                    }
+                }
+
+
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            return newVersion;
         }
     }
 

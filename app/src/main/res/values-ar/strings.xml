@@ -32,6 +32,7 @@
     <string name="select_from_time">اختيار الوقت من</string>
     <string name="select_to_date">اختيار التاريخ الي</string>
     <string name="select_to_time">اختيار الوقت الي</string>
+    <string name="expire">انتهاء الصلاحية</string>
     <!--<string name="no_offers_available">لا يوجد عروض </string>-->
 
     <string name="login_english">English</string>
@@ -84,9 +85,13 @@
     <string name="rejected">مرفوض</string>
     <string name="pending">قيد الانتظار</string>
     <string name="transaction_success">تمت العملية بنجاح</string>
+    <string name="do_you_want_to_expire_the_invoice">هل تريد ان تنهي صلاحية الفاتورة؟</string>
+    <string name="alert_yes">نعم</string>
+    <string name="alert_no">لا</string>
+    <string name="alert">انتهاءصلاحية الفاتورة</string>
+    <string name="invoice_expire_success">انتهت صلاحية الفاتورة بنجاح</string>
 
-
-
+    <string name="transaction_payment_receipt">ايصال دفع المعاملة</string>
     <string name="count_of_transaction">عدد المعاملات</string>
     <string name="sum_of_transaction">جمع المعاملات</string>
     <string name="send_mail">ارسال البريد</string>
@@ -128,5 +133,5 @@
     <string name="payment_method">   طريقة الدفع</string>
     <string name="fees">  رسوم المعاملة</string>
     <string name="due_to_merchant">المستحق للتاجر</string>
-
+    <string name="update_app_dialogue_desc">يبدو أنك تستخدم إصدارًا أقدم من Bookeey. قم بالتحديث الآن للحصول على أداء أفضل وأحدث الميزات.</string>
 </resources>

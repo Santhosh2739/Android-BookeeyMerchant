@@ -14,8 +14,8 @@ android {
 //        versionName "3.3"
 
         //For Live in Google Play Beta
-        versionCode 45
-        versionName "5.3"
+        versionCode 48
+        versionName "5.8"
     }
     buildTypes {
         release {
@@ -35,13 +35,13 @@ android {
 
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation files('libs/jsoup-1.13.1.jar')
     //noinspection GradleCompatible
     implementation 'com.android.support:appcompat-v7:23.0.1'
     //noinspection GradleCompatible
     implementation 'com.android.support:support-v13:26.0.1'
-    implementation 'com.google.code.gson:gson:2.8.6'
-    implementation files('libs/jsoup-1.8.3.jar')
-    implementation 'com.google.android.gms:play-services:12.0.1'
+    implementation 'com.google.code.gson:gson:2.2.4'
+    implementation 'com.google.android.gms:play-services:8.1.0'
     //compile 'com.google.android.gms:play-services:10.0.1'
 
     //For POS printing
@@ -51,5 +51,5 @@ dependencies {
     //compile 'com.google.android.gms:play-services:10.0.1'
 
     //Facebook
-    implementation 'com.facebook.android:facebook-android-sdk:4.42.0'
+    implementation 'com.facebook.android:facebook-android-sdk:4.7.0'
 }

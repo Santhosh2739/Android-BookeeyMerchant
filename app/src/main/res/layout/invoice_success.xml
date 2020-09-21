@@ -4,21 +4,34 @@
     android:layout_height="fill_parent"
     android:background="#df2121"
     android:orientation="vertical"
-    android:padding="8dp"
     android:weightSum="10">
 
     <RelativeLayout
         android:layout_width="fill_parent"
         android:layout_height="0dp"
-        android:layout_weight="3"
+        android:layout_weight="2.25"
         android:background="#ffffff">
+
+        <TextView
+            android:id="@+id/merchant_pos_id"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="15dp"
+            android:layout_marginBottom="5dp"
+            android:gravity="center"
+            android:text="@string/transaction_details"
+            android:textColor="#848688"
+            android:textSize="20sp"
+            android:textStyle="bold" />
 
         <RelativeLayout
             android:id="@+id/back_lo1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:paddingLeft="10dp">
+            android:layout_below="@+id/merchant_pos_id"
+            android:layout_centerHorizontal="true"
+            android:padding="10dp">>
 
             <ImageView
                 android:id="@+id/back"
@@ -29,24 +42,13 @@
 
             <ImageView
                 android:id="@+id/back_logo"
-                android:layout_width="110dp"
-                android:layout_height="110dp"
+                android:layout_width="90dp"
+                android:layout_height="90dp"
+                android:layout_margin="5dp"
                 android:layout_toRightOf="@+id/back"
-                android:paddingLeft="10dp"
                 android:src="@drawable/caribou_logo"
                 android:visibility="visible" />
         </RelativeLayout>
-
-        <TextView
-            android:id="@+id/merchant_pos_id"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/back_lo1"
-            android:layout_centerHorizontal="true"
-            android:gravity="center"
-            android:text="@string/transaction_details"
-            android:textColor="#848688"
-            android:textSize="20sp" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -79,464 +81,482 @@
             android:textSize="20sp" />
     </RelativeLayout>
 
-    <View
-        android:id="@+id/separator"
-        android:layout_width="fill_parent"
-        android:layout_height="1dp"
-        android:layout_gravity="center_horizontal"
-        android:layout_weight="0.02"
-        android:background="#df2121" />
-
     <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="0dp"
         android:layout_gravity="center_horizontal"
-        android:layout_weight="7"
+        android:layout_weight="7.75"
         android:background="#ffffff"
         android:gravity="center_horizontal"
         android:orientation="vertical">
 
-        <Button
-            android:id="@+id/owallet_balance_id1"
-            android:layout_width="fill_parent"
-            android:layout_height="0dp"
-            android:layout_gravity="center_horizontal"
-            android:layout_margin="10dip"
-            android:layout_marginTop="20dp"
-            android:layout_weight="1.5"
-            android:background="@drawable/rounded_corner_btn_less_radious"
-            android:clickable="false"
-            android:gravity="center"
-            android:paddingBottom="4dp"
-            android:paddingLeft="4dp"
-            android:paddingRight="4dp"
-            android:paddingTop="4dp"
-            android:text=" OWallet\nNew Balance: 1000.000 KD"
-            android:textColor="#ffffff"
-            android:textSize="18sp"
-            android:visibility="gone" />
-
         <LinearLayout
-            android:layout_width="360dp"
-            android:layout_height="0dp"
-            android:layout_gravity="center_horizontal"
-            android:layout_margin="14dp"
-            android:layout_marginTop="20dp"
-            android:layout_weight="1"
-            android:background="@drawable/rounded_corner_btn_less_radious"
-            android:gravity="center"
-            android:orientation="horizontal"
-            android:paddingBottom="4dp"
-            android:paddingLeft="4dp"
-            android:paddingRight="4dp"
-            android:paddingTop="4dp"
-            android:visibility="gone"
-            android:weightSum="2">
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:layout_weight="1"
-                android:gravity="center_horizontal"
-                android:text="New Balance"
-                android:textColor="#ffffff"
-                android:textSize="20sp" />
-
-            <TextView
-                android:id="@+id/owallet_balance_id"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:layout_weight="1"
-                android:gravity="center_horizontal"
-                android:text="xxxxxxx"
-                android:textColor="#ffffff"
-                android:textSize="16sp" />
-        </LinearLayout>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="0dp"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="4dp"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:text="@string/invoice_successfully_created"
-            android:textColor="#000000"
-            android:textSize="16sp" />
-
-
-        <ImageView
-            android:id="@+id/invoice_success_img_id"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="0dp"
-            android:background="@drawable/invoice_success" />
-
-        <ScrollView
             android:layout_width="fill_parent"
-            android:layout_height="0dp"
-            android:layout_weight="6.5"
-            android:background="@color/white">
+            android:layout_height="fill_parent"
+            android:layout_gravity="center_horizontal"
+            android:layout_margin="10dp"
+            android:background="@drawable/rounded_corner"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
 
-            <RelativeLayout
+            <LinearLayout
                 android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:paddingBottom="10dp"
-                android:paddingLeft="6dp"
-                android:paddingRight="6dp"
-                android:paddingTop="2dp">
+                android:layout_height="fill_parent"
+                android:layout_gravity="center_horizontal"
+                android:layout_margin="3dp"
+                android:background="@drawable/rounded_corner_white"
+                android:gravity="center_horizontal"
+                android:orientation="vertical">
 
-                <TextView
-                    android:id="@+id/payment_confirm_header_id"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerHorizontal="true"
-                    android:text="Payment Confirmation"
-                    android:textColor="#BDBDBD"
-                    android:textSize="20sp"
-                    android:textStyle="bold"
+                <Button
+                    android:id="@+id/owallet_balance_id1"
+                    android:layout_width="fill_parent"
+                    android:layout_height="0dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_margin="10dip"
+                    android:layout_marginTop="20dp"
+                    android:layout_weight="1.5"
+                    android:background="@drawable/rounded_corner_btn_less_radious"
+                    android:clickable="false"
+                    android:gravity="center"
+                    android:paddingLeft="4dp"
+                    android:paddingTop="4dp"
+                    android:paddingRight="4dp"
+                    android:paddingBottom="4dp"
+                    android:text=" OWallet\nNew Balance: 1000.000 KD"
+                    android:textColor="#ffffff"
+                    android:textSize="18sp"
                     android:visibility="gone" />
 
-                <HorizontalScrollView
-                    android:id="@+id/payment_confirm_body_id"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/payment_confirm_header_id"
-                    android:layout_centerHorizontal="true"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginRight="10dp"
-                    android:layout_marginTop="10dp"
-                    android:paddingBottom="10dp"
-                    android:paddingTop="2dp">
-
-                    <TableLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content">
-
-                        <TableRow android:layout_marginTop="2dp">
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_column="1"
-                                android:text="@string/status"
-                                android:textColor="#585858"
-                                android:textSize="16sp" />
-
-                            <TextView
-                                android:id="@+id/invoice_success_status_text"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginLeft="8dp"
-                                android:text="-status-"
-                                android:textColor="#585858"
-                                android:textSize="16sp" />
-                        </TableRow>
-
-                        <TableRow android:layout_marginTop="6dp">
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_column="1"
-                                android:text="@string/invoice_no"
-                                android:textColor="#585858"
-                                android:textSize="16sp" />
-
-                            <TextView
-                                android:id="@+id/invoice_success_invoice_no_text"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginLeft="8dp"
-                                android:text="-invoiceNo-"
-                                android:textColor="#585858"
-                                android:textSize="16sp" />
-                        </TableRow>
-
-                        <TableRow android:layout_marginTop="6dp">
-
-                            <TextView
-                                android:id="@+id/payment_confirm_txn_header_id"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_column="1"
-                                android:text="@string/mobile_no_out_star"
-                                android:textColor="#585858"
-                                android:textSize="16sp" />
-
-                            <TextView
-                                android:id="@+id/invoice_success_mobile_text"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginLeft="8dp"
-                                android:text="-mobileNumber-"
-                                android:textColor="#585858"
-                                android:textSize="16sp" />
-                        </TableRow>
-
-                        <TableRow android:layout_marginTop="6dp">
-
-                            <TextView
-                                android:id="@+id/payment_confirm_txn_customer_name_header_id"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_column="1"
-                                android:text="@string/customer_name"
-                                android:textColor="#585858"
-                                android:textSize="16sp" />
-
-                            <TextView
-                                android:id="@+id/invoice_success_customer_name_text"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginLeft="8dp"
-                                android:text="-customer name-"
-                                android:textColor="#585858"
-                                android:textSize="16sp" />
-                        </TableRow>
-
-                        <TableRow android:layout_marginTop="6dp">
-
-                            <TextView
-                                android:id="@+id/payment_confirm_wallet_number_header_id"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_column="1"
-                                android:text="@string/amount_with_out_star"
-                                android:textColor="#585858"
-                                android:textSize="16sp" />
-
-                            <TextView
-                                android:id="@+id/invoice_success_amount_text"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginLeft="8dp"
-                                android:text="-amount(KWD)-"
-                                android:textColor="#585858"
-                                android:textSize="16sp" />
-                        </TableRow>
-
-
-                        <!--hospital merchant details -->
-                        <TableRow
-                            android:id="@+id/payment_confirm_med_no_tr"
-                            android:layout_marginTop="6dp"
-                            android:visibility="gone">
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_column="1"
-                                android:text="MedFileNo"
-                                android:textColor="#585858"
-                                android:textSize="16sp" />
-
-                            <TextView
-                                android:id="@+id/payment_confirm_med_no_text"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginLeft="8dp"
-                                android:text="-med no-"
-                                android:textColor="#585858"
-                                android:textSize="16sp" />
-                        </TableRow>
-                        <TableRow
-                            android:id="@+id/payment_confirm_civilID_tr"
-                            android:layout_marginTop="6dp"
-                            android:visibility="gone">
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_column="1"
-                                android:text="CivilID"
-                                android:textColor="#585858"
-                                android:textSize="16sp" />
-
-                            <TextView
-                                android:id="@+id/payment_confirm_civilID_text"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginLeft="8dp"
-                                android:text="-civilID-"
-                                android:textColor="#585858"
-                                android:textSize="16sp" />
-                        </TableRow>
-                        <TableRow
-                            android:id="@+id/payment_confirm_nurseID_tr"
-                            android:layout_marginTop="6dp"
-                            android:visibility="gone">
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_column="1"
-                                android:text="StaffID"
-                                android:textColor="#585858"
-                                android:textSize="16sp" />
-
-                            <TextView
-                                android:id="@+id/payment_confirm_nurseID_text"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginLeft="8dp"
-                                android:text="-staffID-"
-                                android:textColor="#585858"
-                                android:textSize="16sp" />
-                        </TableRow>
-                        <TableRow
-                            android:id="@+id/payment_confirm_accNo_tr"
-                            android:layout_marginTop="6dp"
-                            android:visibility="gone">
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_column="1"
-                                android:text="AccountNo"
-                                android:textColor="#585858"
-                                android:textSize="16sp" />
-
-                            <TextView
-                                android:id="@+id/payment_confirm_accNo_text"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginLeft="8dp"
-                                android:text="-accountNo-"
-                                android:textColor="#585858"
-                                android:textSize="16sp" />
-                        </TableRow>
-                        <!--end hospital merchant details-->
-
-                        <!--invoice link-->
-                        <TableRow android:layout_marginTop="6dp"
-                            android:id="@+id/invoice_success_link_tr"
-                            android:visibility="gone">
-
-                            <TextView
-                                android:id="@+id/invoice_success_invoice_title_text"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_column="1"
-                                android:text="@string/invoice_url"
-                                android:textColor="#585858"
-                                android:textSize="16sp" />
-
-                            <TextView
-                                android:id="@+id/invoice_success_invoice_link_text"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginLeft="8dp"
-                                android:text="-link-"
-                                android:textColor="#585858"
-                                android:textSize="16sp" />
-                        </TableRow>
-                    </TableLayout>
-                </HorizontalScrollView>
-
-                <!-- <TextView
-                     android:id="@+id/payment_confirm_total_payment_id"
-                     android:layout_width="wrap_content"
-                     android:layout_height="wrap_content"
-                     android:layout_below="@+id/payment_confirm_body_id"
-                     android:layout_centerHorizontal="true"
-                     android:layout_column="1"
-                     android:layout_marginTop="10dp"
-                     android:text="Total Payment"
-                     android:textSize="20sp"
-                     android:textStyle="bold" />-->
-
-
                 <LinearLayout
-                    android:id="@+id/buttons_layout"
-                    android:layout_width="match_parent"
+                    android:layout_width="360dp"
+                    android:layout_height="0dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_margin="14dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/rounded_corner_btn_less_radious"
+                    android:gravity="center"
                     android:orientation="horizontal"
-                    android:layout_marginTop="20dp"
-                    android:weightSum="2"
-                    android:layout_below="@+id/payment_confirm_body_id"
-                    android:layout_height="wrap_content">
-
-                    <Button
-                        android:id="@+id/ypc_close"
-                        android:layout_width="0dp"
-                        android:layout_weight="1"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="5dp"
-                        android:layout_marginLeft="10dp"
-                        android:layout_marginRight="10dp"
-                        android:background="@drawable/button_rounded_corners"
-                        android:text="@string/close"
-                        android:textAllCaps="true"
-                        android:textColor="@color/white"
-                        android:textSize="16sp" />
-
-
-
-                    <Button
-                        android:id="@+id/ypc_share"
-                        android:layout_width="0dp"
-                        android:layout_weight="1"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="5dp"
-                        android:layout_marginLeft="10dp"
-                        android:layout_marginRight="10dp"
-                        android:background="@drawable/button_rounded_corners"
-                        android:text="@string/share"
-                        android:textAllCaps="true"
-                        android:textColor="@color/white"
-                        android:textSize="16sp" />
-
-
-                </LinearLayout>
-
-
-
-
-
-                <TextView
-                    android:id="@+id/payment_confirm_greeting_id"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/buttons_layout"
-                    android:layout_centerHorizontal="true"
-                    android:layout_column="1"
-                    android:layout_marginTop="20dp"
-                    android:text="@string/thank_you_for_using_bookeey_wallet"
-                    android:textSize="14sp" />
-
-                <RelativeLayout
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_above="@+id/main_menu_merchant_name__bottom_tiltle"
-                    android:layout_below="@+id/payment_confirm_greeting_id"
-                    android:layout_marginBottom="10dp"
-                    android:layout_marginRight="40dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_weight="1.3"
-                    android:gravity="bottom|right|center_vertical">
+                    android:paddingLeft="4dp"
+                    android:paddingTop="4dp"
+                    android:paddingRight="4dp"
+                    android:paddingBottom="4dp"
+                    android:visibility="gone"
+                    android:weightSum="2">
 
                     <TextView
-                        android:id="@+id/powered_by_text_id"
-                        android:layout_width="wrap_content"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_centerVertical="true"
-                        android:gravity="center_vertical"
-                        android:text="@string/powered_by" />
+                        android:layout_gravity="center_vertical"
+                        android:layout_weight="1"
+                        android:gravity="center_horizontal"
+                        android:text="New Balance"
+                        android:textColor="#ffffff"
+                        android:textSize="20sp" />
 
-                    <ImageView
-                        android:layout_width="40dp"
-                        android:layout_height="40dp"
-                        android:layout_centerVertical="true"
-                        android:layout_marginLeft="6dp"
-                        android:layout_toRightOf="@+id/powered_by_text_id"
-                        android:background="@drawable/icon2"
-                        android:gravity="center_vertical" />
-                </RelativeLayout>
-            </RelativeLayout>
-        </ScrollView>
+                    <TextView
+                        android:id="@+id/owallet_balance_id"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_weight="1"
+                        android:gravity="center_horizontal"
+                        android:text="xxxxxxx"
+                        android:textColor="#ffffff"
+                        android:textSize="16sp" />
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_margin="10dp"
+                    android:gravity="center"
+                    android:text="@string/invoice_successfully_created"
+                    android:textColor="#000000"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+
+                <ImageView
+                    android:id="@+id/invoice_success_img_id"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="10dp"
+                    android:background="@drawable/invoice_success" />
+
+                <ScrollView
+                    android:layout_width="fill_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="6.75"
+                    android:background="@color/white">
+
+                    <RelativeLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="5dp">
+
+                        <TextView
+                            android:id="@+id/payment_confirm_header_id"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerHorizontal="true"
+                            android:text="Payment Confirmation"
+                            android:textColor="#BDBDBD"
+                            android:textSize="20sp"
+                            android:textStyle="bold"
+                            android:visibility="gone" />
+
+                        <HorizontalScrollView
+                            android:id="@+id/payment_confirm_body_id"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/payment_confirm_header_id"
+                            android:layout_centerHorizontal="true"
+                            android:layout_margin="10dp">
+
+                            <TableLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center">
+
+                                <TableRow
+                                    android:layout_width="wrap_content"
+                                    android:layout_marginTop="2dp">
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_column="1"
+                                        android:text="@string/status"
+                                        android:textColor="#000000"
+                                        android:textSize="18sp"
+                                        android:textStyle="bold" />
+
+                                    <TextView
+                                        android:id="@+id/invoice_success_status_text"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginLeft="20dp"
+                                        android:text="-status-"
+                                        android:textColor="#585858"
+                                        android:textSize="18sp" />
+                                </TableRow>
+
+                                <TableRow android:layout_marginTop="6dp">
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_column="1"
+                                        android:text="@string/invoice_no"
+                                        android:textColor="#000000"
+                                        android:textSize="18sp"
+                                        android:textStyle="bold" />
+
+                                    <TextView
+                                        android:id="@+id/invoice_success_invoice_no_text"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginLeft="20dp"
+                                        android:text="-invoiceNo-"
+                                        android:textColor="#585858"
+                                        android:textSize="18sp" />
+                                </TableRow>
+
+                                <TableRow android:layout_marginTop="6dp">
+
+                                    <TextView
+                                        android:id="@+id/payment_confirm_txn_header_id"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_column="1"
+                                        android:text="@string/mobile_no_out_star"
+                                        android:textColor="#000000"
+                                        android:textSize="18sp"
+                                        android:textStyle="bold" />
+
+                                    <TextView
+                                        android:id="@+id/invoice_success_mobile_text"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginLeft="20dp"
+                                        android:text="-mobileNumber-"
+                                        android:textColor="#585858"
+                                        android:textSize="18sp" />
+                                </TableRow>
+
+                                <TableRow android:layout_marginTop="6dp">
+
+                                    <TextView
+                                        android:id="@+id/payment_confirm_txn_customer_name_header_id"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_column="1"
+                                        android:text="@string/customer_name"
+                                        android:textColor="#000000"
+                                        android:textSize="18sp"
+                                        android:textStyle="bold" />
+
+                                    <TextView
+                                        android:id="@+id/invoice_success_customer_name_text"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginLeft="20dp"
+                                        android:text="-customer name-"
+                                        android:textColor="#585858"
+                                        android:textSize="18sp" />
+                                </TableRow>
+
+                                <TableRow android:layout_marginTop="6dp">
+
+                                    <TextView
+                                        android:id="@+id/payment_confirm_wallet_number_header_id"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_column="1"
+                                        android:text="@string/amount_with_out_star"
+                                        android:textColor="#000000"
+                                        android:textSize="18sp"
+                                        android:textStyle="bold" />
+
+                                    <TextView
+                                        android:id="@+id/invoice_success_amount_text"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginLeft="20dp"
+                                        android:text="-amount(KWD)-"
+                                        android:textColor="#585858"
+                                        android:textSize="18sp" />
+                                </TableRow>
+
+
+                                <!--hospital merchant details -->
+                                <TableRow
+                                    android:id="@+id/payment_confirm_med_no_tr"
+                                    android:layout_marginTop="6dp"
+                                    android:visibility="gone">
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_column="1"
+                                        android:text="MedFileNo"
+                                        android:textColor="#000000"
+                                        android:textSize="18sp"
+                                        android:textStyle="bold" />
+
+                                    <TextView
+                                        android:id="@+id/payment_confirm_med_no_text"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginLeft="20dp"
+                                        android:text="-med no-"
+                                        android:textColor="#585858"
+                                        android:textSize="18sp" />
+                                </TableRow>
+
+                                <TableRow
+                                    android:id="@+id/payment_confirm_civilID_tr"
+                                    android:layout_marginTop="6dp"
+                                    android:visibility="gone">
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_column="1"
+                                        android:text="CivilID"
+                                        android:textColor="#000000"
+                                        android:textSize="18sp"
+                                        android:textStyle="bold" />
+
+                                    <TextView
+                                        android:id="@+id/payment_confirm_civilID_text"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginLeft="20dp"
+                                        android:text="-civilID-"
+                                        android:textColor="#585858"
+                                        android:textSize="18sp" />
+                                </TableRow>
+
+                                <TableRow
+                                    android:id="@+id/payment_confirm_nurseID_tr"
+                                    android:layout_marginTop="6dp"
+                                    android:visibility="gone">
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_column="1"
+                                        android:text="StaffID"
+                                        android:textColor="#000000"
+                                        android:textSize="18sp"
+                                        android:textStyle="bold" />
+
+                                    <TextView
+                                        android:id="@+id/payment_confirm_nurseID_text"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginLeft="20dp"
+                                        android:text="-staffID-"
+                                        android:textColor="#585858"
+                                        android:textSize="18sp" />
+                                </TableRow>
+
+                                <TableRow
+                                    android:id="@+id/payment_confirm_accNo_tr"
+                                    android:layout_marginTop="6dp"
+                                    android:visibility="gone">
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_column="1"
+                                        android:text="AccountNo"
+                                        android:textColor="#000000"
+                                        android:textSize="18sp"
+                                        android:textStyle="bold" />
+
+                                    <TextView
+                                        android:id="@+id/payment_confirm_accNo_text"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginLeft="20dp"
+                                        android:text="-accountNo-"
+                                        android:textColor="#585858"
+                                        android:textSize="18sp" />
+                                </TableRow>
+                                <!--end hospital merchant details-->
+
+                                <!--invoice link-->
+                                <TableRow
+                                    android:id="@+id/invoice_success_link_tr"
+                                    android:layout_marginTop="6dp"
+                                    android:visibility="gone">
+
+                                    <TextView
+                                        android:id="@+id/invoice_success_invoice_title_text"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_column="1"
+                                        android:text="@string/invoice_url"
+                                        android:textColor="#000000"
+                                        android:textSize="18sp"
+                                        android:textStyle="bold" />
+
+                                    <TextView
+                                        android:id="@+id/invoice_success_invoice_link_text"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginLeft="20dp"
+                                        android:text="-link-"
+                                        android:textColor="#585858"
+                                        android:textSize="18sp" />
+                                </TableRow>
+                            </TableLayout>
+                        </HorizontalScrollView>
+
+                        <!-- <TextView
+                             android:id="@+id/payment_confirm_total_payment_id"
+                             android:layout_width="wrap_content"
+                             android:layout_height="wrap_content"
+                             android:layout_below="@+id/payment_confirm_body_id"
+                             android:layout_centerHorizontal="true"
+                             android:layout_column="1"
+                             android:layout_marginTop="10dp"
+                             android:text="Total Payment"
+                             android:textSize="20sp"
+                             android:textStyle="bold" />-->
+
+
+                        <LinearLayout
+                            android:id="@+id/buttons_layout"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/payment_confirm_body_id"
+                            android:layout_marginTop="30dp"
+                            android:orientation="horizontal"
+                            android:weightSum="2">
+
+                            <Button
+                                android:id="@+id/ypc_close"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="10dp"
+                                android:layout_marginRight="10dp"
+                                android:layout_marginBottom="5dp"
+                                android:layout_weight="1"
+                                android:background="@drawable/button_rounded_corners"
+                                android:text="@string/close"
+                                android:textAllCaps="true"
+                                android:textColor="@color/white"
+                                android:textSize="16sp" />
+
+
+                            <Button
+                                android:id="@+id/ypc_share"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="10dp"
+                                android:layout_marginRight="10dp"
+                                android:layout_marginBottom="5dp"
+                                android:layout_weight="1"
+                                android:background="@drawable/button_rounded_corners"
+                                android:text="@string/share"
+                                android:textAllCaps="true"
+                                android:textColor="@color/white"
+                                android:textSize="16sp" />
+
+
+                        </LinearLayout>
+
+
+                        <TextView
+                            android:id="@+id/payment_confirm_greeting_id"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_column="1"
+                            android:layout_below="@+id/buttons_layout"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginTop="20dp"
+                            android:text="@string/thank_you_for_using_bookeey_wallet"
+                            android:textSize="14sp" />
+
+                        <RelativeLayout
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_above="@+id/main_menu_merchant_name__bottom_tiltle"
+                            android:layout_below="@+id/payment_confirm_greeting_id"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginRight="40dp"
+                            android:layout_marginBottom="10dp"
+                            android:layout_weight="1.3"
+                            android:gravity="bottom|right|center_vertical">
+
+                            <TextView
+                                android:id="@+id/powered_by_text_id"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerVertical="true"
+                                android:gravity="center_vertical"
+                                android:text="@string/powered_by" />
+
+                            <ImageView
+                                android:layout_width="40dp"
+                                android:layout_height="40dp"
+                                android:layout_centerVertical="true"
+                                android:layout_marginLeft="6dp"
+                                android:layout_toRightOf="@+id/powered_by_text_id"
+                                android:background="@drawable/icon2"
+                                android:gravity="center_vertical" />
+                        </RelativeLayout>
+                    </RelativeLayout>
+                </ScrollView>
+            </LinearLayout>
+        </LinearLayout>
     </LinearLayout>
-
 </LinearLayout>

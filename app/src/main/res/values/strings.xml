@@ -92,6 +92,7 @@
     <string name="accept">Accept</string>
     <string name="reject">Reject</string>
     <string name="wallet_payment_receipt">Wallet payment receipt  </string>
+    <string name="transaction_payment_receipt">Transaction Payment Receipt  </string>
     <string name="invoice_no">Invoice No </string>
     <string name="mobile_no">Mobile No *</string>
     <string name="mobile_no_out_star">Mobile No </string>
@@ -202,7 +203,12 @@
     <string name="payment_method">Payment method</string>
     <string name="fees">Fees</string>
     <string name="due_to_merchant">Due to merchant</string>
-
-
+    <string name="update_app_dialogue_desc">Looks like you\'re using older version of Bookeey. Update now for better performance and latest features.</string>
+    <string name="expire">Expire</string>
+    <string name="do_you_want_to_expire_the_invoice">Do you want to expire the invoice?</string>
+    <string name="alert_yes">YES</string>
+    <string name="alert_no">NO</string>
+    <string name="alert">Alert!</string>
+    <string name="invoice_expire_success">Invoice Expired Successfully!</string>
 
 </resources>

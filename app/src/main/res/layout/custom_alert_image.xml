@@ -9,7 +9,7 @@
         android:layout_height="75dip"
         android:background="@drawable/action_bar_background"
         android:gravity="center"
-        android:text="Alert!"
+        android:text="@string/alert"
         android:textColor="#FFFFFF"
         android:textSize="20sp" />
     <TextView
@@ -19,7 +19,7 @@
         android:layout_below="@+id/ypc_get_amount_bgtop"
         android:gravity="center"
         android:padding="30dp"
-        android:text="Do you want to expire the invoice?"
+        android:text="@string/do_you_want_to_expire_the_invoice"
         android:textColor="#000"
         android:textSize="18sp" />
 

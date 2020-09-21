@@ -621,7 +621,7 @@ if(tran_invoice.getArabicCustomerName()!=null) {
 
         CharSequence customer_name = java.nio.CharBuffer.wrap(cbuf);
 
-        payment_confirm_fullname_id.setText(" " + customer_name + "");
+        payment_confirm_fullname_id.setText("" + customer_name + "");
         payment_confirm_fullname_id.setEnabled(false);
 
 
@@ -644,7 +644,7 @@ if(tran_invoice.getArabicCustomerName()!=null) {
 
                 if (tran_invoice.getEmailId() != "" && tran_invoice.getEmailId() != null) {
                     payment_confirm_emailid_row.setVisibility(View.VISIBLE);
-                    payment_confirm_emaild_id.setText(tran_invoice.getEmailId());
+                    payment_confirm_emaild_id.setText(tran_invoice.getEmailId().trim());
                 } else {
                     payment_confirm_emailid_row.setVisibility(View.GONE);
                 }
@@ -652,7 +652,7 @@ if(tran_invoice.getArabicCustomerName()!=null) {
                 //reject
                 if (tran_invoice.getDescription() != "" && tran_invoice.getDescription() != null) {
                        payment_confirm_desc_row.setVisibility(View.VISIBLE);
-                       payment_confirm_desc_id.setText(tran_invoice.getDescription());
+                       payment_confirm_desc_id.setText(tran_invoice.getDescription().trim());
                        payment_confirm_desc_id.setEnabled(false);
                 } else {
                     payment_confirm_desc_row.setVisibility(View.GONE);
@@ -670,7 +670,7 @@ if(tran_invoice.getArabicCustomerName()!=null) {
                         CharBuffer cbuf = decoder.decode(buf);
                         CharSequence description = java.nio.CharBuffer.wrap(cbuf);
 
-                        payment_confirm_desc_id.setText(" "+description);
+                        payment_confirm_desc_id.setText(description+"");
                         payment_confirm_desc_id.setEnabled(false);
 
                     }catch(Exception e) {
@@ -737,12 +737,12 @@ if(tran_invoice.getArabicCustomerName()!=null) {
                 }
 
                 //invoice link
-                if (tran_invoice.getInvoiceLink() != null && !tran_invoice.getInvoiceLink().isEmpty()) {
+               /* if (tran_invoice.getInvoiceLink() != null && !tran_invoice.getInvoiceLink().isEmpty()) {
                     payment_confirm_invoice_tr.setVisibility(View.VISIBLE);
                     payment_confirm_invoice_link_text.setText("" + tran_invoice.getInvoiceLink());
                 } else {
                     payment_confirm_invoice_tr.setVisibility(View.GONE);
-                }
+                }*/
 
                 payment_confirm_wallet_number_id.setText(tran_invoice.getRecipientMobileNumber());
                 payment_confirm_total_payment_id.setText(getString(R.string.total_paymnet)+" KWD " + PriceFormatter.format(Double.parseDouble(tran_invoice.getRechargeAmt()), 3, 3));
@@ -933,7 +933,7 @@ if(tran_invoice.getArabicCustomerName()!=null) {
         View promptsView = li.inflate(R.layout.custom_alert_image, null);
         final AlertDialog.Builder alertDialog = new AlertDialog.Builder(TransactionHistoryDisplayActivity.this);
         alertDialog.setView(promptsView);
-        alertDialog.setPositiveButton("YES", new DialogInterface.OnClickListener() {
+        alertDialog.setPositiveButton(R.string.alert_yes, new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int which) {
 
 
@@ -954,7 +954,7 @@ if(tran_invoice.getArabicCustomerName()!=null) {
 
             }
         });
-        alertDialog.setNegativeButton("NO", new DialogInterface.OnClickListener() {
+        alertDialog.setNegativeButton(R.string.alert_no, new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int which) {
 
                 alertDialog.create().dismiss();

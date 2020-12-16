@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.res.Configuration;
 import android.content.res.Resources;
+import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
@@ -15,6 +16,7 @@ import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
+import android.provider.ContactsContract;
 import android.provider.MediaStore;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
@@ -22,8 +24,10 @@ import android.util.Base64;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -71,16 +75,17 @@ import ycash.wallet.json.pojo.merchantlogin.MerchantLoginRequestResponse;
 
 public class  InvoiceActivity extends GenericActivity implements YPCHeadlessCallback {
     Button submit_btn;
-    EditText invoice_mobileno_edit, invoice_amount_edit, invoice_remarks_edit, merchant_edit_description_edit, merchant_inv_no, invoice_fullname_edit, invoice_emailid_edit,
+    EditText invoice_amount_edit, invoice_remarks_edit, merchant_edit_description_edit, merchant_inv_no, invoice_fullname_edit, invoice_emailid_edit,
             invoice_md_no_edit,
             invoice_civil_id_edit,
             invoice_nurse_id_edit,
             invoice_account_no_edit;
+    AutoCompleteTextView invoice_mobileno_edit;
     String mobno_str, amount_str, invoiceNo, remarks_str, fullName, emailID;
     TextView description_text, merchant_edit_description_text;
     private String reject_edit_response = null;
     private boolean isPendingEdit = false;
-
+    int RQS_PICK_CONTACT = 1;
     LinearLayout reasons_text_linear, merchant_edit_description_linear, invoice_choose_language_layout, invoice_hospital_layout;
     Spinner invoice_choose_language_spinner;
     String[] languages = {"Select language", "English", " عربي"};
@@ -121,14 +126,27 @@ public class  InvoiceActivity extends GenericActivity implements YPCHeadlessCall
         setContentView(R.layout.invoice_activity);
         //getActionBar().hide();
         enableUndoBar();
-        submit_btn = (Button) findViewById(R.id.submit_btn);
-        invoice_mobileno_edit = (EditText) findViewById(R.id.invoice_mobileno_edit);
-        invoice_amount_edit = (EditText) findViewById(R.id.invoice_amount_edit);
-        merchant_inv_no = (EditText) findViewById(R.id.merchant_inv_no);
-        invoice_remarks_edit = (EditText) findViewById(R.id.invoice_remarks_edit);
-        invoice_fullname_edit = (EditText) findViewById(R.id.invoice_fullname_edit);
-        invoice_emailid_edit = (EditText) findViewById(R.id.invoice_emailid_edit);
-
+        submit_btn = findViewById(R.id.submit_btn);
+        invoice_mobileno_edit = findViewById(R.id.invoice_mobileno_edit);
+        invoice_amount_edit = findViewById(R.id.invoice_amount_edit);
+        merchant_inv_no = findViewById(R.id.merchant_inv_no);
+        invoice_remarks_edit = findViewById(R.id.invoice_remarks_edit);
+        invoice_fullname_edit = findViewById(R.id.invoice_fullname_edit);
+        invoice_emailid_edit = findViewById(R.id.invoice_emailid_edit);
+        invoice_mobileno_edit.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View view, MotionEvent motionEvent) {
+                final int DRAWABLE_RIGHT = 2;
+                if(motionEvent.getAction() == MotionEvent.ACTION_UP) {
+                    if(motionEvent.getRawX() >= (invoice_mobileno_edit.getRight() - invoice_mobileno_edit.getCompoundDrawables()[DRAWABLE_RIGHT].getBounds().width())) {
+                        Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
+                        intent.setType(ContactsContract.CommonDataKinds.Phone.CONTENT_ITEM_TYPE);
+                        startActivityForResult(intent, 1);
+                    }
+                }
+                return false;
+            }
+        });
 
         //TEST
 
@@ -137,22 +155,22 @@ public class  InvoiceActivity extends GenericActivity implements YPCHeadlessCall
 //        invoice_fullname_edit.setText("Basha");
 
 
-        tv_attached_status= (TextView)findViewById(R.id.tv_attached_status);
-        img_attached_status = (ImageView)findViewById(R.id.img_attached_status) ;
+        tv_attached_status= findViewById(R.id.tv_attached_status);
+        img_attached_status = findViewById(R.id.img_attached_status);
 
         //reasons_text_linear = (LinearLayout) findViewById(R.id.reasons_text_linear);
-        description_text = (TextView) findViewById(R.id.description_text);
-        merchant_edit_description_text = (TextView) findViewById(R.id.merchant_edit_description_text);
-        merchant_edit_description_linear = (LinearLayout) findViewById(R.id.merchant_edit_description_linear);
-        merchant_edit_description_edit = (EditText) findViewById(R.id.merchant_edit_description_edit);
+        description_text = findViewById(R.id.description_text);
+        merchant_edit_description_text = findViewById(R.id.merchant_edit_description_text);
+        merchant_edit_description_linear = findViewById(R.id.merchant_edit_description_linear);
+        merchant_edit_description_edit = findViewById(R.id.merchant_edit_description_edit);
         merchant_inv_no.setEnabled(false);
 
         //newly added for hospital merchant
-        invoice_hospital_layout = (LinearLayout) findViewById(R.id.invoice_hospital_layout);
-        invoice_md_no_edit = (EditText) findViewById(R.id.invoice_md_no_edit);
-        invoice_civil_id_edit = (EditText) findViewById(R.id.invoice_civil_id_edit);
-        invoice_nurse_id_edit = (EditText) findViewById(R.id.invoice_nurse_id_edit);
-        invoice_account_no_edit = (EditText) findViewById(R.id.invoice_account_no_edit);
+        invoice_hospital_layout = findViewById(R.id.invoice_hospital_layout);
+        invoice_md_no_edit = findViewById(R.id.invoice_md_no_edit);
+        invoice_civil_id_edit = findViewById(R.id.invoice_civil_id_edit);
+        invoice_nurse_id_edit = findViewById(R.id.invoice_nurse_id_edit);
+        invoice_account_no_edit = findViewById(R.id.invoice_account_no_edit);
         boolean extra_Filedds = CustomSharedPreferences.getbooleanData(InvoiceActivity.this, CustomSharedPreferences.SP_KEY.EXTRA_FIELDS);
         if (extra_Filedds)
             invoice_hospital_layout.setVisibility(View.VISIBLE);
@@ -160,8 +178,8 @@ public class  InvoiceActivity extends GenericActivity implements YPCHeadlessCall
             invoice_hospital_layout.setVisibility(View.GONE);
 
         //choose language
-        invoice_choose_language_layout = (LinearLayout) findViewById(R.id.invoice_choose_language_layout);
-        invoice_choose_language_spinner = (Spinner) findViewById(R.id.invoice_choose_language_spinner);
+        invoice_choose_language_layout = findViewById(R.id.invoice_choose_language_layout);
+        invoice_choose_language_spinner = findViewById(R.id.invoice_choose_language_spinner);
         invoice_choose_language_layout.setVisibility(View.VISIBLE);
 
         final LanguageType language = new LanguageType(getApplicationContext(), Arrays.asList(languages));
@@ -170,11 +188,11 @@ public class  InvoiceActivity extends GenericActivity implements YPCHeadlessCall
         invoice_choose_language_spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                selected_language = languages[position].toString();
+                selected_language = languages[position];
                 if (selected_language.equals("Select language")) {
                     selected_language = "English";
                 } else {
-                    selected_language = languages[position].toString();
+                    selected_language = languages[position];
                 }
             }
 
@@ -263,16 +281,16 @@ public class  InvoiceActivity extends GenericActivity implements YPCHeadlessCall
             boolean isHospital_fields = CustomSharedPreferences.getbooleanData(InvoiceActivity.this, CustomSharedPreferences.SP_KEY.EXTRA_FIELDS);
             if (isHospital_fields) {
                 invoice_hospital_layout.setVisibility(View.VISIBLE);
-                if (response.getMedFileNo() != "" && response.getMedFileNo() != null) {
+                if (!response.getMedFileNo().equals("") && response.getMedFileNo() != null) {
                     invoice_md_no_edit.setText(response.getMedFileNo());
                 }
-                if (response.getCivilId() != "" && response.getCivilId() != null) {
+                if (!response.getCivilId().equals("") && response.getCivilId() != null) {
                     invoice_civil_id_edit.setText(response.getCivilId());
                 }
-                if (response.getNurseId() != "" && response.getNurseId() != null) {
+                if (!response.getNurseId().equals("") && response.getNurseId() != null) {
                     invoice_nurse_id_edit.setText(response.getNurseId());
                 }
-                if (response.getAccountNo() != "" && response.getAccountNo() != null) {
+                if (!response.getAccountNo().equals("") && response.getAccountNo() != null) {
                     invoice_account_no_edit.setText(response.getAccountNo());
                 }
             } else {
@@ -318,8 +336,7 @@ public class  InvoiceActivity extends GenericActivity implements YPCHeadlessCall
             String s = String.valueOf(y);
             String year = s.substring(2);
             //String random_str = randomString(5);
-            String random_str = String.valueOf(System.currentTimeMillis());
-            invoiceNo = random_str;
+            invoiceNo = String.valueOf(System.currentTimeMillis());
             merchant_inv_no.setText(invoiceNo);
             invoice_remarks_edit.setEnabled(true);
             merchant_edit_description_text.setVisibility(View.GONE);
@@ -399,9 +416,9 @@ public class  InvoiceActivity extends GenericActivity implements YPCHeadlessCall
 
         //Arabic language logic
 
-        TextView tv_amount_header = (TextView)findViewById(R.id.tv_amount_header);
+        TextView tv_amount_header = findViewById(R.id.tv_amount_header);
 
-        TextView tv_mobile_no_header = (TextView)findViewById(R.id.tv_mobile_no_header);
+        TextView tv_mobile_no_header = findViewById(R.id.tv_mobile_no_header);
 
          selectedLanguage = CustomSharedPreferences.getStringData(getApplicationContext(), CustomSharedPreferences.SP_KEY.LANGUAGE);
 
@@ -417,7 +434,7 @@ public class  InvoiceActivity extends GenericActivity implements YPCHeadlessCall
         tv_mobile_no_header.setTextColor(Color.RED);
 
 
-        TextView attach_img_btn  = (TextView)findViewById(R.id.attach_tv_btn);
+        TextView attach_img_btn  = findViewById(R.id.attach_tv_btn);
         attach_img_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -427,7 +444,7 @@ public class  InvoiceActivity extends GenericActivity implements YPCHeadlessCall
         });
 
 
-        ImageView img_attached_symbol  = (ImageView)findViewById(R.id.img_attached_symbol);
+        ImageView img_attached_symbol  = findViewById(R.id.img_attached_symbol);
         img_attached_symbol.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -457,7 +474,6 @@ public class  InvoiceActivity extends GenericActivity implements YPCHeadlessCall
 
             if(recent_invoiceNo.equalsIgnoreCase(invoiceNo) && recent_invoice_amount.equalsIgnoreCase(amount)&&recent_invoice_mobile_no.equalsIgnoreCase(mobileNo)){
                 Toast.makeText(InvoiceActivity.this,"Please check the details once again",Toast.LENGTH_LONG).show();
-                return;
             }
         }
 
@@ -495,7 +511,7 @@ public void enableButton(){
                     if (takePictureIntent.resolveActivity(getPackageManager()) != null) {
                         startActivityForResult(takePictureIntent, CAMERA_REQUEST);
                     } else {
-                        Toast.makeText(getBaseContext(), "Your camera can't able to take the data of picture ", Toast.LENGTH_SHORT);
+                        Toast.makeText(getBaseContext(), "Your camera can't able to take the data of picture ", Toast.LENGTH_SHORT).show();
                     }
                 }
             }
@@ -570,11 +586,21 @@ public void enableButton(){
                 toast.show();
 
 
-            }else{
+            }
+            if (requestCode == RQS_PICK_CONTACT) {
+                if (resultCode == RESULT_OK) {
+                    Uri contactData = data.getData();
+                    Cursor cursor = managedQuery(contactData, null, null, null, null);
+                    cursor.moveToFirst();
 
-
-
-
+                    String number = cursor.getString(cursor.getColumnIndexOrThrow(ContactsContract.CommonDataKinds.Phone.NUMBER));
+                    //contactName.setText(name);
+                    String str = number.replaceAll("\\+965", "").trim();
+                    str = str.replaceAll("\\+D","").trim();
+                    str = str.replaceAll(" ", "").trim();
+                    invoice_mobileno_edit.setText(str.trim());
+                    //contactEmail.setText(email);
+                }
             }
 
         } catch (Exception e) {
@@ -587,9 +613,6 @@ public void enableButton(){
 
         if (requestCode == PICK_FROM_GALLERY && resultCode == RESULT_OK) {
             try {
-
-
-
 
                 final Uri imageUri = data.getData();
 //                try {
@@ -629,12 +652,7 @@ public void enableButton(){
                 toast.show();
             }
 
-        }else{
-
-
-
         }
-
 
 
         //Setting language
@@ -854,10 +872,10 @@ try {
 
         Log.e("Merchant logo url: ",""+((CoreApplication) getApplication()).getMerchantLoginRequestResponse().getMerchantLogo());
 
-        final ImageView back_logo = (ImageView) findViewById(R.id.back_logo);
+        final ImageView back_logo = findViewById(R.id.back_logo);
         back_logo.setImageBitmap(((CoreApplication) getApplication()).getMerchnat_logo());
 
-        String mx_logo_url =  null;
+        String mx_logo_url;
 
         if(((CoreApplication) getApplication()).getMerchnat_logo()==null) {
 

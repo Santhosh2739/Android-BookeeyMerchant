@@ -20,6 +20,7 @@ import android.provider.ContactsContract;
 import android.provider.MediaStore;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
+import android.text.InputFilter;
 import android.util.Base64;
 import android.util.Log;
 import android.view.Gravity;
@@ -100,6 +101,7 @@ public class  InvoiceActivity extends GenericActivity implements YPCHeadlessCall
     private TextView tv_attached_status =null;
     private ImageView img_attached_status  = null;
     String selectedLanguage = null;
+    boolean internationalMobile = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -139,6 +141,8 @@ public class  InvoiceActivity extends GenericActivity implements YPCHeadlessCall
                 final int DRAWABLE_RIGHT = 2;
                 if(motionEvent.getAction() == MotionEvent.ACTION_UP) {
                     if(motionEvent.getRawX() >= (invoice_mobileno_edit.getRight() - invoice_mobileno_edit.getCompoundDrawables()[DRAWABLE_RIGHT].getBounds().width())) {
+                        invoice_mobileno_edit.setFilters(new InputFilter[] { new InputFilter.LengthFilter(8) });
+                        internationalMobile = false;
                         Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
                         intent.setType(ContactsContract.CommonDataKinds.Phone.CONTENT_ITEM_TYPE);
                         startActivityForResult(intent, 1);
@@ -375,7 +379,7 @@ public class  InvoiceActivity extends GenericActivity implements YPCHeadlessCall
                     showNeutralDialogue("Alert!", getString(R.string.please_enter_mobile_number));
 
 
-                } else if (invoice_mobileno_edit.getText().toString().length() != 8) {
+                } else if (!internationalMobile && invoice_mobileno_edit.getText().toString().length() != 8) {
 
 //                    showNeutralDialogue("Alert!", "Please enter valid mobile number...");
 
@@ -594,12 +598,18 @@ public void enableButton(){
                     cursor.moveToFirst();
 
                     String number = cursor.getString(cursor.getColumnIndexOrThrow(ContactsContract.CommonDataKinds.Phone.NUMBER));
-                    //contactName.setText(name);
-                    String str = number.replaceAll("\\+965", "").trim();
-                    str = str.replaceAll("\\+D","").trim();
-                    str = str.replaceAll(" ", "").trim();
-                    invoice_mobileno_edit.setText(str.trim());
-                    //contactEmail.setText(email);
+                    String str = number.replaceAll(" ", "").trim();
+                    if(str.length() == 8){
+                        invoice_mobileno_edit.setText(str);
+                    } else if(str.startsWith("+965")) {
+                        str = str.replaceAll("\\+965","");
+                        invoice_mobileno_edit.setText(str);
+                    } else {
+                        str = str.replaceAll("\\D","");
+                        invoice_mobileno_edit.setFilters(new InputFilter[] { new InputFilter.LengthFilter(str.length()) });
+                        invoice_mobileno_edit.setText(str);
+                        internationalMobile = true;
+                    }
                 }
             }
 

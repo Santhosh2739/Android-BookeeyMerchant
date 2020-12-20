@@ -14,8 +14,8 @@ android {
 //        versionName "3.3"
 
         //For Live in Google Play Beta
-        versionCode 48
-        versionName "5.8"
+        versionCode 49
+        versionName "5.9"
     }
     buildTypes {
         release {

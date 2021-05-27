@@ -109,6 +109,7 @@ public class MainGenericActivity extends FragmentActivity implements YPCHeadless
             case R.id.action_bar_check_for_updates:
 
                 checkforupdate();
+                //Toast.makeText(MainGenericActivity.this, "Disabled.", Toast.LENGTH_LONG).show();
                  return true;
             case R.id.action_bar_contact_us:
                 Intent intent= new Intent(MainGenericActivity.this, Contact_Us_Activity.class);

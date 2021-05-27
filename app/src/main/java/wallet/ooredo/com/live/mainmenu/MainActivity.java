@@ -1620,7 +1620,7 @@ public class MainActivity extends MainGenericActivity implements YPCHeadlessCall
                             LocaleHelper.setLocale(MainActivity.this, selectedLanguage);
                         }
                         //@end
-
+                        Log.e("inside","QR code");
                         String url = data.getStringExtra("SCAN_RESULT");
                         CoreApplication application = (CoreApplication) getApplication();
                         String uiProcessorReference = application.addUserInterfaceProcessor(new DecodeIncomingQrPaymentCode(url));

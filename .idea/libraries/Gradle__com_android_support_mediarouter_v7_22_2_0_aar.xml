@@ -4,9 +4,9 @@
       <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/mediarouter-v7-22.2.0.aar/e203895a41ead3a17e868a5ba4f50793/annotations.zip!/" />
     </ANNOTATIONS>
     <CLASSES>
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/mediarouter-v7-22.2.0.aar/e203895a41ead3a17e868a5ba4f50793/AndroidManifest.xml" />
       <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/mediarouter-v7-22.2.0.aar/e203895a41ead3a17e868a5ba4f50793/jars/classes.jar!/" />
       <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/mediarouter-v7-22.2.0.aar/e203895a41ead3a17e868a5ba4f50793/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/mediarouter-v7-22.2.0.aar/e203895a41ead3a17e868a5ba4f50793/AndroidManifest.xml" />
       <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/mediarouter-v7-22.2.0.aar/e203895a41ead3a17e868a5ba4f50793/jars/libs/internal_impl-22.2.0.jar!/" />
     </CLASSES>
     <JAVADOC />

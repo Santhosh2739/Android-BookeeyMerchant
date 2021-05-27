@@ -26,8 +26,7 @@ import org.apache.http.params.HttpParams;
 import android.os.Handler;
 import android.os.Message;
 import android.os.SystemClock;
-
-
+import android.util.Log;
 public class ServerConnection implements Runnable{
     int action_code;
     Handler handler;
@@ -164,6 +163,7 @@ public class ServerConnection implements Runnable{
 
             String baseURL = getURL.substring(0, getURL.indexOf("?"));
             List<NameValuePair> nameValuePair = getQueryParams(getURL);
+            Log.i("Request param : ", nameValuePair.toString());
             httpClient = new DefaultHttpClient(httpParameters);
             httpClient.setHttpRequestRetryHandler(new DefaultHttpRequestRetryHandler(0, false));
             HttpPost httpPost = new HttpPost(baseURL);
@@ -193,6 +193,7 @@ public class ServerConnection implements Runnable{
             msg.arg1 	= OPERATION_SUCCESS;
             msg.arg2 	= _statuscode;
             msg.obj 	= responseBuffer.toString();
+            Log.i("Response : ", responseBuffer.toString());
             return msg;
         }catch (IllegalStateException illegalEx) {
             //Log.d(getClass().getSimpleName(), "IllegalStateHTTP Connection Error:--"+illegalEx);

@@ -37,5 +37,14 @@ public class TransactionHistoryResponse extends GenericResponse{
 	public void setRecords(ArrayList<TransTypeInterface> records) {
 		this.records = records;
 	}
-	
+
+	@Override
+	public String toString() {
+		return "TransactionHistoryResponse{" +
+				"from=" + from +
+				", to=" + to +
+				", totalNoOfTransactions=" + totalNoOfTransactions +
+				", records=" + records +
+				'}';
+	}
 }

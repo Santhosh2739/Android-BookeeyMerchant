@@ -593,7 +593,7 @@ public class TransactionHistoryDisplayActivity extends GenericActivity implement
 //                Toast.makeText(TransactionHistoryDisplayActivity.this,""+tran_invoice.getG_servertime(),Toast.LENGTH_LONG).show();
 
 
-                // payment_confirm_status.setText("" + tran_invoice.getG_status_description());
+                 payment_confirm_status.setText("" + tran_invoice.getG_status_description());
                 payment_confirm_txn_id.setText("" + tran_invoice.getTransactionId());
                 if (tran_invoice.getServerTime() != 0) {
                     date_tr.setVisibility(View.VISIBLE);

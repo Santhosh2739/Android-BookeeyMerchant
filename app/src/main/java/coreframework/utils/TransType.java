@@ -67,10 +67,11 @@ public enum TransType {
 
 
     /*-------------------------------------PUBLIC SERVER------------------------------------------*/
-    //ADDRESS_BASE("https://demo.bookeey.com/mno/ooredooServerRequest"),
-
+    ADDRESS_BASE("https://demo.bookeey.com/mno/ooredooServerRequest"),
+    //ADDRESS_BASE("https://172.20.10.4:8089/mno/ooredooServerRequest"),
+ //   ADDRESS_BASE("https://192.168.200.249:8089/mno/ooredooServerRequest"),
     //LIVE
-    ADDRESS_BASE("https://api.bookeey.com/mno/ooredooServerRequest"),
+    //ADDRESS_BASE("https://api.bookeey.com/mno/ooredooServerRequest"),
 
 
 

@@ -133,6 +133,7 @@ public class SyncService extends IntentService {
 
 
         String json = new Gson().toJson(transactionHistoryRequest);
+        Log.i("Request : ", json);
         StringBuffer buffer = new StringBuffer();
         buffer.append(TransType.MERCHANT_TRAN_HISTORY_REQUEST.getURL());
 
@@ -195,6 +196,7 @@ public class SyncService extends IntentService {
                     //TransactionHistoryResponse res = new Gson().fromJson((String)msg.obj,TransactionHistoryResponse.class);
                     TransactionHistoryResponse res = new TransactionHistoryResponse();
                     //res.getRecords().clear();
+                    Log.i("response response : ", response.toString());
                     JSONObject jsonObject = new JSONObject((String) msg.obj);
                     JSONArray jsonArray = jsonObject.getJSONArray("records");
                     if (jsonArray.length() > 0) {
@@ -221,6 +223,7 @@ public class SyncService extends IntentService {
                         res.setTotalNoOfTransactions(jsonObject.getLong("totalNoOfTransactions"));
                         res.setTo(jsonObject.getLong("to"));
                         res.setFrom(jsonObject.getLong("from"));
+                        Log.i("response res : ", res.toString());
                         TransactionHistoryResponse coreResponse = ((CoreApplication) getApplicationContext()).getTransactionHistoryResponse();
                         if (coreResponse.getRecords().size() == 0) {
                             //BLANKET OVERWRITE

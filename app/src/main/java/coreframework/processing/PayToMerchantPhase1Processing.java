@@ -79,6 +79,7 @@ public class PayToMerchantPhase1Processing extends BackgroundProcessingAbstractF
             if(response!=null && response.getG_response_trans_type().equalsIgnoreCase(TransType.PAY_TO_MERCHANT_RESPONSE.name())&&response.getG_status()!=-1){
                 this.response_json = network_response;
                 this.success = true;
+                Log.e("L1 success", response.toString());
                 }else if(response!=null && response.getG_response_trans_type().equalsIgnoreCase(TransType.PAY_TO_MERCHANT_RESPONSE.name())){
                 error_text_header = response.getG_response_trans_type();
                 error_text_details = response.getG_errorDescription();
@@ -101,7 +102,7 @@ public class PayToMerchantPhase1Processing extends BackgroundProcessingAbstractF
 
         try {
 
-
+            Log.e("L1 result", success + "");
             if (success) {
                 Intent intent = new Intent(activity, QRCodePaymentCollectionLeg2RequestScreen.class);
                 intent.putExtra("response", this.response_json);

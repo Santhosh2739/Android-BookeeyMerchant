@@ -69,6 +69,7 @@ public class PayToMerchantPhase2Processing extends BackgroundProcessingAbstractF
         if(msg.arg1 == ServerConnection.OPERATION_SUCCESS){
             String network_response = ((String)msg.obj).trim();
             response = new Gson().fromJson(network_response,GenericResponse.class);
+            Log.e("Response", response.toString());
             if(response!=null && response.getG_response_trans_type().equalsIgnoreCase(TransType.PAY_TO_MERCHANT_COMMIT_REQUEST_RESPONSE.name())&&response.getG_status()==1){
                 this.response_json = network_response;
                 this.success = true;

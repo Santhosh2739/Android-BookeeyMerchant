@@ -56,4 +56,16 @@ public class GenericResponse implements TransTypeInterface {
 	public void setG_response_trans_type(String g_response_trans_type) {
 		this.g_response_trans_type = g_response_trans_type;
 	}
+
+	@Override
+	public String toString() {
+		return "GenericResponse{" +
+				"g_status=" + g_status +
+				", g_status_description='" + g_status_description + '\'' +
+				", g_errorDescription='" + g_errorDescription + '\'' +
+				", g_response_trans_type='" + g_response_trans_type + '\'' +
+				", g_servertime='" + g_servertime + '\'' +
+				", typeOfMerchant='" + typeOfMerchant + '\'' +
+				'}';
+	}
 }

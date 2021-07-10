@@ -210,5 +210,7 @@
     <string name="alert_no">NO</string>
     <string name="alert">Alert!</string>
     <string name="invoice_expire_success">Invoice Expired Successfully!</string>
+    <string name="whatsapp_no">WhatsApp No</string>
+    <string name="method_of_sending_link">Method of Sending Link</string>
 
 </resources>

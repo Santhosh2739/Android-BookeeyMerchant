@@ -22,28 +22,24 @@ import wallet.ooredo.com.live.invoice.InvoiceSuccess;
 import ycash.wallet.json.pojo.generic.GenericResponse;
 import ycash.wallet.json.pojo.invoice_pojo.InvoiceRequest;
 import ycash.wallet.json.pojo.merchantlogin.MerchantLoginRequestResponse;
-
 /**
  * Created by 10037 on 21-Nov-17.
  */
-
 public class InvoiceProcessing extends BackgroundProcessingAbstractFilter {
-
     private InvoiceRequest request;
     private String response_json = null;
     private CoreApplication application;
-    private boolean isPost = false;
+    private boolean isPost;
     private boolean success = false;
     private String error_text_header = "";
     private String error_text_details = "";
-    private String status_code;
-    private MerchantLoginRequestResponse merchantLoginRequestResponse = null;
+    private String whatsAppNo;
 
-    public InvoiceProcessing(InvoiceRequest request, CoreApplication application, boolean isPost) {
+    public InvoiceProcessing(InvoiceRequest request, String whatsAppNo, CoreApplication application, boolean isPost) {
         this.request = request;
         this.application = application;
         this.isPost = isPost;
-        merchantLoginRequestResponse = application.getMerchantLoginRequestResponse();
+        this.whatsAppNo = whatsAppNo;
     }
 
     @Override
@@ -55,17 +51,11 @@ public class InvoiceProcessing extends BackgroundProcessingAbstractFilter {
         this.request.setG_transType(TransType.GENERATE_INVOICE_REQUEST.name());
         StringBuffer buffer = new StringBuffer();
         buffer.append(TransType.GENERATE_INVOICE_REQUEST.getURL());
-
-        String req_data= new Gson().toJson(this.request);
-
-        Log.e("InvoiceData",""+req_data);
-
+        String req_data = new Gson().toJson(this.request);
+        Log.e("InvoiceData", "" + req_data);
         buffer.append("?d=" + URLUTF8Encoder.encode(req_data));
-
         String invoice_url = buffer.toString();
-
-        Log.e("InvoiceURL",""+invoice_url);
-
+        Log.e("InvoiceURL", "" + invoice_url);
         return invoice_url;
     }
 
@@ -84,7 +74,6 @@ public class InvoiceProcessing extends BackgroundProcessingAbstractFilter {
                     } catch (Exception e) {
                         e.printStackTrace();
                     }
-
                 } else if (response.getG_response_trans_type().equalsIgnoreCase(TransType.GENERATE_INVOICE_RESPONSE.name()) && response.getG_status() != 1) {
                     error_text_header = response.getG_response_trans_type();
                     error_text_details = response.getG_errorDescription();
@@ -110,16 +99,13 @@ public class InvoiceProcessing extends BackgroundProcessingAbstractFilter {
         dialogueFragment.dismiss();
         if (success) {
             //Toast.makeText(activity, error_text_details, Toast.LENGTH_SHORT).show();
-
-            CustomSharedPreferences.saveStringData(activity,"", CustomSharedPreferences.SP_KEY.RECENT_INVOICE_NO);
-            CustomSharedPreferences.saveStringData(activity,"", CustomSharedPreferences.SP_KEY.RECENT_INVOICE_AMOUNT);
-            CustomSharedPreferences.saveStringData(activity,"", CustomSharedPreferences.SP_KEY.RECENT_INVOICE_MOBILE_NO);
-
-
+            CustomSharedPreferences.saveStringData(activity, "", CustomSharedPreferences.SP_KEY.RECENT_INVOICE_NO);
+            CustomSharedPreferences.saveStringData(activity, "", CustomSharedPreferences.SP_KEY.RECENT_INVOICE_AMOUNT);
+            CustomSharedPreferences.saveStringData(activity, "", CustomSharedPreferences.SP_KEY.RECENT_INVOICE_MOBILE_NO);
             Intent intent = new Intent(activity, InvoiceSuccess.class);
             intent.putExtra("request_data", new Gson().toJson(request));
+            intent.putExtra("whatsAppNo", whatsAppNo);
             activity.startActivity(intent);
-
         } else {
             //Handle Any types of failure here:
             if (activity instanceof GenericActivity) {
@@ -128,7 +114,6 @@ public class InvoiceProcessing extends BackgroundProcessingAbstractFilter {
                 Toast.makeText(activity, error_text_details, Toast.LENGTH_SHORT).show();
             }
         }
-
     }
 
     @Override
@@ -143,6 +128,5 @@ public class InvoiceProcessing extends BackgroundProcessingAbstractFilter {
 
     @Override
     public void performTask() {
-
     }
 }

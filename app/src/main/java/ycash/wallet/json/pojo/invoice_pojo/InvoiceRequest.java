@@ -1,5 +1,7 @@
 package ycash.wallet.json.pojo.invoice_pojo;
 
+import java.util.Arrays;
+
 import ycash.wallet.json.pojo.generic.GenericRequest;
 
 /**
@@ -17,7 +19,7 @@ public class InvoiceRequest extends GenericRequest {
     private String custName;
     private String custEmailId;
     private String language;
-
+    private boolean isSMSSent;
     public byte[] getArabicDescription() {
         return arabicDescription;
     }
@@ -172,4 +174,35 @@ public class InvoiceRequest extends GenericRequest {
         this.merchantRefNumber = merchantRefNumber;
     }
 
+    public boolean isSMSSent() {
+        return isSMSSent;
+    }
+
+    public void setSMSSent(boolean SMSSent) {
+        isSMSSent = SMSSent;
+    }
+
+    @Override
+    public String toString() {
+        return "InvoiceRequest{" +
+                "invoiceNo='" + invoiceNo + '\'' +
+                ", mobileNo='" + mobileNo + '\'' +
+                ", amount=" + amount +
+                ", merchantRefNumber='" + merchantRefNumber + '\'' +
+                ", isMerchantRequest=" + isMerchantRequest +
+                ", description='" + description + '\'' +
+                ", custName='" + custName + '\'' +
+                ", custEmailId='" + custEmailId + '\'' +
+                ", language='" + language + '\'' +
+                ", isSMSSent=" + isSMSSent +
+                ", arabicDescription=" + Arrays.toString(arabicDescription) +
+                ", arabicCustomerName=" + Arrays.toString(arabicCustomerName) +
+                ", medFileNo='" + medFileNo + '\'' +
+                ", accountNo='" + accountNo + '\'' +
+                ", civilId='" + civilId + '\'' +
+                ", nurseId='" + nurseId + '\'' +
+                ", clientImage='" + clientImage + '\'' +
+                ", invoiceLink='" + invoiceLink + '\'' +
+                '}';
+    }
 }

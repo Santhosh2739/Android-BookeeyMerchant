@@ -135,5 +135,7 @@
     <string name="due_to_merchant">المستحق للتاجر</string>
     <string name="update_app_dialogue_desc">يبدو أنك تستخدم إصدارًا أقدم من Bookeey. قم بالتحديث الآن للحصول على أداء أفضل وأحدث الميزات.</string>
     <string name="whatsapp_no">WhatsApp No</string>
-    <string name="method_of_sending_link">Method of Sending Link</string>
+    <string name="method_of_sending_link">طريقة إرسال الفاتورة</string>
+    <string name="SMS">رسالة نصية</string>
+    <string name="WhatsApp">واتس اب</string>
 </resources>

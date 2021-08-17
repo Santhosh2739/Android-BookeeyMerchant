@@ -86,7 +86,7 @@ public class InvoiceActivity extends GenericActivity implements YPCHeadlessCallb
              invoice_emailid_edit_layout;
     Spinner invoice_choose_language_spinner, invoice_choose_send_link;
     String[] languages = {"English", " عربي"};
-    String[] sendLinkType = {"SMS", "WhatsApp"};
+
     String selectedLanguage = null;
     boolean internationalMobile = false;
     private String reject_edit_response = null;
@@ -100,6 +100,7 @@ public class InvoiceActivity extends GenericActivity implements YPCHeadlessCallb
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         //Setting language
+        String[] sendLinkType = {getString(R.string.SMS), getString(R.string.WhatsApp)};
         selectedLanguage = CustomSharedPreferences.getStringData(getApplicationContext(), CustomSharedPreferences.SP_KEY.LANGUAGE);
         if (selectedLanguage != null && !selectedLanguage.isEmpty()) {
             LocaleHelper.setLocale(InvoiceActivity.this, selectedLanguage);
@@ -303,7 +304,7 @@ public class InvoiceActivity extends GenericActivity implements YPCHeadlessCallb
             @Override
             public void onClick(View v) {
                 mobno_str = invoice_mobileno_edit.getText().toString().trim();
-                if(selected_send_link.equals("WhatsApp"))
+                if(selected_send_link.equals(getString(R.string.WhatsApp)))
                     whatsAppNo = "965" + mobno_str;
                 amount_str = invoice_amount_edit.getText().toString().trim();
                 invoiceNo = merchant_inv_no.getText().toString().trim();
@@ -561,6 +562,7 @@ public class InvoiceActivity extends GenericActivity implements YPCHeadlessCallb
         invoiceRequest.setLanguage(selected_language);
         invoiceRequest.setMerchantRequest(true);
         invoiceRequest.setClientImage(image_data);
+        invoiceRequest.setSMSSent(selected_send_link.equals(getString(R.string.SMS)));
         try {
             Charset charset = Charset.forName("ISO-8859-6");
             CharsetEncoder encoder = charset.newEncoder();

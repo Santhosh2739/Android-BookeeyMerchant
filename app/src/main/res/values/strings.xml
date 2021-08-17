@@ -212,5 +212,7 @@
     <string name="invoice_expire_success">Invoice Expired Successfully!</string>
     <string name="whatsapp_no">WhatsApp No</string>
     <string name="method_of_sending_link">Method of Sending Link</string>
+    <string name="SMS">SMS</string>
+    <string name="WhatsApp">WhatsApp</string>
 
 </resources>

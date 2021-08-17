@@ -2,13 +2,9 @@ package wallet.ooredo.com.live.invoice;
 
 import android.app.AlertDialog;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.pm.PackageManager;
 import android.net.Uri;
-import android.os.Build;
 import android.os.Bundle;
-import android.provider.MediaStore;
 import android.support.annotation.Nullable;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -49,10 +45,10 @@ public class InvoiceSuccess extends GenericActivity implements View.OnClickListe
             payment_confirm_civilID_tr,
             payment_confirm_nurseID_tr,
             payment_confirm_accNo_tr;
-    private String response, sendLink = null;
-    private InvoiceRequest response_obj = null;
     String whatsAppNo = null;
     boolean isSuccess = false;
+    private String response, sendLink = null;
+    private InvoiceRequest response_obj = null;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -60,7 +56,6 @@ public class InvoiceSuccess extends GenericActivity implements View.OnClickListe
         setContentView(R.layout.invoice_success);
         ypc_close = findViewById(R.id.ypc_close);
         ypc_close.setOnClickListener(this);
-
         invoice_success_status_text = findViewById(R.id.invoice_success_status_text);
         invoice_success_invoice_no_text = findViewById(R.id.invoice_success_invoice_no_text);
         invoice_success_mobile_text = findViewById(R.id.invoice_success_mobile_text);
@@ -116,9 +111,25 @@ public class InvoiceSuccess extends GenericActivity implements View.OnClickListe
         try {
             if (!response.isEmpty()) {
                 response_obj = new Gson().fromJson(response, InvoiceRequest.class);
+                Log.e("response_obj", response_obj.toString());
                 isSuccess = true;
+                String cName = response_obj.getCustName() != null && !response_obj.getCustName().equals("") ? response_obj.getCustName() : "Customer";
+                String lang = response_obj.getLanguage() != null ? response_obj.getLanguage() : "English";
                 String merchant_name = CustomSharedPreferences.getStringData(getApplication(), CustomSharedPreferences.SP_KEY.NAME);
-                sendLink = "Dear customer,\nYou have an invoice from " + merchant_name + "." + " \nClick on the below link to view and pay\n\nStatus: " + "Pending" + "\n\nAmount: " + response_obj.getAmount() + "\n\nInvoice URL: " + response_obj.getInvoiceLink();
+                if (lang.equalsIgnoreCase("English")) {
+                    sendLink = "Dear " + cName + ",\nYou have an invoice from " + merchant_name + "." + " \nClick on the below link to view and pay\n\nStatus: " + "Pending" + "\n\nAmount: " + response_obj.getAmount() + "\n\nInvoice URL: " + response_obj.getInvoiceLink();
+                } else {
+                    cName = cName.equals("Customer") ? "عميلنا" : cName;
+                    sendLink = cName + " العزيز،\n" +
+                            "لديك فاتورة من " + merchant_name + ".\n" +
+                            "إضغط على الرابط أدناه للاطلاع على الفاتورة والدفع\n" +
+                            "\n" +
+                            "الحالة: قيد الانتظار\n" +
+                            "\n" +
+                            "قيمة الفاتورة: " + response_obj.getAmount() + "\n" +
+                            "\n" +
+                            "رابط الدفع: " + response_obj.getInvoiceLink();
+                }
                 Button ypc_share = findViewById(R.id.ypc_share);
                 invoice_success_status_text.setText("--PENDING--");
                 invoice_success_invoice_no_text.setText(response_obj.getInvoiceNo());
@@ -155,26 +166,20 @@ public class InvoiceSuccess extends GenericActivity implements View.OnClickListe
                     payment_confirm_nurseID_tr.setVisibility(View.GONE);
                 }
                 String status = "--PENDING--";
-
                 switch (status) {
                     case "--SUCCESS--":
-//                        invoice_success_img_id.setImageResource(R.drawable.success);
-                        invoice_success_img_id.setImageResource(R.drawable.invoice_success);
-                        break;
                     case "--PENDING--":
 //                        invoice_success_img_id.setImageResource(R.drawable.success);
                         invoice_success_img_id.setImageResource(R.drawable.invoice_success);
                         break;
                 }
-
-                if(whatsAppNo != null && !whatsAppNo.equals("")) {
-                    alertDialog();
+                if (whatsAppNo != null && !whatsAppNo.equals("")) {
+                    openWhatsApp();
                 }
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
-
         Button ypc_share = findViewById(R.id.ypc_share);
         ypc_share.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -201,13 +206,12 @@ public class InvoiceSuccess extends GenericActivity implements View.OnClickListe
         alertDialog.show();
     }
 
-    public void openWhatsApp(){
+    public void openWhatsApp() {
         try {
             Intent intent = new Intent(Intent.ACTION_VIEW);
-            intent.setData(Uri.parse("http://api.whatsapp.com/send?phone="+whatsAppNo +"&text="+sendLink));
+            intent.setData(Uri.parse("http://api.whatsapp.com/send?phone=" + whatsAppNo + "&text=" + sendLink));
             startActivity(intent);
-        }
-        catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }

@@ -259,7 +259,7 @@
                     android:maxLength="8"
                     android:padding="10dp"
                     android:textColor="@color/black"
-                    android:drawableEnd="@drawable/phonebook"
+                    android:drawableRight="@drawable/phonebook"
                     android:textSize="18sp" />
 
                 <!-- <ImageView

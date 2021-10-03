@@ -100,7 +100,13 @@ public class InvoiceActivity extends GenericActivity implements YPCHeadlessCallb
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         //Setting language
-        String[] sendLinkType = {getString(R.string.SMS), getString(R.string.WhatsApp)};
+        String[] sendLinkType;
+        if (((CoreApplication) getApplication()).isPOS() || ((CoreApplication) getApplication()).isNewPOS()) {
+            sendLinkType = new String[]{ getString(R.string.SMS) };
+        } else {
+            sendLinkType = new String[]{ getString(R.string.SMS), getString(R.string.WhatsApp) };
+        }
+
         selectedLanguage = CustomSharedPreferences.getStringData(getApplicationContext(), CustomSharedPreferences.SP_KEY.LANGUAGE);
         if (selectedLanguage != null && !selectedLanguage.isEmpty()) {
             LocaleHelper.setLocale(InvoiceActivity.this, selectedLanguage);

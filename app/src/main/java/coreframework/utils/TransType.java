@@ -15,6 +15,9 @@ public enum TransType {
     //LIVE
     ADDRESS_BASE("https://api.bookeey.com/mno/ooredooServerRequest"),
 
+    //demo-sample
+    //ADDRESS_BASE("https://www.bookeey.com/mno/ooredooServerRequest"),
+
     //Work from home
     //ADDRESS_BASE("http://172.20.10.6:8089/mno/ooredooServerRequest"),
 

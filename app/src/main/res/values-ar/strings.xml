@@ -63,6 +63,7 @@
     <string name="call_now">اتصل الان</string>
     <string name="merchant_login">تسجيل دخول التاجر</string>
     <string name="merchant_id">هوية التاجر</string>
+    <string name="branch">فرع</string>
     <string name="password">الرمز السري </string>
     <string name="login">تسجيل دخول</string>
     <string name="merchant_info">معلومات التاجر </string>
@@ -129,6 +130,13 @@
     <string name="attached_successfully">تم ارفاق الصورة بنجاح</string>
     <string name="optional">(اختياري)</string>
 
+    <string name="all">جميع</string>
+    <string name="pending_invoice">قيد الانتظار</string>
+    <string name="success_invoice">ناجح</string>
+    <string name="rejected_invoice">مرفوض</string>
+    <string name="failed_invoice">غير ناجح</string>
+    <string name="expired_invoice">منتهي الصلاحية</string>
+
 
     <string name="payment_method">   طريقة الدفع</string>
     <string name="fees">  رسوم المعاملة</string>
@@ -138,4 +146,12 @@
     <string name="method_of_sending_link">طريقة إرسال الفاتورة</string>
     <string name="SMS">رسالة نصية</string>
     <string name="WhatsApp">واتس اب</string>
+    <string name="offer_description">وصف العرض</string>
+    <string name="discount_amt">مقدار الخصم</string>
+    <string name="merchant_balance">رصيد التاجر</string>
+    <string name="credited_amount">المبلغ المعتمد</string>
+    <string name="medfileno">MedFileNo</string>
+    <string name="civilid">CivilID</string>
+    <string name="staffid">StaffID</string>
+    <string name="accountno">رقم حساب</string>
 </resources>

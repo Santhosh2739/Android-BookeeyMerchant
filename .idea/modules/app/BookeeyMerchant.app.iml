@@ -47,6 +47,7 @@
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="Gradle: org.apache.http.legacy" level="project" />
     <orderEntry type="library" name="Gradle: ./app/libs/jsoup-1.13.1.jar" level="project" />
+    <orderEntry type="library" name="Gradle: ./app/libs/platform_sdk_v4.1.0326.jar" level="project" />
     <orderEntry type="library" name="Gradle: ./app/libs/SDK4BaseBinderV2.1.4.jar" level="project" />
     <orderEntry type="library" name="Gradle: ./app/libs/SDK4EmvBinderV2.1.4.jar" level="project" />
     <orderEntry type="library" name="Gradle: ./app/libs/SDK4KeyManagerBinderV2.1.4.jar" level="project" />

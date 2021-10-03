@@ -124,6 +124,7 @@
     <string name="merchant_information">Merchant Information</string>
     <string name="merchant_name">Merchant Name</string>
     <string name="branch_name">Branch Name</string>
+    <string name="branch">Branch</string>
     <string name="close">Close</string>
     <!--<string name="corporate_office_address">Corporate Office Address</string>-->
     <!--<string name="write_us">Write Us</string>-->
@@ -188,7 +189,12 @@
     <string name="attached_successfully">Attached Successfully</string>
     <string name="optional">(Optional)</string>
 
-
+    <string name="all">ALL</string>
+    <string name="pending_invoice">PENDING</string>
+    <string name="success_invoice">SUCCESS</string>
+    <string name="rejected_invoice">REJECT</string>
+    <string name="failed_invoice">FAILED</string>
+    <string name="expired_invoice">EXPIRED</string>
     <!--lock unlock-->
     <string name="enter_password">Enter Pin</string>
     <string name="invalid_password">Invalid password.</string>
@@ -214,5 +220,13 @@
     <string name="method_of_sending_link">Method of Sending Link</string>
     <string name="SMS">SMS</string>
     <string name="WhatsApp">WhatsApp</string>
+    <string name="offer_description">Offer Description</string>
+    <string name="discount_amt">Discount Amt</string>
+    <string name="merchant_balance">Merchant Balance</string>
+    <string name="credited_amount">Credited Amount</string>
+    <string name="medfileno">MedFileNo</string>
+    <string name="civilid">CivilID</string>
+    <string name="staffid">StaffID</string>
+    <string name="accountno">AccountNo</string>
 
 </resources>

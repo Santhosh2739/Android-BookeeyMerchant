@@ -1,5 +1,7 @@
 package ycash.wallet.json.pojo.invoice_pojo;
 
+import java.util.Arrays;
+
 import ycash.wallet.json.pojo.generic.GenericResponse;
 
 /**
@@ -20,6 +22,33 @@ public class InvoiceTranHistoryResponsePojo extends GenericResponse {
     private String serialNo;
     private String billType;
     private Byte paymentStatus;
+    private String branch;
+    private String receiverWalletId;
+    private String attacjmentLink;
+
+    public String getBranch() {
+        return branch;
+    }
+
+    public void setBranch(String branch) {
+        this.branch = branch;
+    }
+
+    public String getReceiverWalletId() {
+        return receiverWalletId;
+    }
+
+    public void setReceiverWalletId(String receiverWalletId) {
+        this.receiverWalletId = receiverWalletId;
+    }
+
+    public String getAttacjmentLink() {
+        return attacjmentLink;
+    }
+
+    public void setAttacjmentLink(String attacjmentLink) {
+        this.attacjmentLink = attacjmentLink;
+    }
 
     public String getTotalAmountCreditedToMerchant() {
         return totalAmountCreditedToMerchant;
@@ -298,5 +327,42 @@ public class InvoiceTranHistoryResponsePojo extends GenericResponse {
 
     public void setPaymentStatus(Byte paymentStatus) {
         this.paymentStatus = paymentStatus;
+    }
+
+    @Override
+    public String toString() {
+        return "InvoiceTranHistoryResponsePojo{" +
+                "transactionId='" + transactionId + '\'' +
+                ", serverTime=" + serverTime +
+                ", operatorName='" + operatorName + '\'' +
+                ", recipientMobileNumber='" + recipientMobileNumber + '\'' +
+                ", rechargeAmt='" + rechargeAmt + '\'' +
+                ", denominationinKWD=" + denominationinKWD +
+                ", paymentRefId='" + paymentRefId + '\'' +
+                ", senderbalanceAfeter=" + senderbalanceAfeter +
+                ", tranType='" + tranType + '\'' +
+                ", rechargeCode='" + rechargeCode + '\'' +
+                ", serialNo='" + serialNo + '\'' +
+                ", billType='" + billType + '\'' +
+                ", paymentStatus=" + paymentStatus +
+                ", totalAmountCreditedToMerchant='" + totalAmountCreditedToMerchant + '\'' +
+                ", mdrCommission='" + mdrCommission + '\'' +
+                ", paymentType='" + paymentType + '\'' +
+                ", reason='" + reason + '\'' +
+                ", description='" + description + '\'' +
+                ", customerName='" + customerName + '\'' +
+                ", arabicCustomerName=" + Arrays.toString(arabicCustomerName) +
+                ", arabicDescription=" + Arrays.toString(arabicDescription) +
+                ", offerId=" + offerId +
+                ", discountPrice=" + discountPrice +
+                ", totalPrice=" + totalPrice +
+                ", offerDescription='" + offerDescription + '\'' +
+                ", invoiceLink='" + invoiceLink + '\'' +
+                ", medFileNo='" + medFileNo + '\'' +
+                ", accountNo='" + accountNo + '\'' +
+                ", civilId='" + civilId + '\'' +
+                ", nurseId='" + nurseId + '\'' +
+                ", emailId='" + emailId + '\'' +
+                '}';
     }
 }

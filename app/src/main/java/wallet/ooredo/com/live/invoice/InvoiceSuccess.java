@@ -16,6 +16,7 @@ import android.widget.TableRow;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.facebook.FacebookSdk;
 import com.facebook.appevents.AppEventsLogger;
 import com.google.gson.Gson;
 
@@ -53,7 +54,11 @@ public class InvoiceSuccess extends GenericActivity implements View.OnClickListe
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.invoice_success);
+        String selectedLanguage = CustomSharedPreferences.getStringData(getApplicationContext(), CustomSharedPreferences.SP_KEY.LANGUAGE);
+        if(selectedLanguage.equals("ar"))
+            setContentView(R.layout.invoice_success_right);
+        else
+            setContentView(R.layout.invoice_success);
         ypc_close = findViewById(R.id.ypc_close);
         ypc_close.setOnClickListener(this);
         invoice_success_status_text = findViewById(R.id.invoice_success_status_text);
@@ -220,6 +225,7 @@ public class InvoiceSuccess extends GenericActivity implements View.OnClickListe
     protected void onResume() {
         super.onResume();
         //Facebook
+        FacebookSdk.sdkInitialize(getApplicationContext());
         AppEventsLogger logger = AppEventsLogger.newLogger(this);
         logger.logEvent("MX_Invoice_Final");
         String selectedLanguage = CustomSharedPreferences.getStringData(getApplicationContext(), CustomSharedPreferences.SP_KEY.LANGUAGE);

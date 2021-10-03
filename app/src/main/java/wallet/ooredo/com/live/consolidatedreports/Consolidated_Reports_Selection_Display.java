@@ -5,6 +5,8 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.os.RemoteException;
 import android.util.Base64;
 import android.util.Log;
@@ -45,7 +47,16 @@ public class Consolidated_Reports_Selection_Display extends GenericActivity impl
     private Printer mPrinter;
     private boolean bloop = false;
     private boolean bthreadrunning = false;
-
+    private Message message = null;
+    private static final int MESSAGE_PRINT = 0x00;
+    public Handler mHandler = new Handler(){
+        public void handleMessage(Message msg) {
+            if (msg.what == MESSAGE_PRINT) {
+                String message = (String) msg.obj;
+                showMessage(message);
+            }
+        };
+    };
     private String fromDate,fromTime,toDate,toTime;
     MerchantReportResponse merchantReportResponse = null;
 
@@ -114,7 +125,7 @@ public class Consolidated_Reports_Selection_Display extends GenericActivity impl
         Button consolidated_report_display_print_btn = (Button)findViewById(R.id.consolidated_report_display_print_btn);
 
 
-        if(((CoreApplication) getApplication()).isPOS()) {
+        if (((CoreApplication) getApplication()).isPOS() || ((CoreApplication) getApplication()).isNewPOS()) {
 
             consolidated_report_display_print_btn.setVisibility(View.VISIBLE);
 
@@ -126,47 +137,44 @@ public class Consolidated_Reports_Selection_Display extends GenericActivity impl
         consolidated_report_display_print_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                int[] status = new int[1];
-                int ret = -1;
-                try {
-                    ret = mPrinter.getPrinterStatus(status);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-                //GETPrinterstatus(int[] status) 状态值	N	HEX1
-                // 00 打印机正常
-                // 0x01：参数错误
-                // 0x06：不可执行
-                // 0x8A：缺纸,
-                // 0x8B：过热
-                if (ret == 0) {
-                    //tvshow.setText("Printer status: " + status[0]);
-                    startPrint();
+                if (((CoreApplication) getApplication()).isPOS()) {
+                    int[] status = new int[1];
+                    int ret = -1;
+                    try {
+                        ret = mPrinter.getPrinterStatus(status);
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                    if (ret == 0) {
+                        startPrint();
+                    } else {
+                        Toast.makeText(getApplicationContext(), "Printer not available on device..!" + ret, Toast.LENGTH_SHORT).show();
+                    }
                 } else {
-                    //tvshow.setText("Fail");
-                    Toast.makeText(getApplicationContext(), "Printer not available on device..!"+ret, Toast.LENGTH_SHORT).show();
-
-//                    startPrint();
-
-                    // Get a PrintManager instance
-//                    PrintManager printManager = (PrintManager) TransactionHistoryDisplayActivity.this
-//                            .getSystemService(Context.PRINT_SERVICE);
-//
-//                    // Set job name, which will be displayed in the print queue
-//                    String jobName = TransactionHistoryDisplayActivity.this.getString(R.string.app_name) + " Document";
-//
-//                    // Start a print job, passing in a PrintDocumentAdapter implementation
-//                    // to handle the generation of a print document
-//                    printManager.print(jobName, new MyPrintDocumentAdapter(getActivity()),
-//                            null);
-
-//                    startPrintPax();
+                    //startSDKPrint();
                 }
-
             }
         });
 
+    }
+    public void showMessage(String str){
+        Toast.makeText(Consolidated_Reports_Selection_Display.this, str+"", Toast.LENGTH_SHORT).show();
+    }
+    private void startSDKPrint() {
+        new Thread(){
+            public void run() {
+                try {
+                    int ret=0;
+
+                    message = new Message();
+                    message.what = MESSAGE_PRINT;
+                    message.obj = ret+"";
+                    mHandler.sendMessage(message);
+                } catch (Exception e) {
+                    // TODO Auto-generated catch block
+                    e.printStackTrace();
+                }
+            }}.start();
     }
 
     private void startPrint() {

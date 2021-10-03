@@ -14,6 +14,33 @@ public class PayToMerchantCommitRequestResponse extends GenericResponse{
     private double merchant_balance;
     private String customerMobileNumber;
 
+	private String branch;
+	private String receiverWalletId;
+	private String attacjmentLink;
+
+	public String getBranch() {
+		return branch;
+	}
+
+	public void setBranch(String branch) {
+		this.branch = branch;
+	}
+
+	public String getReceiverWalletId() {
+		return receiverWalletId;
+	}
+
+	public void setReceiverWalletId(String receiverWalletId) {
+		this.receiverWalletId = receiverWalletId;
+	}
+
+	public String getAttacjmentLink() {
+		return attacjmentLink;
+	}
+
+	public void setAttacjmentLink(String attacjmentLink) {
+		this.attacjmentLink = attacjmentLink;
+	}
 
 
 	public String getMdrCommission() {

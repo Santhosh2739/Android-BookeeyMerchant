@@ -26,30 +26,21 @@ import ycash.wallet.json.pojo.paytomerchant.PayToMerchantCommitRequestResponse;
 import ycash.wallet.json.pojo.paytomerchant.PayToMerchantRequestResponse;
 import ycash.wallet.json.pojo.transactionhistory.TransactionHistoryRequest;
 import ycash.wallet.json.pojo.transactionhistory.TransactionHistoryResponse;
-
 /**
  * Created by mohit on 10-12-2015.
  */
 public class SyncService extends IntentService {
-
     public static final int STATUS_RUNNING = 0;
     public static final int STATUS_FINISHED = 1;
     public static final int STATUS_ERROR = 2;
     public static final int STATUS_SESSION_INVALID = 3;
-
     public static final String TAG = "SyncService";
-
     public static final int TYPE_TRANS_HIST = 1;
     public static final int TYPE_USER_LOGGED_IN_STATUS = 2;
     public static final String TYPE_TRANS_HIST_FOR_SEARCH = "TYPE_TRANS_HIST_FOR_SEARCH";
-
-
     public static final String TYPE_TRANS_TYPE_FOR_HIST_FOR_SEARCH = "TYPE_TRANS_TYPE_FOR_HIST_FOR_SEARCH";
-
     public static final String TYPE_MOBILE_NO_FOR_HIST_FOR_SEARCH = "TYPE_MOBILE_NO_FOR_HIST_FOR_SEARCH";
-
-
-    private String tran_type_selected,mobile_no_for_search = "";
+    private String tran_type_selected, mobile_no_for_search = "";
 
     public SyncService() {
         super(SyncService.class.getName());
@@ -61,13 +52,8 @@ public class SyncService extends IntentService {
         final ResultReceiver receiver = intent.getParcelableExtra("receiver");
         int type = intent.getIntExtra("type", -1);
         boolean search = intent.getBooleanExtra(TYPE_TRANS_HIST_FOR_SEARCH, false);
-
-
         tran_type_selected = intent.getStringExtra(TYPE_TRANS_TYPE_FOR_HIST_FOR_SEARCH);
-
         mobile_no_for_search = intent.getStringExtra(TYPE_MOBILE_NO_FOR_HIST_FOR_SEARCH);
-
-
         Bundle bundle = new Bundle();
         if (type == -1) {
             //SEND ERROR HERE
@@ -76,9 +62,8 @@ public class SyncService extends IntentService {
             return;
         }
         if (type == TYPE_TRANS_HIST) {
-
 //            if(search){
-                refreshTransactionHistory(intent,search,tran_type_selected,mobile_no_for_search);
+            refreshTransactionHistory(intent, search, tran_type_selected, mobile_no_for_search);
 //            }else {
 //                refreshTransactionHistory(intent,search,tran_type_selected,mobile_no_for_search);
 //            }
@@ -91,10 +76,9 @@ public class SyncService extends IntentService {
         this.stopSelf();
     }
 
-    private void refreshTransactionHistory(Intent intent, boolean search,String tran_type_selected, String mobile_no_for_search) {
+    private void refreshTransactionHistory(Intent intent, boolean search, String tran_type_selected, String mobile_no_for_search) {
         final ResultReceiver receiver = intent.getParcelableExtra("receiver");
         Bundle bundle = new Bundle();
-
         long from = intent.getLongExtra("from", -1L);
         if (from == -1L) {
             bundle.putString(Intent.EXTRA_TEXT, "FROM REQUIRED");
@@ -102,61 +86,36 @@ public class SyncService extends IntentService {
             return;
         }
         receiver.send(STATUS_RUNNING, Bundle.EMPTY);
-
         MerchantLoginRequestResponse onlineLoginResponse = ((CoreApplication) getApplicationContext()).getMerchantLoginRequestResponse();
         TransactionHistoryRequest transactionHistoryRequest = new TransactionHistoryRequest();
         transactionHistoryRequest.setG_transType(TransType.MERCHANT_TRAN_HISTORY_REQUEST.name());
         String authtoken = CustomSharedPreferences.getStringData(getApplicationContext(), CustomSharedPreferences.SP_KEY.AUTH_TOKEN);
         transactionHistoryRequest.setG_oauth_2_0_client_token(authtoken);
         transactionHistoryRequest.setFrom((int) from);
-
-
-
-        if(tran_type_selected!=null && tran_type_selected.length()>0){
-
-
-
+        if (tran_type_selected != null && tran_type_selected.length() > 0) {
             transactionHistoryRequest.setTranType(tran_type_selected);
-
-            if(mobile_no_for_search!=null && mobile_no_for_search.length()==8) {
-
+            if (mobile_no_for_search != null && mobile_no_for_search.length() == 8) {
                 transactionHistoryRequest.setMobileNo(mobile_no_for_search);
-
             }
-
-
-        }else{
-
+        } else {
             transactionHistoryRequest.setTranType("all");
         }
-
-
-
         String json = new Gson().toJson(transactionHistoryRequest);
         Log.i("Request : ", json);
         StringBuffer buffer = new StringBuffer();
         buffer.append(TransType.MERCHANT_TRAN_HISTORY_REQUEST.getURL());
-
         buffer.append("?d=" + URLUTF8Encoder.encode(json));
-
-
-
 //        if(search && mobile_no_for_search!=null && mobile_no_for_search.length()==8) {
 //
 //            buffer.append("?d={" + URLUTF8Encoder.encode(json));
 //
 //        }else if(search){
-
 //            buffer.append("?d={" + URLUTF8Encoder.encode(json)+"}");
-
 //            buffer.append("?d=" + URLUTF8Encoder.encode(json));
 //        }
 //        else{
 //            buffer.append("?d=" + URLUTF8Encoder.encode(json));
 //        }
-
-
-
 //        if(mobile_no_for_search!=null && mobile_no_for_search.length()==8 ) {
 //
 //        String mobileJoStr = "";
@@ -172,8 +131,6 @@ public class SyncService extends IntentService {
 //
 //            buffer.append(","+mobileJoStr);
 //        }
-
-
         Message msg = ServerConnection.directNonHandlerHTTPClient(buffer.toString(), -1);
         if (msg.arg1 == ServerConnection.OPERATION_SUCCESS) {
             try {
@@ -188,7 +145,6 @@ public class SyncService extends IntentService {
                         receiver.send(STATUS_ERROR, bundle);
                         return;
                     }
-
                     //MOHIT 11-12-2015
                     //There was problem in Mobile Device While De Serializing this,
                     //Now Performming manual JSON DE PARSE FOR ENTIRE
@@ -196,7 +152,7 @@ public class SyncService extends IntentService {
                     //TransactionHistoryResponse res = new Gson().fromJson((String)msg.obj,TransactionHistoryResponse.class);
                     TransactionHistoryResponse res = new TransactionHistoryResponse();
                     //res.getRecords().clear();
-                    Log.i("response response : ", response.toString());
+                    Log.e("response response : ", response.toString());
                     JSONObject jsonObject = new JSONObject((String) msg.obj);
                     JSONArray jsonArray = jsonObject.getJSONArray("records");
                     if (jsonArray.length() > 0) {
@@ -204,6 +160,7 @@ public class SyncService extends IntentService {
                         for (int i = 0; i < jsonArray.length(); i++) {
                             TransType type = TransType.valueOf(jsonArray.getJSONObject(i).getString("g_response_trans_type"));
                             String string = jsonArray.getJSONObject(i).toString();
+                            Log.e("hist : ", string);
                             switch (type) {//P2P received
                                 case PAY_TO_MERCHANT_RESPONSE:
                                     all.add(new Gson().fromJson(string, PayToMerchantRequestResponse.class));
@@ -229,18 +186,14 @@ public class SyncService extends IntentService {
                             //BLANKET OVERWRITE
                             ((CoreApplication) getApplicationContext()).setTransactionHistoryResponse(res);
                         } else {
-
-
-                            if(search) {
-
+                            if (search) {
                                 //ONLY SEAR TRANSACTIONS
                                 coreResponse.getRecords().clear();
                                 coreResponse.getRecords().addAll(all);
                                 coreResponse.setFrom(res.getFrom());
                                 coreResponse.setTo(res.getTo());
                                 coreResponse.setTotalNoOfTransactions(res.getTotalNoOfTransactions());
-
-                            }else {
+                            } else {
                                 //CONTENT ADDITION
                                 coreResponse.getRecords().addAll(all);
                                 coreResponse.setFrom(res.getFrom());

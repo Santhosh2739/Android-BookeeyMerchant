@@ -108,7 +108,7 @@ public class TransactionHistoryActivity extends ListActivity implements Download
      * Please check the system time
      */
     public static final byte SRCODE_7A_SMM_TIME_ERROR = 40;
-//    public static final byte SRCODE_8_TPIN_STATE_BLOCKED = TRANSACTION_PIN_STATE.STATE_BLOCKED;// L1//42
+    //    public static final byte SRCODE_8_TPIN_STATE_BLOCKED = TRANSACTION_PIN_STATE.STATE_BLOCKED;// L1//42
 //    public static final byte SRCODE_9_TPIN_STATE_CHANGE_ENFORCED = TRANSACTION_PIN_STATE.STATE_CHANGE_FORCED;// L1//43
 //    public static final byte SRCODE_10_TPIN_STATE_INITIALIZED = TRANSACTION_PIN_STATE.STATE_INITIALIZED;// /44
 //    public static final byte SRCODE_11_TPIN_STATE_NOT_INITIALIZED = TRANSACTION_PIN_STATE.STATE_NOT_INITIALIZED;// L1//45
@@ -294,6 +294,7 @@ public class TransactionHistoryActivity extends ListActivity implements Download
     //This is an internal state and shall never send as server response to client for querying the pin state
     public static final int STATE_UNKNOWN = 0x80;
     private static final String KEY_TRANTYPE_SELECTED_INDEX = "KEY_TRANTYPE_SELECTED_INDEX";
+    private final Handler handler = new Handler();
     boolean loadingMore = false;
     boolean errorMsg = true;
     boolean refreshClicked = false;
@@ -305,8 +306,7 @@ public class TransactionHistoryActivity extends ListActivity implements Download
     Spinner spin = null;
     int listsize = 0;
     Bitmap[] iconArray = null;
-    Bitmap ypc_cc_success, ypc_cc_failure, ypc_cc_rejected, ypc_cc_duplicate, ypc_cc_waiting;
-    private final Handler handler = new Handler();
+    Bitmap ypc_cc_success, ypc_cc_failure, ypc_cc_rejected, ypc_cc_duplicate, ypc_cc_waiting, ypc_cc_expired;
     private CustomList adapter = null;
     private DownloadResultReceiver mReceiver = null;
     private View loadMoreView;
@@ -314,7 +314,7 @@ public class TransactionHistoryActivity extends ListActivity implements Download
     private ImageView txn_refresh_image;
     //    String[] tran_types = { "Filter by payment status","All",  "SUCCESS","PENDING", "FAILED"};
     private EditText edit_search_by_mobile_no;
-//    private ProgressDialog dialog;
+    //    private ProgressDialog dialog;
     private boolean searchEnabled = false;
 
     @Override
@@ -328,11 +328,12 @@ public class TransactionHistoryActivity extends ListActivity implements Download
         txn_refresh_image = (ImageView) findViewById(R.id.txn_refresh_image);
         Pbar = (ProgressBar) findViewById(R.id.progressBar1);
 //        tran_types.add("Filter by payment status");
-        tran_types.add("All");
-        tran_types.add("SUCCESS");
-        tran_types.add("PENDING");
-        tran_types.add("REJECTED");
-        tran_types.add("FAILED");
+        tran_types.add(getString(R.string.all));
+        tran_types.add(getString(R.string.pending_invoice));
+        tran_types.add(getString(R.string.success_invoice));
+        tran_types.add(getString(R.string.rejected_invoice));
+        tran_types.add(getString(R.string.failed_invoice));
+        tran_types.add(getString(R.string.expired_invoice));
         listsize = tran_types.size() - 1;
         spin = (Spinner) findViewById(R.id.txn_filter);
 //        spin.setPrompt("Filter by payment status");
@@ -414,25 +415,6 @@ public class TransactionHistoryActivity extends ListActivity implements Download
                                       int before, int count) {
             }
         });
-//        ActionBar abar = getActionBar();
-//        View viewActionBar = getLayoutInflater().inflate(R.layout.actionbar_new,
-//                null);
-//        ActionBar.LayoutParams params = new ActionBar.LayoutParams(
-//                // Center the textview in the ActionBar !
-//                ActionBar.LayoutParams.WRAP_CONTENT,
-//                ActionBar.LayoutParams.MATCH_PARENT, Gravity.CENTER);
-//
-//        TextView textviewTitle = (TextView) viewActionBar
-//                .findViewById(R.id.actionbar_textview);
-//
-//        textviewTitle.setText("Transaction Summary");
-//        abar.setCustomView(viewActionBar, params);
-//        abar.setDisplayShowCustomEnabled(true);
-//        abar.setDisplayShowTitleEnabled(false);
-//        abar.setDisplayHomeAsUpEnabled(false);
-//        abar.setDisplayUseLogoEnabled(true);
-//        abar.setLogo(R.drawable.icon);
-//        abar.setHomeButtonEnabled(true);
         txn_refresh.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -550,10 +532,22 @@ public class TransactionHistoryActivity extends ListActivity implements Download
         searchEnabled = true;
         if (position > 0) {
             CustomSharedPreferences.saveIntData(getApplicationContext(), position, CustomSharedPreferences.SP_KEY.KEY_TRANTYPE_SELECTED_INDEX);
-//            tran_type_selected = parent.getSelectedItem().toString().toLowerCase();
-            tran_type_selected = tran_types.get(position).toLowerCase();
-            if (tran_type_selected.equalsIgnoreCase("REJECTED")) {
-                tran_type_selected = "reject";
+            switch (position) {
+                case 1:
+                    tran_type_selected = "pending";
+                    break;
+                case 2:
+                    tran_type_selected = "success";
+                    break;
+                case 3:
+                    tran_type_selected = "reject";
+                    break;
+                case 4:
+                    tran_type_selected = "failed";
+                    break;
+                case 5:
+                    tran_type_selected = "expiry";
+                    break;
             }
             //Search will starts
             search = true;
@@ -601,16 +595,6 @@ public class TransactionHistoryActivity extends ListActivity implements Download
 //        hideKeyBoard();
     }
 
-
-
-
-
-    /*@Override
-    protected void onSaveInstanceState(Bundle outState) {
-        outState.putString("WORKAROUND_FOR_BUG_19917_KEY", "WORKAROUND_FOR_BUG_19917_VALUE");
-        super.onSaveInstanceState(outState);
-    }*/
-
     @Override
     public void onNothingSelected(AdapterView<?> parent) {
     }
@@ -618,6 +602,7 @@ public class TransactionHistoryActivity extends ListActivity implements Download
     void requestLoadingOfList(boolean requestRefresh, boolean search, String tran_type_selected, String mobile_no_for_search) {
 //        dialog.setMessage("Fetching data, please wait.");
 //        dialog.show();
+        Log.e("tran_type_selected", tran_type_selected);
         long from = -1;
         TransactionHistoryResponse transactionHistoryResponse = ((CoreApplication) getApplication()).getTransactionHistoryResponse();
         if (transactionHistoryResponse.getRecords().size() == 0) {
@@ -853,17 +838,19 @@ public class TransactionHistoryActivity extends ListActivity implements Download
     }
 
     private void initializeIcons() {
-        iconArray = new Bitmap[5];
+        iconArray = new Bitmap[6];
         ypc_cc_success = iconArray[0] = BitmapFactory.decodeResource(
                 getResources(), R.drawable.mer_green);
         ypc_cc_failure = iconArray[1] = BitmapFactory.decodeResource(
-                getResources(), R.drawable.mer_fail);
+                getResources(), R.drawable.mer_exc);
         ypc_cc_rejected = iconArray[2] = BitmapFactory.decodeResource(
-                getResources(), R.drawable.mer_fail);
+                getResources(), R.drawable.mer_exc);
         ypc_cc_duplicate = iconArray[3] = BitmapFactory.decodeResource(
                 getResources(), R.drawable.mer_exc);
         ypc_cc_waiting = iconArray[4] = BitmapFactory.decodeResource(
                 getResources(), R.drawable.mer_q);
+        ypc_cc_expired = iconArray[5] = BitmapFactory.decodeResource(
+                getResources(), R.drawable.expired);
     }
 
     private Bitmap getYPCCustomerLogsIcon(int value) {
@@ -1131,7 +1118,6 @@ public class TransactionHistoryActivity extends ListActivity implements Download
                     holder.textNextLine.setText(TimeUtils.getDisplayableDateWithSeconds(time_zone_str, new Date(payToMerchantRequestResponse.getServerTime())));
                     holder.amount.setText("Amount" + " " + PriceFormatter.format(payToMerchantRequestResponse.getTxnAmount(), 3, 3));
                     holder.invoice_image.setVisibility(View.GONE);
-
                     break;
                 case PAY_TO_MERCHANT_COMMIT_REQUEST_RESPONSE:
                     PayToMerchantCommitRequestResponse payToMerchantCommitRequestResponse = (PayToMerchantCommitRequestResponse) genericResponse;
@@ -1141,7 +1127,6 @@ public class TransactionHistoryActivity extends ListActivity implements Download
                     holder.textNextLine.setText(TimeUtils.getDisplayableDateWithSeconds(time_zone_str, new Date(payToMerchantCommitRequestResponse.getServerTime())));
                     holder.amount.setText("Amount" + " " + PriceFormatter.format(payToMerchantCommitRequestResponse.getTxnAmount(), 3, 3));
                     holder.invoice_image.setVisibility(View.GONE);
-
                     break;
                 case INVOICE_TRAN_RESPONSE:
                     InvoiceTranHistoryResponsePojo tran_invoice = (InvoiceTranHistoryResponsePojo) genericResponse;
@@ -1193,7 +1178,7 @@ public class TransactionHistoryActivity extends ListActivity implements Download
                                 }*/
                             break;
                         case 1:
-                            holder.icon.setImageDrawable(getResources().getDrawable(R.drawable.mer_fail));
+                            holder.icon.setImageDrawable(getResources().getDrawable(R.drawable.mer_exc));
                             //payment_confirm_status.setText("HOLD");
                             break;
                         case 2:
@@ -1206,6 +1191,10 @@ public class TransactionHistoryActivity extends ListActivity implements Download
                         case 4:
                             holder.icon.setImageDrawable(getResources().getDrawable(R.drawable.mer_exc));
                             //payment_confirm_status.setText("FAILED");
+                            break;
+                        case 5:
+                            holder.icon.setImageDrawable(getResources().getDrawable(R.drawable.expired));
+                            //payment_confirm_status.setText("EXPIRED");
                             break;
                         default:
                             break;

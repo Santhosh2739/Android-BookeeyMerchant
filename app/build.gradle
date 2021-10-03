@@ -14,8 +14,8 @@ android {
 //        versionName "3.3"
 
         //For Live in Google Play Beta
-        versionCode 52
-        versionName "6.2"
+        versionCode 53
+        versionName "6.3"
     }
     buildTypes {
         release {
@@ -49,7 +49,7 @@ dependencies {
     implementation files('libs/SDK4EmvBinderV2.1.4.jar')
     implementation files('libs/SDK4KeyManagerBinderV2.1.4.jar')
     //compile 'com.google.android.gms:play-services:10.0.1'
-
+    implementation files('libs/platform_sdk_v4.1.0326.jar')
     //Facebook
     implementation 'com.facebook.android:facebook-android-sdk:4.7.0'
 }

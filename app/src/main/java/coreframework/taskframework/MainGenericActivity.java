@@ -107,8 +107,8 @@ public class MainGenericActivity extends FragmentActivity implements YPCHeadless
                 return true;
 
             case R.id.action_bar_check_for_updates:
-
-                checkforupdate();
+                if (!((CoreApplication) getApplication()).isPOS())
+                    checkforupdate();
                 //Toast.makeText(MainGenericActivity.this, "Disabled.", Toast.LENGTH_LONG).show();
                  return true;
             case R.id.action_bar_contact_us:

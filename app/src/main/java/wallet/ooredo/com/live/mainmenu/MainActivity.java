@@ -2,7 +2,6 @@ package wallet.ooredo.com.live.mainmenu;
 
 import android.Manifest;
 import android.app.ActionBar;
-
 import android.app.AlertDialog;
 import android.app.PendingIntent;
 import android.content.BroadcastReceiver;
@@ -174,7 +173,7 @@ public class MainActivity extends MainGenericActivity implements YPCHeadlessCall
     private ArrayList<String> permissionsRejected = new ArrayList<>();
     private ArrayList<String> permissions = new ArrayList<>();
     private TelephonyManager mTelephonyManager;
-//    Oct 03 for
+    //    Oct 03 for
     private Location mLocation;
     private LocationManager mLocationManager;
     private com.google.android.gms.location.LocationListener listener;
@@ -538,8 +537,10 @@ public class MainActivity extends MainGenericActivity implements YPCHeadlessCall
         mLocationManager = (LocationManager) this.getSystemService(Context.LOCATION_SERVICE);
         checkLocation();
         versionname = BuildConfig.VERSION_NAME;
-        VersionChecker versionChecker = new VersionChecker();
-        versionChecker.execute();
+        if (!((CoreApplication) getApplication()).isPOS()) {
+            VersionChecker versionChecker = new VersionChecker();
+            versionChecker.execute();
+        }
     }
 
     private boolean checkLocation() {
@@ -808,47 +809,6 @@ public class MainActivity extends MainGenericActivity implements YPCHeadlessCall
             return true;
         }
     }
-//    @Override
-//    public void onConnectionSuspended(int i) {
-//
-//    }
-//
-//    @Override
-//    public void onConnectionFailed(@NonNull ConnectionResult connectionResult) {
-//        if (connectionResult.hasResolution()) {
-//            try {
-//                // Start an Activity that tries to resolve the error
-//                connectionResult.startResolutionForResult(this, CONNECTION_FAILURE_RESOLUTION_REQUEST);
-//                /*
-//                 * Thrown if Google Play services canceled the original
-//                 * PendingIntent
-//                 */
-//            } catch (IntentSender.SendIntentException e) {
-//                // Log the error
-//                e.printStackTrace();
-//            }
-//        } else {
-//            /*
-//             * If no resolution is available, display a dialog to the
-//             * user with the error.
-//             */
-//            // Toast.makeText(getApplicationContext(), "allow gps", Toast.LENGTH_LONG).show();
-//            Log.e("Error", "Location services connection failed with code " + connectionResult.getErrorCode());
-//        }
-//
-//    }
-//
-//    @Override
-//    public void onLocationChanged(Location location) {
-//        currentLatitude = location.getLatitude();
-//        currentLongitude = location.getLongitude();
-//        //  Toast.makeText(this, currentLatitude + "  changed WORKS " + currentLongitude + "", Toast.LENGTH_LONG).show();
-//        if (count == 0) {
-//            convertLatLngToLocation(currentLatitude, currentLongitude);
-//            count++;
-//        }
-//
-//    }
 
     private float getBatteryLevel() {
         Intent batteryIntent = registerReceiver(null, new IntentFilter(Intent.ACTION_BATTERY_CHANGED));

@@ -94,7 +94,10 @@
     <string name="wallet_payment_receipt">Wallet payment receipt  </string>
     <string name="transaction_payment_receipt">Transaction Payment Receipt  </string>
     <string name="invoice_no">Invoice No </string>
-    <string name="mobile_no">Mobile No *</string>
+    <string name="mobile_no">Mobile no</string>
+    <string name="enter_mobile_no">Enter customer mobile no *</string>
+    <string name="enter_sms_no">Enter recipient number</string>
+    <string name="send_sms_to">Send payment link to *</string>
     <string name="mobile_no_out_star">Mobile No </string>
     <string name="amount">Amount *</string>
     <string name="amount_with_out_star">Amount </string>
@@ -217,7 +220,7 @@
     <string name="alert">Alert!</string>
     <string name="invoice_expire_success">Invoice Expired Successfully!</string>
     <string name="whatsapp_no">WhatsApp No</string>
-    <string name="method_of_sending_link">Method of Sending Link</string>
+    <string name="method_of_sending_link">Method of sending payment Link</string>
     <string name="SMS">SMS</string>
     <string name="WhatsApp">WhatsApp</string>
     <string name="offer_description">Offer Description</string>

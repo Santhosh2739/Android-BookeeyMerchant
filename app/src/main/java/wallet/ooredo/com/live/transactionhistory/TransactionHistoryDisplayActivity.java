@@ -1272,6 +1272,7 @@ public class TransactionHistoryDisplayActivity extends GenericActivity implement
                     //Detecting the in-place status of the card during printing
                     //mPrinter.printPaper_trade(5,100);
                     result = mPrinter.printFinish();
+                    mPrinter.clearPrintDataCache();
                 } catch (Exception e1) {
                     e1.printStackTrace();
                 }

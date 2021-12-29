@@ -121,6 +121,7 @@ public class InvoiceSuccess extends GenericActivity implements View.OnClickListe
                 String cName = response_obj.getCustName() != null && !response_obj.getCustName().equals("") ? response_obj.getCustName() : "Customer";
                 String lang = response_obj.getLanguage() != null ? response_obj.getLanguage() : "English";
                 String merchant_name = CustomSharedPreferences.getStringData(getApplication(), CustomSharedPreferences.SP_KEY.NAME);
+                boolean isWhatsapp = response_obj.isSMSSent();
                 if (lang.equalsIgnoreCase("English")) {
                     sendLink = "Dear " + cName + ",\nYou have an invoice from " + merchant_name + "." + " \nClick on the below link to view and pay\n\nStatus: " + "Pending" + "\n\nAmount: " + response_obj.getAmount() + "\n\nInvoice URL: " + response_obj.getInvoiceLink();
                 } else {
@@ -178,7 +179,7 @@ public class InvoiceSuccess extends GenericActivity implements View.OnClickListe
                         invoice_success_img_id.setImageResource(R.drawable.invoice_success);
                         break;
                 }
-                if (whatsAppNo != null && !whatsAppNo.equals("")) {
+                if (!isWhatsapp && !whatsAppNo.equals("")) {
                     openWhatsApp();
                 }
             }

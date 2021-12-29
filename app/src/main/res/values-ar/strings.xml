@@ -20,6 +20,9 @@
     <string name="wallet_payment_receipt">ايصال تحصيل المبلغ</string>
     <string name="invoice_no">رقم الفاتورة</string>
     <string name="mobile_no">رقم النقال</string>
+    <string name="enter_mobile_no">ادخل رقم موبايل العميل</string>
+    <string name="send_sms_to">ارسل رابط الدفع الي</string>
+    <string name="enter_sms_no">ادخل رقم المستلم</string>
     <string name="amount">المبلغ</string>
     <string name="language">اللغة</string>
     <string name="customer_name">اسم العميل</string>
@@ -143,7 +146,7 @@
     <string name="due_to_merchant">المستحق للتاجر</string>
     <string name="update_app_dialogue_desc">يبدو أنك تستخدم إصدارًا أقدم من Bookeey. قم بالتحديث الآن للحصول على أداء أفضل وأحدث الميزات.</string>
     <string name="whatsapp_no">WhatsApp No</string>
-    <string name="method_of_sending_link">طريقة إرسال الفاتورة</string>
+    <string name="method_of_sending_link">وسيلة ارسال رابط الدفع</string>
     <string name="SMS">رسالة نصية</string>
     <string name="WhatsApp">واتس اب</string>
     <string name="offer_description">وصف العرض</string>

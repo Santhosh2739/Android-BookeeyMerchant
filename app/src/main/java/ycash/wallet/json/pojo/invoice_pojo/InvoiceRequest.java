@@ -12,6 +12,7 @@ public class InvoiceRequest extends GenericRequest {
 
     private String invoiceNo;
     private String mobileNo;
+    private String sendSMSto;
     private double amount;
     private String merchantRefNumber;
     private boolean isMerchantRequest;
@@ -101,6 +102,13 @@ public class InvoiceRequest extends GenericRequest {
 
     private String invoiceLink;
 
+    public String getSendSMSto() {
+        return sendSMSto;
+    }
+
+    public void setSendSMSto(String sendSMSto) {
+        this.sendSMSto = sendSMSto;
+    }
 
     public String getLanguage() {
         return language;

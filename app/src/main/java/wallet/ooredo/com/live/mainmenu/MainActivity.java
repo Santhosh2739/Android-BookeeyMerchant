@@ -1695,7 +1695,6 @@ public class MainActivity extends MainGenericActivity implements YPCHeadlessCall
 
         @Override
         protected void onPostExecute(String latestVersion) {
-//        hideIfVisible();
             Log.e("Version", "" + latestVersion);
             if (latestVersion != null && !latestVersion.isEmpty()) {
                 double live_version = Double.parseDouble(latestVersion);
@@ -1713,18 +1712,8 @@ public class MainActivity extends MainGenericActivity implements YPCHeadlessCall
                             startActivity(intent);
                         }
                     });
-
-/*                    alertDialog.setNegativeButton(getResources().getString(R.string.no_newflow), new DialogInterface.OnClickListener() {
-                        public void onClick(DialogInterface dialog, int which) {
-
-                            dialog.dismiss();
-                        }
-                    });*/
                     alertDialog.setCancelable(false);
                     alertDialog.show();
-                } else {
-//                check_for_updates_up_to_date.setText(getResources().getString(R.string.check_up_to_date));
-//                check_for_updates_version_no.setText(getResources().getString(R.string.current_version) + versionname);
                 }
             }
         }
@@ -1732,15 +1721,6 @@ public class MainActivity extends MainGenericActivity implements YPCHeadlessCall
         @Override
         protected String doInBackground(String... params) {
             try {
-                //new way to get version number
-               /* newVersion = Jsoup.connect("https://play.google.com/store/apps/details?id=" + "trai.gov.in.dnd" + "&hl=en")
-                        .timeout(30000)
-                        .userAgent("Mozilla/5.0 (Windows; U; WindowsNT 5.1; en-US; rv1.8.1.6) Gecko/20070725 Firefox/2.0.0.6")
-                        .referrer("http://www.google.com")
-                        .get()
-                        .select(".xyOfqd .hAyfc:nth-child(4) .htlgb span")
-                        .get(0)
-                        .ownText();*/
                 Document document = Jsoup.connect("https://play.google.com/store/apps/details?id=" + BuildConfig.APPLICATION_ID + "&hl=en")
                         .timeout(30000)
                         .userAgent("Mozilla/5.0 (Windows; U; WindowsNT 5.1; en-US; rv1.8.1.6) Gecko/20070725 Firefox/2.0.0.6")

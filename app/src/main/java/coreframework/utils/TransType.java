@@ -67,6 +67,7 @@ public enum TransType {
     MERCHANT_OFFER_RESPONSE,
     INVOICE_EXPIRY_REQUUEST(ADDRESS_BASE.getURL()),
     INVOICE_EXPIRY_RESPONSE;
+
     private String server_controller_mapping;
 
     TransType() {

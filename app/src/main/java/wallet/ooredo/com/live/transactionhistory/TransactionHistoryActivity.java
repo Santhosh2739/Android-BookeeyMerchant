@@ -45,6 +45,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import coreframework.controller.RefreshTransactionController;
 import coreframework.database.CustomSharedPreferences;
 import coreframework.taskframework.YPCHeadlessCallback;
 import coreframework.utils.PriceFormatter;
@@ -61,6 +62,7 @@ import ycash.wallet.json.pojo.invoice_pojo.InvoiceTranHistoryResponsePojo;
 import ycash.wallet.json.pojo.merchantlogin.MerchantLoginRequestResponse;
 import ycash.wallet.json.pojo.paytomerchant.PayToMerchantCommitRequestResponse;
 import ycash.wallet.json.pojo.paytomerchant.PayToMerchantRequestResponse;
+import ycash.wallet.json.pojo.transactionhistory.RefreshTransactionRequest;
 import ycash.wallet.json.pojo.transactionhistory.TransactionHistoryResponse;
 /**
  * Created by mohit on 6/1/16.
@@ -1157,46 +1159,52 @@ public class TransactionHistoryActivity extends ListActivity implements Download
                         case 0:
                             holder.icon.setImageDrawable(getResources().getDrawable(R.drawable.exclaimation_android52));
                             //payment_confirm_status.setText("PENDING");
-                             /*if (null != tran_invoice.getPyMethod() && !tran_invoice.getPyMethod().isEmpty()) {
-                                    holder.invoice_refresh_button.setVisibility(View.VISIBLE);
-                                    holder.invoice_refresh_button.setOnClickListener(view -> {
-                                        RefreshTransactionRequest data = new RefreshTransactionRequest();
-                                        data.setPayAMT(invoiceList.getDocamt().toString());
-                                        data.setPayMethod(invoiceList.getPyMethod());
-                                        data.setRefID(invoiceList.getTrackUID());
-                                        data.setRefType("TrackID");
-                                        Log.e("Refresh Request", data.toString());
-                                        RefreshTransactionController request = RefreshTransactionController.getInstance();
-                                        request.setActivity(TransactionHistoryActivity.this);
-                                        request.setPaymentResponse(response -> {
-                                            Log.i("paymentResponse", response);
-                                            if (response.equals("CAPTURED"))
-                                                holder.icon.setImageDrawable(getResources().getDrawable(R.drawable.mer_green));
-                                        });
-                                        request.initiatePayment(data);
+                            if (tran_invoice.getPaymentType() != null && !tran_invoice.getPaymentType().isEmpty()) {
+                                holder.invoice_refresh_button.setVisibility(View.VISIBLE);
+                                holder.invoice_refresh_button.setOnClickListener(view -> {
+                                    RefreshTransactionRequest data = new RefreshTransactionRequest();
+                                    data.setTransactionRefNo(tran_invoice.getTransactionId());
+                                    Log.e("Refresh Request", data.toString());
+                                    RefreshTransactionController request = RefreshTransactionController.getInstance();
+                                    request.setActivity(TransactionHistoryActivity.this);
+                                    request.setPaymentResponse(response -> {
+                                        Log.i("paymentResponse", response);
+                                        if (response.equals("CAPTURED")) {
+                                            holder.invoice_refresh_button.setVisibility(View.GONE);
+                                            holder.icon.setImageDrawable(getResources().getDrawable(R.drawable.mer_green));
+                                            tran_invoice.setPaymentStatus((byte)2);
+                                        }
                                     });
-                                }*/
+                                    request.initiatePayment(data);
+                                });
+                            }
                             break;
                         case 1:
                             holder.icon.setImageDrawable(getResources().getDrawable(R.drawable.mer_exc));
+                            holder.invoice_refresh_button.setVisibility(View.GONE);
                             //payment_confirm_status.setText("HOLD");
                             break;
                         case 2:
                             holder.icon.setImageDrawable(getResources().getDrawable(R.drawable.mer_green));
+                            holder.invoice_refresh_button.setVisibility(View.GONE);
                             //payment_confirm_status.setText("SUCCESS");
                             break;
                         case 3:
                             holder.icon.setImageDrawable(getResources().getDrawable(R.drawable.mer_exc));
+                            holder.invoice_refresh_button.setVisibility(View.GONE);
                             //payment_confirm_status.setText("REJECTED");
                         case 4:
                             holder.icon.setImageDrawable(getResources().getDrawable(R.drawable.mer_exc));
+                            holder.invoice_refresh_button.setVisibility(View.GONE);
                             //payment_confirm_status.setText("FAILED");
                             break;
                         case 5:
                             holder.icon.setImageDrawable(getResources().getDrawable(R.drawable.expired));
+                            holder.invoice_refresh_button.setVisibility(View.GONE);
                             //payment_confirm_status.setText("EXPIRED");
                             break;
                         default:
+                            holder.invoice_refresh_button.setVisibility(View.GONE);
                             break;
                     }
                     if (tran_invoice.getServerTime() != 0) {

@@ -70,7 +70,6 @@ public class Splash extends Activity {
                 }
                 boolean isLoggedIn = ((CoreApplication) getApplication()).isUserLoggedIn();
                 Log.e("isLoggedIn", "" + isLoggedIn);
-                Log.e("isLoggedIn", "" + isLoggedIn);
                 if (isLoggedIn) {
                     Intent in = new Intent(Splash.this, wallet.ooredo.com.live.mainmenu.MainActivity.class);
                     startActivity(in);

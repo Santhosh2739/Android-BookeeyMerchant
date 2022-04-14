@@ -96,6 +96,7 @@
             android:layout_gravity="center"
             android:layout_weight="0.6"
             android:weightSum="5"
+            android:visibility="gone"
             android:orientation="horizontal" >
 
             <TextView

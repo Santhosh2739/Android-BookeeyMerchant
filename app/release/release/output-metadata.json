@@ -4,14 +4,14 @@
     "type": "APK",
     "kind": "Directory"
   },
-  "applicationId": "wallet.ooredo.com.ooredolive.mx.temp",
+  "applicationId": "wallet.ooredo.com.ooredolive.mx",
   "variantName": "release",
   "elements": [
     {
       "type": "SINGLE",
       "filters": [],
-      "versionCode": 53,
-      "versionName": "6.3",
+      "versionCode": 54,
+      "versionName": "6.4",
       "outputFile": "app-release.apk"
     }
   ]

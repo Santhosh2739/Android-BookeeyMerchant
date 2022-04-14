@@ -1098,10 +1098,14 @@ public class TransactionHistoryActivity extends ListActivity implements Download
                 holder.customerName = convertView.findViewById(R.id.textView4);
                 holder.invoice_image = (ImageView) convertView.findViewById(R.id.invoice_image);
                 holder.invoice_refresh_button = convertView.findViewById(R.id.invoice_refresh_button);
+
                 convertView.setTag(holder);
             } else {
                 holder = (ViewHolder) convertView.getTag();
             }
+            holder.invoice_image.setVisibility(View.GONE);
+            holder.customerName.setVisibility(View.GONE);
+            holder.invoice_refresh_button.setVisibility(View.GONE);
             TransType type = TransType.valueOf(genericResponse.getG_response_trans_type());
             String send_version_response = CustomSharedPreferences.getStringData(getApplicationContext(), CustomSharedPreferences.SP_KEY.SEND_VERSION_RESPONSE);
             String time_zone_str = "";
@@ -1120,6 +1124,7 @@ public class TransactionHistoryActivity extends ListActivity implements Download
                     holder.textNextLine.setText(TimeUtils.getDisplayableDateWithSeconds(time_zone_str, new Date(payToMerchantRequestResponse.getServerTime())));
                     holder.amount.setText("Amount" + " " + PriceFormatter.format(payToMerchantRequestResponse.getTxnAmount(), 3, 3));
                     holder.invoice_image.setVisibility(View.GONE);
+                    holder.customerName.setVisibility(View.GONE);
                     break;
                 case PAY_TO_MERCHANT_COMMIT_REQUEST_RESPONSE:
                     PayToMerchantCommitRequestResponse payToMerchantCommitRequestResponse = (PayToMerchantCommitRequestResponse) genericResponse;
@@ -1129,6 +1134,7 @@ public class TransactionHistoryActivity extends ListActivity implements Download
                     holder.textNextLine.setText(TimeUtils.getDisplayableDateWithSeconds(time_zone_str, new Date(payToMerchantCommitRequestResponse.getServerTime())));
                     holder.amount.setText("Amount" + " " + PriceFormatter.format(payToMerchantCommitRequestResponse.getTxnAmount(), 3, 3));
                     holder.invoice_image.setVisibility(View.GONE);
+                    holder.customerName.setVisibility(View.GONE);
                     break;
                 case INVOICE_TRAN_RESPONSE:
                     InvoiceTranHistoryResponsePojo tran_invoice = (InvoiceTranHistoryResponsePojo) genericResponse;
@@ -1136,7 +1142,7 @@ public class TransactionHistoryActivity extends ListActivity implements Download
                     //holder.textNextLine.setText("" + TimeUtils.getDisplayableDateWithSeconds(tran_invoice.getG_servertime(), new Date(tran_invoice.getServerTime())));
                     //holder.textNextLine.setText(TimeUtils.getDisplayableDateWithSeconds(tran_invoice.getG_servertime(), new Date(tran_invoice.getServerTime())));
                     //holder.icon.setImageBitmap(getYPCCustomerLogsIcon(tran_invoice.getG_status()));
-                    holder.customerName.setVisibility(View.GONE);
+
                     if (null != tran_invoice.getCustomerName() && !"".equals(tran_invoice.getCustomerName())) {
                         holder.customerName.setText(tran_invoice.getCustomerName());
                         holder.customerName.setVisibility(View.VISIBLE);

@@ -2,13 +2,13 @@
 <resources>
 
     <!-- Zxing Strings -->
-    <string name="zxing_url">http://code.google.com/p/zxing</string>
+    <string name="zxing_url" translatable="false">http://code.google.com/p/zxing</string>
     <string name="history_clear_one_history_text">Clear</string>
-    <string name="result_text"></string>
-    <string name="history_send">Send history</string>
-    <string name="history_clear_text">Clear history</string>
+    <string name="result_text" translatable="false"></string>
+    <string name="history_send" translatable="false">Send history</string>
+    <string name="history_clear_text" translatable="false">Clear history</string>
     <string name="msg_unmount_usb">Sorry, the SD card is not accessible.</string>
-    <string name="button_ok">OK</string>
+    <string name="button_ok" translatable="false">OK</string>
     <string name="history_email_title">Barcode Scanner history</string>
     <!--End-->
 
@@ -23,13 +23,13 @@
 
 
 
-    <string name="facebook_app_id">488671721900166</string>
-    <string name="fb_login_protocol_scheme">fb[488671721900166]</string>
+    <string name="facebook_app_id" translatable="false">488671721900166</string>
+    <string name="fb_login_protocol_scheme" translatable="false">fb[488671721900166]</string>
 
 
-    <string name="customer_number">663693338</string>
+    <string name="customer_number" translatable="false">663693338</string>
     <string name="customer_current_balctv">Current Balance</string>
-    <string name="customer_current_balc_amt">KWD 500.000</string>
+    <string name="customer_current_balc_amt" translatable="false">KWD 500.000</string>
     <string name="recharge_wallet_txt">Recharge Wallet</string>
     <string name="send_money_txt">Buy</string>
     <string name="send_money_help">Help</string>
@@ -45,7 +45,7 @@
     <string name="about_us">About Us</string>
     <string name="contact_us">Contact Us</string>
     <string name="exit_app">Log Off</string>
-    <string name="action_text"></string>
+    <string name="action_text" translatable="false"></string>
     <string name="title_activity_sendmoney">Sendmoney</string>
     <string name="title_activity_success_screen">Success_screen</string>
 
@@ -72,17 +72,17 @@
     <string name="GPSAlertDialogMessage">Do you want to use gps?</string>
     <string name="cancel">Cancel</string>
     <string name="profile_btn">Close</string>
-    <string name="contact_us_screen_office_adress">Corporate Office Adress</string>
-    <string name="contact_us_screen_office_adress_detail">Mezzanine Floor , Al Faisal Centre, Dhajeej, Kuwait</string>
+    <string name="contact_us_screen_office_adress">Corporate Office Address</string>
+    <string name="contact_us_screen_office_adress_detail">Qibla - Fahed AlSalem Street - Kuwait Building - Floor 19</string>
     <string name="contact_us_screen_write_us">Write Us</string>
-    <string name="contact_us_screen_website"></string>
-    <string name="contact_us_screen_mail">Mail:notification@bookeey.com</string>
+    <string name="contact_us_screen_website" translatable="false"></string>
+    <string name="contact_us_screen_mail" translatable="false">Mail: customercare@bookeey.com</string>
     <string name="contact_us_screen_customer_care">Customer Care</string>
-    <string name="contact_us_screen_mobile_number_whatsapp">22023232</string>
-    <string name="contact_us_screen_mobile_number">22023232</string>
+    <string name="contact_us_screen_mobile_number_whatsapp" translatable="false">22200001</string>
+    <string name="contact_us_screen_mobile_number" translatable="false">22200001</string>
     <string name="contact_us_screen_connect_executive">Connect Executive</string>
-    <string name="international_country_code">+92</string>
-    <string name="international_mobile_no">3214074300</string>
+    <string name="international_country_code" translatable="false">+92</string>
+    <string name="international_mobile_no" translatable="false">3214074300</string>
 
 
     <string name="login_english">English</string>
@@ -207,7 +207,7 @@
     <string name="setting_device_locked">Device is locked</string>
     <string name="setting_device_unlocked">Device is unlocked</string>
 
-    <string name="empty"> </string>
+    <string name="empty" translatable="false"> </string>
 
     <string name="payment_method">Payment method</string>
     <string name="fees">Fees</string>

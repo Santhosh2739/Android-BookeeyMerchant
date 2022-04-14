@@ -22,9 +22,9 @@ public class Contact_Us_Activity extends GenericActivity {
         ((Button)findViewById(R.id.contact_us_screen_connect_executive_button)).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String phnumber = ((TextView)findViewById(R.id.contact_us_screen_mobile_number_text)).getText().toString().trim();
+                String phNumber = ((TextView)findViewById(R.id.contact_us_screen_mobile_number_text)).getText().toString().trim();
                 Intent intent = new Intent("android.intent.action.DIAL");
-                intent.setData(Uri.parse("tel:" + phnumber));
+                intent.setData(Uri.parse("tel:" + phNumber));
                 startActivity(intent);
             }
         });

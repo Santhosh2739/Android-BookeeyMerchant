@@ -3,7 +3,11 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Sindhu/Documents/Bookeey_Git/BookeeyMerchant/app/src/main/res/layout/animation.xml" value="0.153515625" />
+        <entry key="..\:/Users/Sindhu/Documents/Bookeey_Git/BookeeyMerchant/app/src/main/res/layout/contact_us.xml" value="0.33" />
+        <entry key="..\:/Users/Sindhu/Documents/Bookeey_Git/BookeeyMerchant/app/src/main/res/layout/custom_alert_whatsapp.xml" value="0.153515625" />
         <entry key="..\:/Users/Sindhu/Documents/Bookeey_Git/BookeeyMerchant/app/src/main/res/layout/invoice_activity.xml" value="0.22" />
+        <entry key="..\:/Users/Sindhu/Documents/Bookeey_Git/BookeeyMerchant/app/src/main/res/layout/list_row.xml" value="0.13819444444444445" />
         <entry key="..\:/Users/Sindhu/Documents/Bookeey_Git/BookeeyMerchant/app/src/main/res/layout/merchant_info_layout.xml" value="0.33" />
         <entry key="..\:/Users/Sindhu/Documents/Bookeey_Git/BookeeyMerchant/app/src/main/res/layout/merchant_mainmenu.xml" value="0.153515625" />
       </map>

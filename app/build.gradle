@@ -1,13 +1,12 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 31
-    //buildToolsVersion '26.0.3'
+    compileSdkVersion 30
     useLibrary 'org.apache.http.legacy'
     defaultConfig {
         applicationId 'wallet.ooredo.com.ooredolive.mx'
         minSdkVersion 21
-        targetSdkVersion 31
+        targetSdkVersion 30
 
         //For 'Check for updates, with debug keystore'
 //        versionCode 25

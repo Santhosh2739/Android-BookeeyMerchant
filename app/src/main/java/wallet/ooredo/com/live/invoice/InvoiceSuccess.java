@@ -134,7 +134,7 @@ public class InvoiceSuccess extends GenericActivity implements View.OnClickListe
                             "\n" +
                             "قيمة الفاتورة: " + response_obj.getAmount() + "\n" +
                             "\n" +
-                            "رابط الدفع: " + response_obj.getInvoiceLink();
+                            "رابط الدفع: " + "\n" + response_obj.getInvoiceLink();
                 }
                 Button ypc_share = findViewById(R.id.ypc_share);
                 invoice_success_status_text.setText("--PENDING--");

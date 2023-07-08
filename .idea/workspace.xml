@@ -41,13 +41,14 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6da1e20e-09e9-4f58-b3c3-3646bc8f5f73" name="Default Changelist" comment="Play store version released 55">
-      <change beforePath="$PROJECT_DIR$/.idea/jarRepositories.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
+    <list default="true" id="6da1e20e-09e9-4f58-b3c3-3646bc8f5f73" name="Default Changelist" comment="git workspace change">
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/app/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/local.properties" beforeDir="false" afterPath="$PROJECT_DIR$/local.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/androidTest/java/wallet/ooredo/com/live/ApplicationTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/coreframework/utils/TransType.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/coreframework/utils/TransType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/wallet/ooredo/com/live/invoice/InvoiceSuccess.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/wallet/ooredo/com/live/invoice/InvoiceSuccess.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -90,6 +91,9 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
   <component name="ProjectId" id="1ea9DXv6Fzak3fYy1KJNvhdRvh0" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -98,28 +102,14 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">
-    <property name="ApkExportedModule" value="BookeeyMerchant.app" />
-    <property name="BundleExportedModule" value="BookeeyMerchant.app" />
-    <property name="DeviceAndSnapshotComboBoxAction.selectedDevice" value="RZ8M941W2XE" />
-    <property name="DeviceAndSnapshotComboBoxAction.selectionTime" value="2020-09-18T11:52:11.248Z" />
-    <property name="ExportApk.ApkPath" value="C:\Users\Sindhu\Documents\Bookeey_Git\BookeeyMerchant\app\release" />
-    <property name="ExportApk.BuildVariants" value="release" />
-    <property name="JavaMethodFindUsagesOptions.isSearchForTextOccurrences" value="true" />
-    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
-    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="RunOnceActivity.cidr.known.project.marker" value="true" />
-    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="android-custom-viewC:/Users/Sindhu/SDK/sources/android-30/android/widget/AdapterView.java_AdapterView_DIMENSIONS" value="1080&#10;1920" />
-    <property name="android-custom-viewC:/Users/Sindhu/SDK/sources/android-30/android/widget/AdapterView.java_SELECTED" value="AdapterView" />
-    <property name="android-custom-viewC:/Users/Sindhu/SDK/sources/android-30/android/widget/ImageView.java_SELECTED" value="ImageView" />
-    <property name="cidr.known.project.marker" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="project.structure.last.edited" value="Modules" />
-    <property name="project.structure.proportion" value="0.17" />
-    <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="build.tools" />
-  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.cidr.known.project.marker&quot;: &quot;true&quot;,
+    &quot;cidr.known.project.marker&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Bookeey/BookeeyMerchant&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;Errors&quot;
+  }
+}</component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="ycash.wallet.json.pojo.transactionhistory" />
@@ -156,6 +146,7 @@
       <option name="PM_INSTALL_OPTIONS" value="" />
       <option name="ALL_USERS" value="false" />
       <option name="ALWAYS_INSTALL_WITH_PM" value="false" />
+      <option name="CLEAR_APP_STORAGE" value="false" />
       <option name="DYNAMIC_FEATURES_DISABLED_LIST" value="" />
       <option name="ACTIVITY_EXTRA_FLAGS" value="" />
       <option name="MODE" value="default_activity" />
@@ -331,7 +322,6 @@
         </entry>
       </map>
     </option>
-    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="API 30 bug fix" />

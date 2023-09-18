@@ -29,22 +29,18 @@ import ycash.wallet.json.pojo.merchantlogin.MerchantLoginRequestResponse;
 import ycash.wallet.json.pojo.paytomerchant.PayToMerchantRequest;
 import ycash.wallet.json.pojo.sendmoney.SendMoneyRequest;
 
-/**
- * @author mohit
- */
-public class DisplayAmountToMerchantActivityDummy extends GenericActivity implements YPCHeadlessCallback{
+public class DisplayAmountToMerchantActivityDummy extends GenericActivity implements YPCHeadlessCallback {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.display_amount_to_merchant_dummy);
         enableUndoBar();
-        TextView ypcm2_amount = (TextView)findViewById(R.id.ypcm2_amount);
-        TextView ypcm2_customer_number_view = (TextView)findViewById(R.id.ypcm2_cust_no);
+        TextView ypcm2_amount = (TextView) findViewById(R.id.ypcm2_amount);
+        TextView ypcm2_customer_number_view = (TextView) findViewById(R.id.ypcm2_cust_no);
         final DecodedQrPojo decodedQrPojo = getIntent().getParcelableExtra("data");
-        ypcm2_amount.setText("KWD "+ PriceFormatter.format(decodedQrPojo.getBcodeHeaderEncoder().amount,3,3));
+        ypcm2_amount.setText("KWD " + PriceFormatter.format(decodedQrPojo.getBcodeHeaderEncoder().amount, 3, 3));
         //ypcm2_customer_number_view.setText(""+ Hex.byteArrayToLong(decodedQrPojo.getBcodeHeaderEncoder().staticId));
         ypcm2_customer_number_view.setText(Hex.toHex(decodedQrPojo.getBcodeHeaderEncoder().staticId));
-
 
 
         //Direct L2
@@ -53,12 +49,12 @@ public class DisplayAmountToMerchantActivityDummy extends GenericActivity implem
         payToMerchantRequest.setAmount(decodedQrPojo.getBcodeHeaderEncoder().amount);
         payToMerchantRequest.setCustomerId(Hex.toHex(decodedQrPojo.getBcodeHeaderEncoder().staticId));
         payToMerchantRequest.setBarcodeData(Hex.toHex(decodedQrPojo.getCompleteCode()));
-        String timezone= ((CoreApplication)getApplication()).getGenericResponse().getG_servertime();
-        Calendar cal= null;
-        if(timezone!=null) {
+        String timezone = ((CoreApplication) getApplication()).getGenericResponse().getG_servertime();
+        Calendar cal = null;
+        if (timezone != null) {
             cal = Calendar.getInstance(TimeZone.getTimeZone(timezone));
-        }else{
-            cal= Calendar.getInstance(TimeZone.getDefault());
+        } else {
+            cal = Calendar.getInstance(TimeZone.getDefault());
         }
         long currentLocalTime = cal.getTimeInMillis();
         payToMerchantRequest.setClientDate(currentLocalTime);
@@ -74,15 +70,6 @@ public class DisplayAmountToMerchantActivityDummy extends GenericActivity implem
         progress.show(getFragmentManager(), "progress_dialog");
 
 
-
-
-
-
-
-
-
-
-
         findViewById(R.id.pay_to_merchat_accept).setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View arg0) {
@@ -91,12 +78,12 @@ public class DisplayAmountToMerchantActivityDummy extends GenericActivity implem
                 payToMerchantRequest.setAmount(decodedQrPojo.getBcodeHeaderEncoder().amount);
                 payToMerchantRequest.setCustomerId(Hex.toHex(decodedQrPojo.getBcodeHeaderEncoder().staticId));
                 payToMerchantRequest.setBarcodeData(Hex.toHex(decodedQrPojo.getCompleteCode()));
-                String timezone= ((CoreApplication)getApplication()).getGenericResponse().getG_servertime();
-                Calendar cal= null;
-                if(timezone!=null) {
+                String timezone = ((CoreApplication) getApplication()).getGenericResponse().getG_servertime();
+                Calendar cal = null;
+                if (timezone != null) {
                     cal = Calendar.getInstance(TimeZone.getTimeZone(timezone));
-                }else{
-                    cal= Calendar.getInstance(TimeZone.getDefault());
+                } else {
+                    cal = Calendar.getInstance(TimeZone.getDefault());
                 }
                 long currentLocalTime = cal.getTimeInMillis();
                 payToMerchantRequest.setClientDate(currentLocalTime);
@@ -124,13 +111,15 @@ public class DisplayAmountToMerchantActivityDummy extends GenericActivity implem
     protected void onResume() {
         super.onResume();
 
-        final ImageView  back_logo = (ImageView) findViewById(R.id.back_logo);
-        back_logo.setImageBitmap(((CoreApplication) getApplication()).getMerchnat_logo()); ;
+        final ImageView back_logo = (ImageView) findViewById(R.id.back_logo);
+        back_logo.setImageBitmap(((CoreApplication) getApplication()).getMerchnat_logo());
+        ;
 //        MerchantLoginRequestResponse merchantLoginRequestResponse = ((CoreApplication) getApplication()).getMerchantLoginRequestResponse();
 //        new DownloadImageTask(back_logo).execute(merchantLoginRequestResponse.getMerchantLogo());
 
 
     }
+
     class DownloadImageTask extends AsyncTask<String, Void, Bitmap> {
         ImageView bmImage;
 

@@ -12,9 +12,6 @@ import java.util.List;
 
 import wallet.ooredo.com.live.R;
 
-/**
- * Created by 10037 on 23-May-18.
- */
 
 public class LanguageType extends BaseAdapter {
     List<String> languageList;

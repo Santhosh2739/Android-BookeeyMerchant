@@ -1,20 +1,15 @@
 apply plugin: 'com.android.application'
+apply plugin: 'com.google.gms.google-services'
 
 android {
-    compileSdkVersion 30
+    compileSdk 33
     useLibrary 'org.apache.http.legacy'
     defaultConfig {
         applicationId 'wallet.ooredo.com.ooredolive.mx'
         minSdkVersion 21
-        targetSdkVersion 30
-
-        //For 'Check for updates, with debug keystore'
-//        versionCode 25
-//        versionName "3.3"
-
-        //For Live in Google Play Beta
-        versionCode 55
-        versionName "6.5"
+        targetSdkVersion 33
+        versionCode 56
+        versionName "6.6"
     }
     buildTypes {
         release {
@@ -24,34 +19,25 @@ android {
     }
     productFlavors {
     }
-    lintOptions {
-        checkReleaseBuilds false
-        // Or, if you prefer, you can continue to check for errors in release builds,
-        // but continue the build even when errors are found:
+    compileOptions {
+        sourceCompatibility = '1.8'
+        targetCompatibility = '1.8'
+    }
+    namespace 'wallet.ooredo.com.live'
+    lint {
         abortOnError false
+        checkReleaseBuilds false
     }
 }
 
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
-    implementation files('libs/jsoup-1.13.1.jar')
-    //noinspection GradleCompatible
-    implementation 'com.android.support:appcompat-v7:23.0.1'
-    //noinspection GradleCompatible
-    implementation 'com.android.support:support-v13:26.0.1'
-    implementation 'com.google.code.gson:gson:2.8.6'
-    implementation 'com.google.android.gms:play-services:8.1.0'
-    //compile 'com.google.android.gms:play-services:10.0.1'
-
-    //For POS printing
-    implementation files('libs/SDK4BaseBinderV2.1.4.jar')
-    implementation files('libs/SDK4EmvBinderV2.1.4.jar')
-    implementation files('libs/SDK4KeyManagerBinderV2.1.4.jar')
-    //compile 'com.google.android.gms:play-services:10.0.1'
+    implementation 'com.google.code.gson:gson:2.8.9'
     implementation files('libs/platform_sdk_v4.1.0326.jar')
+    implementation 'org.jetbrains:annotations:15.0'
     implementation 'com.squareup.retrofit2:retrofit:2.9.0'
     implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
-    //Facebook
-    implementation 'com.facebook.android:facebook-android-sdk:4.7.0'
-    implementation 'org.jetbrains:annotations:15.0'
+    implementation 'androidx.appcompat:appcompat:1.6.1'
+    implementation 'androidx.localbroadcastmanager:localbroadcastmanager:1.1.0'
+    implementation 'com.google.android.play:core:1.10.3'
 }

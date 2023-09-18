@@ -3,7 +3,6 @@ package wallet.ooredo.com.live.offers;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,20 +11,20 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import androidx.annotation.Nullable;
+
 import com.google.gson.Gson;
 
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 
 import coreframework.taskframework.GenericActivity;
 import coreframework.taskframework.YPCHeadlessCallback;
 import wallet.ooredo.com.live.R;
 import wallet.ooredo.com.live.application.CoreApplication;
 import wallet.ooredo.com.live.mainmenu.MainActivity;
-import ycash.wallet.json.pojo.offerredeem.OffersResponsePojo;
 import ycash.wallet.json.pojo.offerredeem.OfferDetails;
+import ycash.wallet.json.pojo.offerredeem.OffersResponsePojo;
 
 public class OffersListActivity extends GenericActivity implements YPCHeadlessCallback {
     ListView offers_list;

@@ -4,10 +4,6 @@ import java.util.Arrays;
 
 import ycash.wallet.json.pojo.generic.GenericRequest;
 
-/**
- * Created by 10037 on 21-Nov-17.
- */
-
 public class InvoiceRequest extends GenericRequest {
 
     private String invoiceNo;

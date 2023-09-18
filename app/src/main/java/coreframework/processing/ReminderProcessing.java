@@ -33,7 +33,6 @@ public class ReminderProcessing extends BackgroundProcessingAbstractFilter {
     private boolean success = false;
     private String error_text_header = "";
     private String error_text_details = "";
-    private String status_code;
     private MerchantLoginRequestResponse merchantLoginRequestResponse = null;
 
     public ReminderProcessing(InvoiceRequest request, CoreApplication application, boolean isPost) {
@@ -53,12 +52,12 @@ public class ReminderProcessing extends BackgroundProcessingAbstractFilter {
         StringBuffer buffer = new StringBuffer();
         buffer.append(TransType.INVOICE_REMINDER_REQUEST.getURL());
 
-        Log.e("Remainder Request: ",""+new Gson().toJson(this.request));
+        Log.e("Remainder Request: ", "" + new Gson().toJson(this.request));
 
         buffer.append("?d=" + URLUTF8Encoder.encode(new Gson().toJson(this.request)));
         String invoice_url = buffer.toString();
 
-        Log.e("Remainder invoice_url: ",""+invoice_url);
+        Log.e("Remainder invoice_url: ", "" + invoice_url);
 
         return invoice_url;
     }

@@ -5,7 +5,8 @@ import android.content.Context;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.provider.Settings;
-import android.support.v4.content.ContextCompat;
+
+import androidx.core.content.ContextCompat;
 
 import java.util.HashMap;
 import java.util.UUID;
@@ -16,9 +17,7 @@ import ycash.wallet.json.pojo.consolidatedreports.MerchantReportResponse;
 import ycash.wallet.json.pojo.generic.GenericResponse;
 import ycash.wallet.json.pojo.merchantlogin.MerchantLoginRequestResponse;
 import ycash.wallet.json.pojo.transactionhistory.TransactionHistoryResponse;
-/**
- * Created by mohit on 01-06-2015.
- */
+
 public class CoreApplication extends Application {
     private static Context appContext;
     //isPOS
@@ -37,13 +36,6 @@ public class CoreApplication extends Application {
     public void onCreate() {
         super.onCreate();
         appContext = getApplicationContext();
-//        Bugfender.init(this, "4I3MMbodalXiab7B4lrVHXYm7SCdg5m0", BuildConfig.DEBUG);
-//        Bugfender.enableCrashReporting();
-//        Bugfender.enableUIEventLogging(this);
-//        Bugfender.enableLogcatLogging();
-        //For Remote logs
-//        HyperLog.initialize(this);
-//        HyperLog.setLogLevel(Log.VERBOSE);
     }
 
     public boolean isPOS() {

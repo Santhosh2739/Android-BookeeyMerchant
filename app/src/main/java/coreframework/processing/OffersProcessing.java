@@ -22,10 +22,6 @@ import ycash.wallet.json.pojo.merchantlogin.MerchantLoginRequestResponse;
 import ycash.wallet.json.pojo.offerredeem.OfferPreviewRequest;
 import ycash.wallet.json.pojo.offerredeem.OffersResponsePojo;
 
-/**
- * Created by 10037 on 21-Nov-17.
- */
-
 public class OffersProcessing extends BackgroundProcessingAbstractFilter {
 
     private OfferPreviewRequest request;
@@ -48,7 +44,7 @@ public class OffersProcessing extends BackgroundProcessingAbstractFilter {
     @Override
     public String captureURL() {
         //Load Security Params to the request
-       // this.request.setG_oauth_2_0_client_token(merchantLoginRequestResponse.getOauth_2_0_client_token());
+        // this.request.setG_oauth_2_0_client_token(merchantLoginRequestResponse.getOauth_2_0_client_token());
         String authtoken = CustomSharedPreferences.getStringData(application, CustomSharedPreferences.SP_KEY.AUTH_TOKEN);
         this.request.setG_oauth_2_0_client_token(authtoken);
         this.request.setG_transType(TransType.MERCHANT_OFFER_REQUEST.name());
@@ -70,24 +66,15 @@ public class OffersProcessing extends BackgroundProcessingAbstractFilter {
                     this.success = true;
 
                 } else if (response.getG_response_trans_type().equalsIgnoreCase(TransType.MERCHANT_OFFER_RESPONSE.name()) && response.getG_status() != 1) {
-
                     error_text_header = response.getG_response_trans_type();
                     error_text_details = response.getG_errorDescription();
-
-
-
-
-
                 } else {
                     error_text_header = "ServerConnection.OPERATION_FAILURE_GENERAL_SERVER";
                     error_text_details = "ServerConnection.OPERATION_FAILURE_GENERAL_SERVER";
                 }
             } else {
-
-
                 error_text_header = "No offers available!";
                 error_text_details = "No offers available!";
-
             }
         } else if (msg.arg1 == ServerConnection.OPERATION_FAILURE_GENERAL_SERVER) {
             error_text_header = "ServerConnection.OPERATION_FAILURE_GENERAL_SERVER";
@@ -108,12 +95,12 @@ public class OffersProcessing extends BackgroundProcessingAbstractFilter {
             intent.putExtra("OFFERS_DATA", response_json);
             activity.startActivity(intent);*/
             OffersResponsePojo response = new Gson().fromJson(response_json, OffersResponsePojo.class);
-            if(response.getOfferList().size()!=0){
+            if (response.getOfferList().size() != 0) {
                 Intent intent = new Intent(activity, OffersListActivity.class);
                 intent.putExtra("OFFERS_DATA", response_json);
                 activity.startActivity(intent);
-            }else{
-                Toast.makeText(activity, ""+application.getString(R.string.no_offers_available), Toast.LENGTH_SHORT).show();
+            } else {
+                Toast.makeText(activity, "" + application.getString(R.string.no_offers_available), Toast.LENGTH_SHORT).show();
 
             }
 
@@ -125,7 +112,6 @@ public class OffersProcessing extends BackgroundProcessingAbstractFilter {
                 Toast.makeText(activity, error_text_details, Toast.LENGTH_SHORT).show();
             }
         }
-
     }
 
     @Override

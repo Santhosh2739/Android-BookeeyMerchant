@@ -8,22 +8,20 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.pm.PackageManager;
-import android.content.pm.ResolveInfo;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
-import android.provider.MediaStore;
-import android.support.v4.app.ActivityCompat;
-import android.support.v4.content.ContextCompat;
-import android.support.v4.content.FileProvider;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
+import androidx.core.content.FileProvider;
 
 import com.google.gson.Gson;
 
@@ -36,25 +34,14 @@ import org.apache.http.impl.client.DefaultHttpClient;
 
 import java.io.File;
 import java.io.FileOutputStream;
-import java.io.FilenameFilter;
 import java.io.IOException;
 import java.io.InputStream;
-import java.util.List;
 
-import coreframework.database.CustomSharedPreferences;
 import coreframework.taskframework.GenericActivity;
-import wallet.ooredo.com.live.BuildConfig;
 import wallet.ooredo.com.live.R;
-import wallet.ooredo.com.live.application.CoreApplication;
-import wallet.ooredo.com.live.merchantlogin.MerchantLoginActivity;
 import ycash.wallet.json.pojo.MerchantAppVersionResponse;
 
-/**
- * Created by 10030 on 11/26/2016.
- */
 public class CheckForUpdatesActivity extends GenericActivity {
-    String versioncode_str, newVersion = null;
-    int versioncode = 0;
     String versionname;
     ProgressDialog dialog = null;
     TextView text;
@@ -75,8 +62,6 @@ public class CheckForUpdatesActivity extends GenericActivity {
         dialog = new ProgressDialog(CheckForUpdatesActivity.this);
         dialog.setCanceledOnTouchOutside(false);
         dialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
-
-
 
         text = (TextView) findViewById(R.id.check_for_updates_version_name);
         String response = getIntent().getStringExtra("data");
@@ -99,18 +84,13 @@ public class CheckForUpdatesActivity extends GenericActivity {
                 public void onClick(View v) {
 
                     try {
-
                         //clearing persistent data when user going to update the app
-
                         //Rahman commented 2 lines
 //                        CustomSharedPreferences.saveStringData(getBaseContext(), "", CustomSharedPreferences.SP_KEY.LOGIN_RESPONSE);
 //                        ((CoreApplication) getApplication()).setIsUserLoggedIn(false);
-
-
                     /*Toast.makeText(getBaseContext(), "Your updated with latest version", Toast.LENGTH_SHORT).show();
                     Intent notificationIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://demo.bookeey.com/apks/Bookeey_Merchant.apk"));
                     startActivity(notificationIntent);*/
-
                         //live:  https://bookeey.com/apks/Bookeey_Merchant.apk
                         //Demo: https://demo.bookeey.com/apks/Bookeey_Merchant.apk
                         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
@@ -185,20 +165,20 @@ public class CheckForUpdatesActivity extends GenericActivity {
 
                     } catch (Exception e) {
 
-                        Toast.makeText(CheckForUpdatesActivity.this,"OnClick Exce: "+e.getMessage(),Toast.LENGTH_LONG).show();
+                        Toast.makeText(CheckForUpdatesActivity.this, "OnClick Exce: " + e.getMessage(), Toast.LENGTH_LONG).show();
 
                     }
                 }
             });
 //            text.setText("Current Version is : " + versionname +"\n"+ "\nYour Merchant application has been updated,Please download the latest version to work all the features properly.\n\nPlease tap on update to get the latest version");
 
-            text.setText(getString(R.string.current_version_is) + versionname +"\n"+ "\n"+getString(R.string.your_merchant_application_has_been_updated));
+            text.setText(getString(R.string.current_version_is) + versionname + "\n" + "\n" + getString(R.string.your_merchant_application_has_been_updated));
 
 
         } else {
 //            text.setText("Your app is now up to date" + "\n" + "Current Version is : " + versionname);
 
-            text.setText("Your app is now up to date" + "\n" + getString(R.string.current_version_is)  + versionname);
+            text.setText("Your app is now up to date" + "\n" + getString(R.string.current_version_is) + versionname);
         }
 
     }
@@ -213,7 +193,7 @@ public class CheckForUpdatesActivity extends GenericActivity {
     }
 
 
-    public void downLoadApkAndInstallForOldDevices(){
+    public void downLoadApkAndInstallForOldDevices() {
 
         dialog.setMessage("Downloading the app, please wait.");
         dialog.show();
@@ -235,11 +215,8 @@ public class CheckForUpdatesActivity extends GenericActivity {
             file.delete();
 
 
-
         //Merchant .apk which will sync
         String url = "https://www.bookeey.com/mno/merlogo/Bookeey_Merchant.apk";
-
-
 
 
         //Demo server
@@ -250,7 +227,6 @@ public class CheckForUpdatesActivity extends GenericActivity {
 
         //get url of app on server
 //        String url = "https://www.bookeey.com/apks/Bookeey_Merchant.apk";
-
 
 
         //set downloadmanager
@@ -267,7 +243,7 @@ public class CheckForUpdatesActivity extends GenericActivity {
 
         //set BroadcastReceiver to install app when .apk is downloaded
         BroadcastReceiver onComplete = new BroadcastReceiver() {
-            public void onReceive(Context ctxt, Intent intentPara ){
+            public void onReceive(Context ctxt, Intent intentPara) {
 
 
                 dialog.dismiss();
@@ -287,11 +263,9 @@ public class CheckForUpdatesActivity extends GenericActivity {
                     finish();
 
 
+                } catch (Exception e) {
 
-
-                }catch(Exception e){
-
-                    Toast.makeText(CheckForUpdatesActivity.this,"View Exception: "+e.getMessage(),Toast.LENGTH_LONG).show();
+                    Toast.makeText(CheckForUpdatesActivity.this, "View Exception: " + e.getMessage(), Toast.LENGTH_LONG).show();
 
 
                 }
@@ -305,7 +279,7 @@ public class CheckForUpdatesActivity extends GenericActivity {
     }
 
 
-    public void downLoadApkAndInstallForNewDevices(){
+    public void downLoadApkAndInstallForNewDevices() {
 
         dialog.setMessage("Downloading the app, please wait.");
         dialog.show();
@@ -326,10 +300,8 @@ public class CheckForUpdatesActivity extends GenericActivity {
             file.delete();
 
 
-
         //Merchant .apk which will sync
         String url = "https://www.bookeey.com/mno/merlogo/Bookeey_Merchant.apk";
-
 
 
         //Demo server
@@ -337,8 +309,6 @@ public class CheckForUpdatesActivity extends GenericActivity {
 
         //Production
 //        String url = "https://www.bookeey.com/apks/Bookeey_Merchant.apk";
-
-
 
 
         //set downloadmanager
@@ -355,7 +325,7 @@ public class CheckForUpdatesActivity extends GenericActivity {
 
         //set BroadcastReceiver to install app when .apk is downloaded
         BroadcastReceiver onComplete = new BroadcastReceiver() {
-            public void onReceive(Context ctxt, Intent intentPara ){
+            public void onReceive(Context ctxt, Intent intentPara) {
 
 
                 dialog.dismiss();
@@ -379,8 +349,6 @@ public class CheckForUpdatesActivity extends GenericActivity {
 
                     unregisterReceiver(this);
 //                    finish();
-
-
 
 
                     //WITH PROVIDER
@@ -411,9 +379,9 @@ public class CheckForUpdatesActivity extends GenericActivity {
                     */
 
 
-                }catch(Exception e){
+                } catch (Exception e) {
 
-                    Toast.makeText(CheckForUpdatesActivity.this,"View Exception: "+e.getMessage(),Toast.LENGTH_LONG).show();
+                    Toast.makeText(CheckForUpdatesActivity.this, "View Exception: " + e.getMessage(), Toast.LENGTH_LONG).show();
 
 
                 }
@@ -505,14 +473,13 @@ public class CheckForUpdatesActivity extends GenericActivity {
 
                 } catch (ConnectTimeoutException cte) {
 //                    Toast.makeText(CheckForUpdatesActivity.this, "Connection Timeout", Toast.LENGTH_SHORT).show();
-                    Log.e("InstallAPK doInBground:","cte: "+cte.getMessage());
+                    Log.e("InstallAPK doInBground:", "cte: " + cte.getMessage());
                     return false;
                 } catch (Exception e) {
                     return false;
                 } finally {
                     m_httpClient.getConnectionManager().closeExpiredConnections();
                 }
-
 
 
                 Uri uri = FileProvider.getUriForFile(CheckForUpdatesActivity.this, "wallet.ooredo.com.live", file);
@@ -533,7 +500,6 @@ public class CheckForUpdatesActivity extends GenericActivity {
                 intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 intent.setDataAndType(uri, "application/vnd.android.package-archive");
                 startActivity(intent);
-
 
 
                 //Old code with out provider authorities
@@ -566,7 +532,6 @@ public class CheckForUpdatesActivity extends GenericActivity {
 //                intent.setDataAndType(uri, "application/vnd.android.package-archive");
 //                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 //                getBaseContext().startActivity(intent);
-
 
 
                 ////////////////
@@ -635,11 +600,11 @@ public class CheckForUpdatesActivity extends GenericActivity {
 
             } catch (IOException e) {
 //                Toast.makeText(CheckForUpdatesActivity.this, "Failed to update new apk", Toast.LENGTH_SHORT).show();
-                Log.e("InstallAPK doInBground:"," "+e.getMessage());
+                Log.e("InstallAPK doInBground:", " " + e.getMessage());
                 return false;
             } catch (Exception e1) {
 //                Toast.makeText(CheckForUpdatesActivity.this, "Failed to update new apk", Toast.LENGTH_SHORT).show();
-                Log.e("InstallAPK doInBground:"," "+e1.getMessage());
+                Log.e("InstallAPK doInBground:", " " + e1.getMessage());
                 return false;
             }
 

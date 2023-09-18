@@ -1,41 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    package="wallet.ooredo.com.live">
-
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
 
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
-    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
     <uses-permission android:name="android.permission.CAMERA" />
-    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-    <!--GCM Permissions-->
+    <uses-permission android:name="android.permission.file" />
+    <uses-permission android:name="android.permission.READ_MEDIA_IMAGES" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-
-    <permission
-        android:name="wallet.ooredo.com.live.permission.C2D_MESSAGE"
-        android:protectionLevel="signature" />
-
-    <uses-permission android:name="com.google.android.c2dm.permission.C2D_MESSAGE" />
-    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
-    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
-    <uses-permission android:name="android.permission.WAKE_LOCK" />
-    <uses-permission android:name="android.permission.WRITE_SYNC_SETTINGS" />
-
-
-    <!--<uses-permission android:name="android.permission.REORDER_TASKS" />-->
-    <!--<uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />-->
-
-    <!--    <uses-feature-->
-    <!--        android:name="android.hardware.nfc"-->
-    <!--        android:required="true" />-->
-
-    <!--    <uses-permission android:name="android.permission.NFC" />-->
-
+    <uses-feature android:name="android.hardware.camera.autofocus" />
+    <uses-feature android:name="android.hardware.camera" android:required="true" />
 
     <application
         android:name="wallet.ooredo.com.live.application.CoreApplication"
@@ -55,214 +29,143 @@
 
         <activity
             android:name="wallet.ooredo.com.live.Splash"
-            android:label="@string/app_name"
-            android:screenOrientation="portrait">
+            android:exported="true"
+            android:screenOrientation="fullSensor">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
-                <!--<category android:name="android.intent.category.DEFAULT" />-->
-                <!--<category android:name="android.intent.category.HOME" />-->
             </intent-filter>
         </activity>
+
+        <meta-data
+            android:name="com.google.android.gms.vision.DEPENDENCIES"
+            android:value="barcode" />
+
         <activity
             android:name=".registration.Registration"
-            android:screenOrientation="portrait" />
-
-
-        <!--<activity-->
-        <!--android:name=".mainmenu.MainActivity"-->
-        <!--android:screenOrientation="portrait"-->
-        <!--android:theme="@android:style/Theme.NoTitleBar.Fullscreen"-->
-        <!--/>-->
+            android:exported="true"
+            android:screenOrientation="fullSensor" />
 
         <activity
             android:name=".mainmenu.MainActivity"
-            android:screenOrientation="portrait"
-            android:theme="@style/MyTheme">
-
-        </activity>
+            android:exported="true"
+            android:screenOrientation="fullSensor"
+            android:theme="@style/MyTheme"/>
 
         <activity
             android:name=".mainmenu.MerchantInfoActivity"
-            android:screenOrientation="portrait" />
+            android:exported="true"
+            android:screenOrientation="fullSensor" />
         <activity
             android:name=".mainmenu.CheckForUpdatesActivity"
-            android:screenOrientation="portrait" />
+            android:exported="true"
+            android:screenOrientation="fullSensor" />
         <activity
             android:name=".merchantlogin.MerchantLoginActivity"
-            android:screenOrientation="portrait"
+            android:exported="true"
+            android:screenOrientation="fullSensor"
             android:windowSoftInputMode="stateHidden" />
 
         <activity
             android:name=".merchantregistration.MerchantRegistrationActivity"
-            android:screenOrientation="portrait"
+            android:exported="true"
+            android:screenOrientation="fullSensor"
             android:windowSoftInputMode="stateHidden" />
 
 
         <activity
             android:name="br.com.google.zxing.client.android.CaptureActivity"
             android:configChanges="orientation|keyboardHidden"
+            android:exported="true"
             android:screenOrientation="landscape" />
-
-        <provider
-            android:name="com.facebook.FacebookContentProvider"
-            android:authorities="com.facebook.app.FacebookContentProvider12345"
-            android:exported="true" />
-
-        <meta-data
-            android:name="com.facebook.sdk.ApplicationId"
-            android:value="@string/facebook_app_id"
-            tools:ignore="ManifestResource" />
-
 
         <activity
             android:name=".mainmenu.Contact_Us_Activity"
-            android:screenOrientation="portrait"
+            android:exported="true"
+            android:screenOrientation="fullSensor"
             android:windowSoftInputMode="stateHidden" />
         <activity
             android:name=".barcodepaymentcollection.DisplayAmountToMerchantActivity"
-            android:screenOrientation="portrait" />
+            android:exported="true"
+            android:screenOrientation="fullSensor" />
         <activity
             android:name=".barcodepaymentcollection.DisplayAmountToMerchantActivityDummy"
-            android:screenOrientation="portrait"
+            android:exported="true"
+            android:screenOrientation="fullSensor"
             android:theme="@style/Theme.Transparent" />
         <activity
             android:name=".barcodepaymentcollection.QRCodePaymentCollectionLeg2RequestScreen"
-            android:screenOrientation="portrait" />
+            android:exported="true"
+            android:screenOrientation="fullSensor" />
         <activity
             android:name=".barcodepaymentcollection.QRCodePaymentCollectionFinalScreen"
-            android:screenOrientation="portrait" />
+            android:exported="true"
+            android:screenOrientation="fullSensor" />
         <activity
             android:name=".transactionhistory.TransactionHistoryActivity"
-            android:screenOrientation="portrait" />
+            android:exported="true"
+            android:screenOrientation="fullSensor" />
         <activity
             android:name=".transactionhistory.TransactionHistoryDisplayActivity"
-            android:screenOrientation="portrait"
+            android:exported="true"
+            android:screenOrientation="fullSensor"
             android:windowSoftInputMode="stateAlwaysHidden" />
         <activity
             android:name=".consolidatedreports.Consolidated_Reports_Selection"
-            android:screenOrientation="portrait"
+            android:exported="true"
+            android:screenOrientation="fullSensor"
             android:theme="@android:style/Theme.Holo.Light" />
         <activity
             android:name=".consolidatedreports.Consolidated_Reports_Selection_Display"
-            android:screenOrientation="portrait" />
+            android:exported="true"
+            android:screenOrientation="fullSensor" />
         <activity
             android:name=".offer_redeem.OfferValidateResponseDisplay"
-            android:screenOrientation="portrait" />
+            android:exported="true"
+            android:screenOrientation="fullSensor" />
         <activity
             android:name=".offer_redeem.OfferRedeemSuccessFinal"
-            android:screenOrientation="portrait" />
+            android:exported="true"
+            android:screenOrientation="fullSensor" />
         <activity
             android:name=".offer_redeem.OfferRedeemFinalScreen"
-            android:screenOrientation="portrait" />
-
+            android:exported="true"
+            android:screenOrientation="fullSensor" />
 
         <activity
             android:name=".invoice.InvoiceActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
-            android:screenOrientation="portrait" />
+            android:exported="true"
+            android:screenOrientation="fullSensor" />
 
         <activity
             android:name=".invoice.InvoiceSuccess"
-            android:screenOrientation="portrait" />
+            android:exported="true"
+            android:screenOrientation="fullSensor" />
 
         <activity
             android:name=".offers.OffersListActivity"
-            android:screenOrientation="portrait" />
+            android:exported="true"
+            android:screenOrientation="fullSensor" />
 
-        <!-- Declaring Service in Manifest -->
         <service
             android:name=".application.SyncService"
             android:exported="false" />
 
-
-        <receiver
-            android:name="push_notifications.GcmBroadcastReceiver"
-            android:permission="com.google.android.c2dm.permission.SEND">
-            <intent-filter>
-                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
-
-                <category android:name="com.gocarwash.driver.live.gocarwash_driver_classes" />
-                <!-- application package name -->
-            </intent-filter>
-        </receiver>
-
-        <service android:name="push_notifications.GcmIntentService" />
-
-        <meta-data
-            android:name="com.google.android.gms.version"
-            android:value="@integer/google_play_services_version" />
-
-        <!--<provider-->
-        <!--android:name="wallet.ooredo.com.live.utils.GenericFileProvider"-->
-        <!--android:authorities="wallet.ooredo.com.live.utils"-->
-        <!--android:exported="false"-->
-        <!--android:grantUriPermissions="true">-->
-        <!--<meta-data-->
-        <!--android:name="android.support.FILE_PROVIDER_PATHS"-->
-        <!--android:resource="@xml/provider_paths"/>-->
-        <!--</provider>-->
-
-
-        <!--<provider-->
-        <!--android:authorities="wallet.ooredo.com.live"-->
-        <!--android:name="android.support.v4.content.FileProvider"-->
-        <!--android:exported="false"-->
-        <!--android:grantUriPermissions="true">-->
-        <!--<meta-data-->
-        <!--android:name="android.support.FILE_PROVIDER_PATHS"-->
-        <!--android:resource="@xml/provider_paths" />-->
-        <!--</provider>-->
-
-        <provider
-            android:name="android.support.v4.content.FileProvider"
-            android:authorities="${applicationId}.provider"
-            android:exported="false"
-            android:grantUriPermissions="true">
-            <meta-data
-                android:name="android.support.FILE_PROVIDER_PATHS"
-                android:resource="@xml/provider_paths" />
-        </provider>
-
-        <!--<provider-->
-        <!--android:name="wallet.ooredo.com.live.utils.GenericFileProvider"-->
-        <!--android:authorities="${applicationId}.provider"-->
-        <!--android:exported="false"-->
-        <!--android:grantUriPermissions="true">-->
-        <!--<meta-data-->
-        <!--android:name="android.support.FILE_PROVIDER_PATHS"-->
-        <!--android:resource="@xml/provider_paths"/>-->
-        <!--</provider>-->
-
-        <receiver
-            android:name="wallet.ooredo.com.live.utils.MyIntentChooserReceiver"
-            android:exported="false" />
-
         <service
             android:name="wallet.ooredo.com.live.service.DeviceStatusUpdateService"
-            android:enabled="true" />
-
-        <service
-            android:name="wallet.ooredo.com.live.service.SchedulerJobService"
-            android:label="Word service"
-            android:permission="android.permission.BIND_JOB_SERVICE">
-
-        </service>
+            android:enabled="true"
+            android:exported="false" />
 
         <activity
             android:name="coreframework.taskframework.SendLogReportsActivity"
-            android:screenOrientation="portrait">
+            android:exported="false"
+            android:screenOrientation="fullSensor">
             <intent-filter>
                 <action android:name="coreframework.utils.SendLogReportsActivity" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-
-        <service
-            android:name=".service.ServiceToUpdateDeviceInfo"
-            android:enabled="true"
-            android:exported="true"></service>
-
     </application>
 
 </manifest>

@@ -26,9 +26,7 @@ import ycash.wallet.json.pojo.paytomerchant.PayToMerchantCommitRequestResponse;
 import ycash.wallet.json.pojo.paytomerchant.PayToMerchantRequestResponse;
 import ycash.wallet.json.pojo.transactionhistory.TransactionHistoryRequest;
 import ycash.wallet.json.pojo.transactionhistory.TransactionHistoryResponse;
-/**
- * Created by mohit on 10-12-2015.
- */
+
 public class SyncService extends IntentService {
     public static final int STATUS_RUNNING = 0;
     public static final int STATUS_FINISHED = 1;

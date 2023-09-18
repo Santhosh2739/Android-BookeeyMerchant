@@ -36,6 +36,7 @@ public class MerchantInfoProcessing extends BackgroundProcessingAbstractFilter {
         this.isPost = isPost;
         this.application = application;
     }
+
     @Override
     public String captureURL() {
         GenericRequest genericRequest = new GenericRequest();
@@ -51,20 +52,18 @@ public class MerchantInfoProcessing extends BackgroundProcessingAbstractFilter {
     }
 
 
-
     @Override
     public void processResponse(Message msg) {
         if (msg.arg1 == ServerConnection.OPERATION_SUCCESS) {
             String network_response = ((String) msg.obj).trim();
             response = new Gson().fromJson(network_response, GenericResponse.class);
-            if (response != null && response.getG_response_trans_type().equalsIgnoreCase(TransType.MERCHANT_INFO_RESPONSE.name())&&response.getG_status()==1) {
-                this.response_pojo= network_response;
+            if (response != null && response.getG_response_trans_type().equalsIgnoreCase(TransType.MERCHANT_INFO_RESPONSE.name()) && response.getG_status() == 1) {
+                this.response_pojo = network_response;
                 success = true;
-            }else if (response != null &&response.getG_response_trans_type().equalsIgnoreCase(TransType.MERCHANT_INFO_RESPONSE.name())&&response.getG_status()!=1) {
+            } else if (response != null && response.getG_response_trans_type().equalsIgnoreCase(TransType.MERCHANT_INFO_RESPONSE.name()) && response.getG_status() != 1) {
                 error_text_header = response.getG_response_trans_type();
                 error_text_details = response.getG_errorDescription();
-            }
-            else {
+            } else {
                 error_text_header = "Failure general server";
                 error_text_details = "Failure general server";
             }
@@ -80,14 +79,15 @@ public class MerchantInfoProcessing extends BackgroundProcessingAbstractFilter {
 
     @Override
     public void performUserInterfaceAndDismiss(Activity activity, ProgressDialogFrag dialogueFragment) {
-        if(success) {
+        if (success) {
             dialogueFragment.dismiss();
-            Intent intent= new Intent(activity, MerchantInfoActivity.class);
-            intent.putExtra("view_profile",response_pojo);
+            Intent intent = new Intent(activity, MerchantInfoActivity.class);
+            intent.putExtra("view_profile", response_pojo);
             activity.startActivity(intent);
 
         }
     }
+
     @Override
     public boolean isPost() {
         return isPost;
@@ -97,6 +97,7 @@ public class MerchantInfoProcessing extends BackgroundProcessingAbstractFilter {
     public boolean isLocalProcess() {
         return false;
     }
+
     @Override
     public void performTask() {
 

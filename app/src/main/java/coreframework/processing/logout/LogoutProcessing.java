@@ -80,7 +80,7 @@ public class LogoutProcessing extends BackgroundProcessingAbstractFilter {
 
     @Override
     public void performUserInterfaceAndDismiss(Activity activity, ProgressDialogFrag dialogueFragment) {
-        Toast.makeText(activity, success ? activity.getString(R.string.log_out_successful) : activity.getString(R.string.log_out) , Toast.LENGTH_LONG).show();
+        Toast.makeText(activity, success ? activity.getString(R.string.log_out_successful) : activity.getString(R.string.log_out), Toast.LENGTH_LONG).show();
         application.setIsUserLoggedIn(false);
         application.setMerchantLoginRequestResponse(new MerchantLoginRequestResponse());
 
@@ -95,8 +95,7 @@ public class LogoutProcessing extends BackgroundProcessingAbstractFilter {
         editor.clear();
         editor.commit();
 
-        CustomSharedPreferences.saveStringData(application,selectedLanguage,CustomSharedPreferences.SP_KEY.LANGUAGE);
-
+        CustomSharedPreferences.saveStringData(application, selectedLanguage, CustomSharedPreferences.SP_KEY.LANGUAGE);
 
 
         dialogueFragment.dismiss();

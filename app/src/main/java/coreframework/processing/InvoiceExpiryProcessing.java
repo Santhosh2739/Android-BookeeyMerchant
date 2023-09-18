@@ -1,30 +1,30 @@
 package coreframework.processing;
 
-        import android.app.Activity;
-        import android.content.Intent;
-        import android.os.Message;
-        import android.util.Log;
-        import android.widget.Toast;
+import android.app.Activity;
+import android.content.Intent;
+import android.os.Message;
+import android.util.Log;
+import android.widget.Toast;
 
-        import com.google.gson.Gson;
+import com.google.gson.Gson;
 
-        import org.json.JSONObject;
+import org.json.JSONObject;
 
-        import coreframework.database.CustomSharedPreferences;
-        import coreframework.network.ServerConnection;
-        import coreframework.taskframework.BackgroundProcessingAbstractFilter;
-        import coreframework.taskframework.GenericActivity;
-        import coreframework.taskframework.ProgressDialogFrag;
-        import coreframework.utils.TransType;
-        import coreframework.utils.URLUTF8Encoder;
-        import wallet.ooredo.com.live.R;
-        import wallet.ooredo.com.live.application.CoreApplication;
-        import wallet.ooredo.com.live.invoice.InvoiceSuccess;
-        import wallet.ooredo.com.live.mainmenu.MainActivity;
-        import ycash.wallet.json.pojo.generic.GenericResponse;
-        import ycash.wallet.json.pojo.invoice_pojo.InvoiceExpiry;
-        import ycash.wallet.json.pojo.invoice_pojo.InvoiceRequest;
-        import ycash.wallet.json.pojo.merchantlogin.MerchantLoginRequestResponse;
+import coreframework.database.CustomSharedPreferences;
+import coreframework.network.ServerConnection;
+import coreframework.taskframework.BackgroundProcessingAbstractFilter;
+import coreframework.taskframework.GenericActivity;
+import coreframework.taskframework.ProgressDialogFrag;
+import coreframework.utils.TransType;
+import coreframework.utils.URLUTF8Encoder;
+import wallet.ooredo.com.live.R;
+import wallet.ooredo.com.live.application.CoreApplication;
+import wallet.ooredo.com.live.invoice.InvoiceSuccess;
+import wallet.ooredo.com.live.mainmenu.MainActivity;
+import ycash.wallet.json.pojo.generic.GenericResponse;
+import ycash.wallet.json.pojo.invoice_pojo.InvoiceExpiry;
+import ycash.wallet.json.pojo.invoice_pojo.InvoiceRequest;
+import ycash.wallet.json.pojo.merchantlogin.MerchantLoginRequestResponse;
 
 /**
  * Created by 10037 on 21-Nov-17.
@@ -59,15 +59,15 @@ public class InvoiceExpiryProcessing extends BackgroundProcessingAbstractFilter 
         StringBuffer buffer = new StringBuffer();
         buffer.append(TransType.INVOICE_EXPIRY_REQUUEST.getURL());
 
-        String req_data= new Gson().toJson(this.request);
+        String req_data = new Gson().toJson(this.request);
 
-        Log.e("InvoiceData",""+req_data);
+        Log.e("InvoiceData", "" + req_data);
 
         buffer.append("?d=" + URLUTF8Encoder.encode(req_data));
 
         String invoice_url = buffer.toString();
 
-        Log.e("InvoiceURL",""+invoice_url);
+        Log.e("InvoiceURL", "" + invoice_url);
 
         return invoice_url;
     }
@@ -120,7 +120,7 @@ public class InvoiceExpiryProcessing extends BackgroundProcessingAbstractFilter 
 //
 //
             Intent intent = new Intent(activity, MainActivity.class);
-             // set the new task and clear flags
+            // set the new task and clear flags
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
             activity.startActivity(intent);
 

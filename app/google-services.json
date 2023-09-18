@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "782388473171",
+    "firebase_url": "https://xenonpay4-bookeeymerchant.firebaseio.com",
+    "project_id": "xenonpay4-bookeeymerchant",
+    "storage_bucket": "xenonpay4-bookeeymerchant.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:782388473171:android:300ffa8d3f07d681aec5a6",
+        "android_client_info": {
+          "package_name": "wallet.ooredo.com.ooredolive.mx"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "782388473171-dqh845cnidf9m7gf2u47m16h6m64vako.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAOek7hhDqdKjOfY4SXhFSks9MI8C6a5w0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "782388473171-dqh845cnidf9m7gf2u47m16h6m64vako.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "782388473171-5f27q614nh99b02to234ahkeo56abdpm.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.Xenon4pay.BookeeyMerchant",
+                "app_store_id": "1512960758"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

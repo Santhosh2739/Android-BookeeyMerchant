@@ -11,14 +11,11 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TableRow;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.google.gson.Gson;
 
 import org.json.JSONObject;
 
-import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
 import java.util.Calendar;
 import java.util.Date;
@@ -34,13 +31,9 @@ import coreframework.utils.TimeUtils;
 import wallet.ooredo.com.live.R;
 import wallet.ooredo.com.live.application.CoreApplication;
 import ycash.wallet.json.pojo.generic.CommitType;
-import ycash.wallet.json.pojo.merchantlogin.MerchantLoginRequestResponse;
 import ycash.wallet.json.pojo.paytomerchant.PayToMerchantCommitRequest;
 import ycash.wallet.json.pojo.paytomerchant.PayToMerchantRequestResponse;
 
-/**
- * Created by mohit on 02-06-2015.
- */
 public class QRCodePaymentCollectionLeg2RequestScreen extends GenericActivity implements YPCHeadlessCallback, View.OnClickListener {
 
     private String response = null;
@@ -64,7 +57,6 @@ public class QRCodePaymentCollectionLeg2RequestScreen extends GenericActivity im
         response_obj = new Gson().fromJson(response, PayToMerchantRequestResponse.class);
         Button ypcm_accept = (Button) findViewById(R.id.ypcm_accept);
         ypcm_accept.setOnClickListener(this);
-
 
 
         Button ypcm_decline = (Button) findViewById(R.id.ypcm_decline);
@@ -103,14 +95,14 @@ public class QRCodePaymentCollectionLeg2RequestScreen extends GenericActivity im
 
 
         String send_version_response = CustomSharedPreferences.getStringData(getApplicationContext(), CustomSharedPreferences.SP_KEY.SEND_VERSION_RESPONSE);
-        String time_zone_str =  null;
+        String time_zone_str = null;
 
         try {
             JSONObject send_version_response_jo = new JSONObject(send_version_response);
             time_zone_str = send_version_response_jo.getString("g_servertime");
 
 
-        }catch(Exception e){
+        } catch (Exception e) {
 
 //            Toast.makeText(getApplicationContext(),"TimeZone Ex: "+e.getMessage(),Toast.LENGTH_LONG).show();
 
@@ -244,7 +236,7 @@ public class QRCodePaymentCollectionLeg2RequestScreen extends GenericActivity im
                 commitRequest.setTransactionId(response_obj.getTransactionId());
                 if (response.contains("offerId"))
                     if (response_obj.getOfferId() != 0)
-                    commitRequest.setOfferId(response_obj.getOfferId());
+                        commitRequest.setOfferId(response_obj.getOfferId());
                 //XXX
                 break;
             default:

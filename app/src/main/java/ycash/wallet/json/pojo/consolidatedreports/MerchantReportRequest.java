@@ -1,33 +1,34 @@
 package ycash.wallet.json.pojo.consolidatedreports;
 
-import java.util.Date;
-
 import ycash.wallet.json.pojo.generic.GenericRequest;
 
 
 public class MerchantReportRequest extends GenericRequest {
-	
-	public MerchantReportRequest(){
-	}
+
+    public MerchantReportRequest() {
+    }
 
     private String processDateFrom;
     private String fromTime;
     private String toTime;
     private String processDateTo;
-    
 
-	public String getFromTime() {
-		return fromTime;
-	}
-	public void setFromTime(String fromTime) {
-		this.fromTime = fromTime;
-	}
-	public String getToTime() {
-		return toTime;
-	}
-	public void setToTime(String toTime) {
-		this.toTime = toTime;
-	}
+
+    public String getFromTime() {
+        return fromTime;
+    }
+
+    public void setFromTime(String fromTime) {
+        this.fromTime = fromTime;
+    }
+
+    public String getToTime() {
+        return toTime;
+    }
+
+    public void setToTime(String toTime) {
+        this.toTime = toTime;
+    }
 
     public String getProcessDateFrom() {
         return processDateFrom;

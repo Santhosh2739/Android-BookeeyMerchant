@@ -231,7 +231,7 @@
             android:layout_marginRight="1dp"
             android:layout_marginTop="5dp"
             android:gravity="center"
-            android:text="Filter by payment status"
+            android:text="@string/filter_by_payment_status"
             android:layout_height="wrap_content"></TextView>
 
         <Spinner
@@ -251,8 +251,9 @@
             android:imeOptions="actionDone"
             android:layout_marginLeft="10dp"
             android:maxLength="8"
+            android:paddingStart="10dp"
             android:layout_marginRight="10dp"
-            android:hint="   Search by Mobile No"
+            android:hint="@string/search_by_mobile_no"
             android:drawableLeft="@drawable/search"
             android:inputType="phone"
             android:layout_height="wrap_content"></EditText>

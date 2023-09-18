@@ -3,11 +3,6 @@ package ycash.wallet.json.pojo.invoice_pojo;
 import java.util.Arrays;
 
 import ycash.wallet.json.pojo.generic.GenericResponse;
-
-/**
- * Created by 10037 on 30-Nov-17.
- */
-
 public class InvoiceTranHistoryResponsePojo extends GenericResponse {
     private String transactionId;
     private long serverTime;

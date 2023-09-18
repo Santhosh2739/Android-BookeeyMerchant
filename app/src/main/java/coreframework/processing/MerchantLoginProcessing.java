@@ -82,13 +82,13 @@ public class MerchantLoginProcessing extends BackgroundProcessingAbstractFilter 
         loginRequest.setG_transType(TransType.LOGIN_MERCHANT.name());
 
 
-        Log.e("Merchant Login JSON: ",""+new Gson().toJson(loginRequest));
+        Log.e("Merchant Login JSON: ", "" + new Gson().toJson(loginRequest));
 
         StringBuffer buffer = new StringBuffer();
         buffer.append(TransType.LOGIN_MERCHANT.getURL());
         buffer.append("?d=" + URLUTF8Encoder.encode(new Gson().toJson(loginRequest)));
 
-        Log.e("Merchant Login URL: ",""+buffer.toString());
+        Log.e("Merchant Login URL: ", "" + buffer.toString());
 
         return buffer.toString();
     }

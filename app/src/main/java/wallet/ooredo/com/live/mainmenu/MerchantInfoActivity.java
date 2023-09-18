@@ -12,9 +12,6 @@ import coreframework.taskframework.GenericActivity;
 import wallet.ooredo.com.live.R;
 import ycash.wallet.json.pojo.MerchantInfoResponse;
 
-/**
- * Created by 10030 on 11/25/2016.
- */
 public class MerchantInfoActivity extends GenericActivity {
     TextView view_profile_mobilenumber_text, view_profile_merchantname_text, view_profile_branchname_text, view_profile_emailid_text;
 

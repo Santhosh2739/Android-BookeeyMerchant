@@ -7,15 +7,15 @@
     <string name="result_text" translatable="false"></string>
     <string name="history_send" translatable="false">Send history</string>
     <string name="history_clear_text" translatable="false">Clear history</string>
-    <string name="msg_unmount_usb">Sorry, the SD card is not accessible.</string>
+    <string name="msg_unmount_usb" translatable="false">Sorry, the SD card is not accessible.</string>
     <string name="button_ok" translatable="false">OK</string>
-    <string name="history_email_title">Barcode Scanner history</string>
+    <string name="history_email_title" translatable="false">Barcode Scanner history</string>
     <!--End-->
 
     <string name="app_name">BMerchant</string>
     <string name="logout">Logout</string>
     <string name="action_settings">Settings</string>
-    <string name="hello_world">Hello world!</string>
+    <string name="hello_world" translatable="false">Hello world!</string>
 
     <drawable name="white">#ffffff</drawable>
     <drawable name="darkgrey">#606060</drawable>
@@ -40,20 +40,20 @@
     <string name="qrcode">QRCode</string>
     <string name="chat_txt">Send Money</string>
     <string name="undo">Hide</string>
-    <string name="manage_profile"> Manage Profile</string>
+    <string name="manage_profile">Manage Profile</string>
     <string name="transaction_history">Transaction History</string>
     <string name="about_us">About Us</string>
     <string name="contact_us">Contact Us</string>
     <string name="exit_app">Log Off</string>
     <string name="action_text" translatable="false"></string>
     <string name="title_activity_sendmoney">Sendmoney</string>
-    <string name="title_activity_success_screen">Success_screen</string>
+    <string name="title_activity_success_screen" translatable="false">Success_screen</string>
 
 
-    <string name="transaction">Transaction Is Successfull</string>
-    <string name="forgot_password_underlined"><u>Forgot Password?</u></string>
-    <string name="branch_address">Shuwaikh (Chevrolet),Kuwait</string>
-    <string name="login_username"> mPaySafe</string>
+    <string name="transaction">Transaction Is Successful</string>
+    <string name="forgot_password_underlined" translatable="false"><u>Forgot Password?</u></string>
+    <string name="branch_address" translatable="false">Shuwaikh (Chevrolet),Kuwait</string>
+    <string name="login_username" translatable="false"> mPaySafe</string>
     <string name="mobile">Mobile Number</string>
 
     <string name="pay_to_merchant">Pay To Merchant</string>
@@ -201,12 +201,12 @@
     <!--lock unlock-->
     <string name="enter_password">Enter Pin</string>
     <string name="invalid_password">Invalid password.</string>
-    <string name="setting_title">Kiosk Mode Setting</string>
-    <string name="setting_lock_device">Lock</string>
-    <string name="setting_unlock_device">Unlock</string>
-    <string name="setting_device_locked">Device is locked</string>
-    <string name="setting_device_unlocked">Device is unlocked</string>
-
+    <string name="setting_title" translatable="false">Kiosk Mode Setting</string>
+    <string name="setting_lock_device" translatable="false">Lock</string>
+    <string name="setting_unlock_device" translatable="false">Unlock</string>
+    <string name="setting_device_locked" translatable="false">Device is locked</string>
+    <string name="setting_device_unlocked" translatable="false">Device is unlocked</string>
+    <string name="main_menu">Main Menu</string>
     <string name="empty" translatable="false"> </string>
 
     <string name="payment_method">Payment method</string>
@@ -231,5 +231,7 @@
     <string name="civilid">CivilID</string>
     <string name="staffid">StaffID</string>
     <string name="accountno">AccountNo</string>
+    <string name="filter_by_payment_status">Filter by payment status</string>
+    <string name="search_by_mobile_no">Search by Mobile No</string>
 
 </resources>

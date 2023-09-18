@@ -35,16 +35,17 @@ public class PayToMerchantPhase2Processing extends BackgroundProcessingAbstractF
     private boolean success = false;
     private String error_text_header = "";
     private String error_text_details = "";
-    private String error_status_discription="";
+    private String error_status_discription = "";
     private MerchantLoginRequestResponse merchantLoginRequestResponse = null;
-    GenericResponse response= null;
+    GenericResponse response = null;
 
-    public PayToMerchantPhase2Processing(PayToMerchantCommitRequest request, CoreApplication application, boolean isPost){
+    public PayToMerchantPhase2Processing(PayToMerchantCommitRequest request, CoreApplication application, boolean isPost) {
         this.request = request;
         this.application = application;
         this.isPost = isPost;
         merchantLoginRequestResponse = application.getMerchantLoginRequestResponse();
     }
+
     @Override
     public String captureURL() {
         //this.request.setG_oauth_2_0_client_token(merchantLoginRequestResponse.getOauth_2_0_client_token());
@@ -57,73 +58,76 @@ public class PayToMerchantPhase2Processing extends BackgroundProcessingAbstractF
         buffer.append("?d=" + URLUTF8Encoder.encode(new Gson().toJson(this.request)));
         String send_money_url = buffer.toString();
 
-        Log.e("Accept Payment L2"," URL"+send_money_url);
+        Log.e("Accept Payment L2", " URL" + send_money_url);
 
 //        send_money_url = null;
 
 
         return send_money_url;
     }
+
     @Override
     public void processResponse(Message msg) {
-        if(msg.arg1 == ServerConnection.OPERATION_SUCCESS){
-            String network_response = ((String)msg.obj).trim();
-            response = new Gson().fromJson(network_response,GenericResponse.class);
+        if (msg.arg1 == ServerConnection.OPERATION_SUCCESS) {
+            String network_response = ((String) msg.obj).trim();
+            response = new Gson().fromJson(network_response, GenericResponse.class);
             Log.e("Response", response.toString());
-            if(response!=null && response.getG_response_trans_type().equalsIgnoreCase(TransType.PAY_TO_MERCHANT_COMMIT_REQUEST_RESPONSE.name())&&response.getG_status()==1){
+            if (response != null && response.getG_response_trans_type().equalsIgnoreCase(TransType.PAY_TO_MERCHANT_COMMIT_REQUEST_RESPONSE.name()) && response.getG_status() == 1) {
                 this.response_json = network_response;
                 this.success = true;
-            }else if(response!=null && response.getG_response_trans_type().equalsIgnoreCase(TransType.PAY_TO_MERCHANT_COMMIT_REQUEST_RESPONSE.name())&&response.getG_status()!=1){
-                error_text_header= response.getG_status_description();
+            } else if (response != null && response.getG_response_trans_type().equalsIgnoreCase(TransType.PAY_TO_MERCHANT_COMMIT_REQUEST_RESPONSE.name()) && response.getG_status() != 1) {
+                error_text_header = response.getG_status_description();
                 error_text_details = response.getG_errorDescription();
-            }else{
+            } else {
 
-                if(response!=null) {
+                if (response != null) {
 
                     error_text_header = response.getG_status_description();
                     error_text_details = response.getG_errorDescription();
 
-                }else{
+                } else {
 
                     error_text_header = "ServerConnection.OPERATION_FAILURE_GENERAL_SERVER";
                     error_text_details = "ServerConnection.OPERATION_FAILURE_GENERAL_SERVER";
                 }
             }
-        }else if(msg.arg1 == ServerConnection.OPERATION_FAILURE_GENERAL_SERVER){
+        } else if (msg.arg1 == ServerConnection.OPERATION_FAILURE_GENERAL_SERVER) {
             error_text_header = "ServerConnection.OPERATION_FAILURE_GENERAL_SERVER";
             error_text_details = "ServerConnection.OPERATION_FAILURE_GENERAL_SERVER";
-        }else if(msg.arg1 == ServerConnection.OPERATION_FAILURE_NETWORK){
+        } else if (msg.arg1 == ServerConnection.OPERATION_FAILURE_NETWORK) {
             error_text_header = "ServerConnection.OPERATION_FAILURE_NETWORK";
             error_text_details = "ServerConnection.OPERATION_FAILURE_NETWORK";
         }
     }
+
     @Override
     public void performUserInterfaceAndDismiss(Activity activity, ProgressDialogFrag dialogueFragment) {
         dialogueFragment.dismiss();
-        if(success){
+        if (success) {
             Intent intent = new Intent(activity, QRCodePaymentCollectionFinalScreen.class);
             intent.putExtra("response", this.response_json);
             activity.startActivity(intent);
             activity.finish();
-        }else{
+        } else {
             //Handle Any types of failure here:
-            if(activity instanceof GenericActivity){
+            if (activity instanceof GenericActivity) {
 //                ((GenericActivity)activity).showNeutralDialogue(error_text_details, error_text_header);
 
 
-                if(error_text_header.contains("Cancelled")){
+                if (error_text_header.contains("Cancelled")) {
                     Toast.makeText(activity, activity.getString(R.string.cancelled_by_merchant), Toast.LENGTH_LONG).show();
-                }else{
+                } else {
                     Toast.makeText(activity, error_text_header, Toast.LENGTH_LONG).show();
                 }
 
-                Intent intent= new Intent(activity, MainActivity.class);
+                Intent intent = new Intent(activity, MainActivity.class);
                 activity.startActivity(intent);
                 activity.finish();
             }
         }
 
     }
+
     @Override
     public boolean isPost() {
         return false;

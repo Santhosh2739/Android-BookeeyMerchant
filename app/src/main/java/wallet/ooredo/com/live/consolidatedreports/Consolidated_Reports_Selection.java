@@ -1,35 +1,23 @@
 package wallet.ooredo.com.live.consolidatedreports;
 
-import android.app.Activity;
 import android.app.DatePickerDialog;
-import android.app.Dialog;
 import android.app.TimePickerDialog;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.TimePicker;
-import android.widget.Toast;
 
 import java.io.InputStream;
-import java.text.DateFormat;
-import java.text.NumberFormat;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.Calendar;
-import java.util.Date;
 
-import coreframework.processing.MerchantLoginProcessing;
 import coreframework.processing.ReportsProcessing;
 import coreframework.taskframework.GenericActivity;
 import coreframework.taskframework.ProgressDialogFrag;
@@ -38,7 +26,6 @@ import wallet.ooredo.com.live.R;
 import wallet.ooredo.com.live.application.CoreApplication;
 import wallet.ooredo.com.live.mainmenu.MainActivity;
 import ycash.wallet.json.pojo.consolidatedreports.MerchantReportRequest;
-import ycash.wallet.json.pojo.merchantlogin.MerchantLoginRequestResponse;
 
 public class Consolidated_Reports_Selection extends GenericActivity implements TimePickerDialog.OnTimeSetListener,YPCHeadlessCallback {
     int year,month,day,mYear,mMonth,mDay;

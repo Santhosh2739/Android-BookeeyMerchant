@@ -10,9 +10,7 @@ import android.widget.TextView;
 import java.util.List;
 
 import wallet.ooredo.com.live.R;
-/**
- * Created by 10037 on 23-May-18.
- */
+
 
 public class SendLinkType extends BaseAdapter {
     List<String> sendLinkList;

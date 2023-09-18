@@ -11,19 +11,15 @@ import android.util.Log;
 import android.view.Window;
 import android.view.WindowManager;
 
-import com.facebook.FacebookSdk;
 import com.google.gson.Gson;
 
 import coreframework.database.CustomSharedPreferences;
 import wallet.ooredo.com.live.application.CoreApplication;
 import wallet.ooredo.com.live.merchantlogin.MerchantLoginActivity;
 import wallet.ooredo.com.live.utils.LocaleHelper;
-import wallet.ooredo.com.live.utils.PrintManagerSDK;
 import wangpos.sdk4.libbasebinder.Printer;
 import ycash.wallet.json.pojo.merchantlogin.MerchantLoginRequestResponse;
-/**
- * Code Modified (Mohit) for login merchant in case of restart of device if login response is available in persistent space.
- */
+
 public class Splash extends Activity {
     PackageInfo p_info;
     double d2_update = 0d;
@@ -52,8 +48,7 @@ public class Splash extends Activity {
             ((CoreApplication) getApplication()).setNewPOS(true);
         }
         Log.e("POS Device", "" + ((CoreApplication) getApplication()).isNewPOS());
-        //Facebook
-        FacebookSdk.sdkInitialize(getApplicationContext());
+
         try {
             p_info = ((CoreApplication) getApplication()).getPackageManager().getPackageInfo(((CoreApplication) getApplication()).getPackageName(), 0);
             d2_update = Double.parseDouble(p_info.versionName);

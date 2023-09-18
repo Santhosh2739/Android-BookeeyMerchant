@@ -19,9 +19,6 @@ import coreframework.taskframework.YPCHeadlessCallback;
 import wallet.ooredo.com.live.R;
 import wallet.ooredo.com.live.application.CoreApplication;
 
-/**
- * Created by munireddy on 5/2/2016.
- */
 public class OfferValidateResponseDisplay extends GenericActivity implements YPCHeadlessCallback, View.OnClickListener {
 
   private String offer_redeem_qrdata = null;

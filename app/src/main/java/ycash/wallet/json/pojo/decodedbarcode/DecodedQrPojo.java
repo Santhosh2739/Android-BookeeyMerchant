@@ -5,9 +5,6 @@ import android.os.Parcelable;
 
 import coreframework.barcodeclient.BcodeHeaderEncoder;
 
-/**
- * Created by mohit on 03-07-2015.
- */
 public class DecodedQrPojo implements Parcelable{
 
     private byte[] completeCode;

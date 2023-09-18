@@ -16,9 +16,6 @@ import coreframework.taskframework.GenericActivity;
 import wallet.ooredo.com.live.R;
 import wallet.ooredo.com.live.application.CoreApplication;
 
-/**
- * Created by munireddy on 6/3/2016.
- */
 public class OfferRedeemFinalScreen extends GenericActivity implements View.OnClickListener{
 
     public static final String KEY_DESCRIPTION = "KEY_DESCRIPTION";

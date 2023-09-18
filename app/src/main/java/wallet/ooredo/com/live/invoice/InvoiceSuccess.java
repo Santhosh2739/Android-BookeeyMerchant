@@ -5,7 +5,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,8 +15,8 @@ import android.widget.TableRow;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.facebook.FacebookSdk;
-import com.facebook.appevents.AppEventsLogger;
+import androidx.annotation.Nullable;
+
 import com.google.gson.Gson;
 
 import coreframework.database.CustomSharedPreferences;
@@ -225,10 +224,6 @@ public class InvoiceSuccess extends GenericActivity implements View.OnClickListe
     @Override
     protected void onResume() {
         super.onResume();
-        //Facebook
-        FacebookSdk.sdkInitialize(getApplicationContext());
-        AppEventsLogger logger = AppEventsLogger.newLogger(this);
-        logger.logEvent("MX_Invoice_Final");
         String selectedLanguage = CustomSharedPreferences.getStringData(getApplicationContext(), CustomSharedPreferences.SP_KEY.LANGUAGE);
         if (selectedLanguage != null && !selectedLanguage.isEmpty()) {
             LocaleHelper.setLocale(InvoiceSuccess.this, selectedLanguage);

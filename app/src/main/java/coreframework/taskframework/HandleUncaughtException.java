@@ -1,6 +1,14 @@
 package coreframework.taskframework;
 
 
+import android.app.Activity;
+import android.content.ActivityNotFoundException;
+import android.content.Intent;
+import android.net.Uri;
+import android.os.Build;
+import android.os.Environment;
+import android.util.Log;
+
 import java.io.File;
 import java.io.FileWriter;
 import java.io.PrintWriter;
@@ -8,21 +16,7 @@ import java.io.StringWriter;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-import android.app.Activity;
-import android.content.ActivityNotFoundException;
-import android.content.Intent;
-import android.net.Uri;
-import android.os.Build;
-import android.os.Environment;
-import android.support.annotation.NonNull;
-import android.util.Log;
-
-
-
-import coreframework.database.CustomSharedPreferences;
 import wallet.ooredo.com.live.BuildConfig;
-import wallet.ooredo.com.live.application.CoreApplication;
-import ycash.wallet.json.pojo.merchantlogin.MerchantLoginRequestResponse;
 
 public class HandleUncaughtException implements Thread.UncaughtExceptionHandler {
     private static Activity myContext = null;

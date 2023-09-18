@@ -1,11 +1,5 @@
 package ycash.wallet.json.pojo.generic;
 
-
-/**
- * 
- * @author mohit
- *
- */
 public class GenericRequest {
 	
 	private String g_userId;

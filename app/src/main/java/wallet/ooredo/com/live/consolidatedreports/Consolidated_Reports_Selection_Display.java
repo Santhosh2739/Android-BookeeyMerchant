@@ -1,6 +1,5 @@
 package wallet.ooredo.com.live.consolidatedreports;
 
-import android.app.Activity;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
@@ -20,28 +19,20 @@ import com.google.gson.Gson;
 
 import java.io.IOException;
 import java.io.InputStream;
-import java.util.Date;
 
 import coreframework.database.CustomSharedPreferences;
 import coreframework.processing.ReportmailProcessing;
-import coreframework.processing.ReportsProcessing;
 import coreframework.taskframework.GenericActivity;
 import coreframework.taskframework.ProgressDialogFrag;
 import coreframework.taskframework.YPCHeadlessCallback;
 import coreframework.utils.PriceFormatter;
-import coreframework.utils.TimeUtils;
 import wallet.ooredo.com.live.R;
 import wallet.ooredo.com.live.application.CoreApplication;
-import wallet.ooredo.com.live.transactionhistory.TransactionHistoryDisplayActivity;
 import wangpos.sdk4.libbasebinder.Printer;
 import ycash.wallet.json.pojo.consolidatedreports.MerchantReportRequest;
 import ycash.wallet.json.pojo.consolidatedreports.MerchantReportResponse;
-import ycash.wallet.json.pojo.generic.GenericResponse;
-import ycash.wallet.json.pojo.merchantlogin.MerchantLoginRequestResponse;
 
-/**
- * Created by 30099 on 1/18/2016.
- */
+
 public class Consolidated_Reports_Selection_Display extends GenericActivity implements YPCHeadlessCallback {
 
     private Printer mPrinter;

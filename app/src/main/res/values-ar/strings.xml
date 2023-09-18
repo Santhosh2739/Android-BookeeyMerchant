@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <string name="exit_app">إطفاء</string>
+    <string name="title_activity_sendmoney">إرسال الأموال</string>
+    <string name="transaction">عملية ناجحة</string>
+    <string name="mobile">رقم الهاتف المحمول</string>
     <string name="pay_to_merchant">ا توجد عروض متاحة</string>
     <!--<string name="collectpayment">عملية الدفع</string>-->
 
@@ -14,6 +18,8 @@
 
 
     <string name="proceed">استمرار</string>
+    <string name="GPSAlertDialogTitle">استخدم نظام تحديد المواقع</string>
+    <string name="GPSAlertDialogMessage">هل تريد استخدام نظام تحديد المواقع؟</string>
     <string name="cancel">الغاء</string>
     <string name="accept">موافقة</string>
     <string name="reject">رفض</string>
@@ -38,6 +44,7 @@
     <string name="expire">انتهاء الصلاحية</string>
     <!--<string name="no_offers_available">لا يوجد عروض </string>-->
 
+    <string name="contact_us_screen_connect_executive">ربط التنفيذي</string>
     <string name="login_english">English</string>
     <string name="login_arabic">العربية</string>
     <string name="app_language">العربية</string>
@@ -54,12 +61,29 @@
     <string name="total_paymnet">اجمالي الدفع</string>
     <string name="thank_you_for_using_bookeey_wallet">شكرا لاستخدامك بوكي</string>
     <string name="powered_by">مدعوم من</string>
+    <string name="history_clear_one_history_text">واضح</string>
+    <string name="app_name">BMerchant</string>
+    <string name="logout">تسجيل خروج</string>
+    <string name="action_settings">إعدادات</string>
+    <string name="customer_current_balctv">الرصيد الحالي</string>
+    <string name="recharge_wallet_txt">إعادة شحن المحفظة</string>
+    <string name="send_money_txt">يشتري</string>
+    <string name="send_money_help">يساعد</string>
+    <string name="more_text">أكثر</string>
+    <string name="poweredby_tv">مشغل بواسطة</string>
+    <string name="send_money_others">آحرون</string>
+    <string name="transactions_txt">اشحن رصيدك / الدفع</string>
+    <string name="qrcode">رمز الاستجابة السريعة</string>
+    <string name="chat_txt">إرسال الأموال</string>
+    <string name="undo">يخفي</string>
+    <string name="manage_profile">إدارة الملف الشخصي</string>
     <string name="transaction_history">كشف المعاملات </string>
     <string name="refresh">تحديث</string>
     <string name="merchant_information">معلومات التاجر </string>
     <string name="merchant_name">اسم التاجر </string>
     <string name="branch_name">الفرع </string>
     <string name="close">اغلاق </string>
+    <string name="profile_btn">يغلق</string>
     <string name="contact_us_screen_office_adress">عنوان المقر الرئيسي</string>
     <string name="contact_us_screen_write_us">اكتب لنا </string>
     <string name="contact_us_screen_customer_care">خدمة العملاء </string>
@@ -71,6 +95,7 @@
     <string name="login">تسجيل دخول</string>
     <string name="merchant_info">معلومات التاجر </string>
     <string name="check_for_updates">التحقق من التحديث</string>
+    <string name="about_us">معلومات عنا</string>
     <string name="contact_us">التواص معنا </string>
     <string name="log_off">تسجيل الخروج </string>
     <string name="transaction_amount">المبلغ الاجمالي</string>
@@ -94,7 +119,7 @@
     <string name="alert_no">لا</string>
     <string name="alert">انتهاءصلاحية الفاتورة</string>
     <string name="invoice_expire_success">انتهت صلاحية الفاتورة بنجاح</string>
-
+    <string name="main_menu">القائمة الرئيسية</string>
     <string name="transaction_payment_receipt">ايصال دفع المعاملة</string>
     <string name="count_of_transaction">عدد المعاملات</string>
     <string name="sum_of_transaction">جمع المعاملات</string>
@@ -141,6 +166,8 @@
     <string name="expired_invoice">منتهي الصلاحية</string>
 
 
+    <string name="enter_password">أدخل رقم التعريف الشخصي</string>
+    <string name="invalid_password">رمز مرور خاطئ.</string>
     <string name="payment_method">   طريقة الدفع</string>
     <string name="fees">  رسوم المعاملة</string>
     <string name="due_to_merchant">المستحق للتاجر</string>
@@ -158,4 +185,6 @@
     <string name="staffid">StaffID</string>
     <string name="accountno">رقم حساب</string>
     <string name="contact_us_screen_office_adress_detail">قبله - قطعة ١٢ - شارع فهد السالم - عمارة الكويت - الدور ١٩</string>
+    <string name="filter_by_payment_status">تصفية حسب حالة الدفع</string>
+    <string name="search_by_mobile_no">البحث عن طريق رقم الجوال</string>
 </resources>

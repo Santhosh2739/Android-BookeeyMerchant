@@ -2,11 +2,6 @@ package ycash.wallet.json.pojo.generic;
 
 import wallet.ooredo.com.live.forceface.TransTypeInterface;
 
-/**
- * 
- * @author mohit
- *
- */
 public class GenericResponse implements TransTypeInterface {
 	
 	private int g_status;

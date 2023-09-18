@@ -17,7 +17,6 @@ import android.widget.TableRow;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.facebook.FacebookSdk;
 import com.google.gson.Gson;
 
 import org.json.JSONObject;
@@ -35,9 +34,7 @@ import wallet.ooredo.com.live.R;
 import wallet.ooredo.com.live.application.CoreApplication;
 import wangpos.sdk4.libbasebinder.Printer;
 import ycash.wallet.json.pojo.paytomerchant.PayToMerchantCommitRequestResponse;
-/**
- * Created by munireddy on 08-06-2015.
- */
+
 public class QRCodePaymentCollectionFinalScreen extends GenericActivity implements YPCHeadlessCallback, View.OnClickListener {
     private static final int MESSAGE_PRINT = 0x00;
     public Handler mHandler = new Handler() {
@@ -172,48 +169,11 @@ public class QRCodePaymentCollectionFinalScreen extends GenericActivity implemen
             new PrintThread().start();
     }
 
-    //    @Override
-//    protected void onResume() {
-//        super.onResume();
-//        ImageView back_logo=null;
-//        try {
-//            back_logo = (ImageView) findViewById(R.id.back_logo);
-//            MerchantLoginRequestResponse merchantLoginRequestResponse = ((CoreApplication) getApplication()).getMerchantLoginRequestResponse();
-//
-//            Bitmap decodedByte = BitmapFactory.decodeByteArray(merchantLoginRequestResponse.getMerchantLogo(), 0, merchantLoginRequestResponse.getMerchantLogo().length);
-//            if(decodedByte!=null)
-//                back_logo.setImageBitmap(decodedByte);
-//        }catch (Exception e){
-//            back_logo.setVisibility(View.INVISIBLE);
-//        }
-//    }
     @Override
     protected void onResume() {
         super.onResume();
-        //Facebook
-        FacebookSdk.sdkInitialize(getApplicationContext());
-        //Facebook
-//        AppEventsLogger logger = AppEventsLogger.newLogger(this);
-//        logger.logEvent("MX_P2M_Final");
         final ImageView back_logo = (ImageView) findViewById(R.id.back_logo);
         back_logo.setImageBitmap(((CoreApplication) getApplication()).getMerchnat_logo());
-//    MerchantLoginRequestResponse merchantLoginRequestResponse = ((CoreApplication) getApplication()).getMerchantLoginRequestResponse();
-//    new DownloadImageTask(back_logo).execute(merchantLoginRequestResponse.getMerchantLogo());
-        //For Bus
-//        Runnable mMyRunnable = new Runnable()
-//        {
-//            @Override
-//            public void run()
-//            {
-//
-//
-//                payment_confirm_print_btn.performClick();
-//
-//
-//            }
-//        };
-//        Handler myHandler = new Handler();
-//        myHandler.postDelayed(mMyRunnable, 1000);
     }
 
     @Override

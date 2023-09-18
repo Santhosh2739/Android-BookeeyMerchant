@@ -1,5 +1,6 @@
 package wallet.ooredo.com.live.invoice;
 
+import android.Manifest;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -17,8 +18,6 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.provider.ContactsContract;
 import android.provider.MediaStore;
-import android.support.v4.app.ActivityCompat;
-import android.support.v4.content.ContextCompat;
 import android.text.Editable;
 import android.text.InputFilter;
 import android.text.TextWatcher;
@@ -37,6 +36,9 @@ import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 
 import com.google.gson.Gson;
 
@@ -63,13 +65,12 @@ import coreframework.taskframework.YPCHeadlessCallback;
 import coreframework.utils.PriceFormatter;
 import wallet.ooredo.com.live.R;
 import wallet.ooredo.com.live.application.CoreApplication;
+import wallet.ooredo.com.live.mainmenu.MainActivity;
 import wallet.ooredo.com.live.utils.LocaleHelper;
 import ycash.wallet.json.pojo.invoice_pojo.InvoiceRequest;
 import ycash.wallet.json.pojo.invoice_pojo.InvoiceTranHistoryResponsePojo;
 import ycash.wallet.json.pojo.merchantlogin.MerchantLoginRequestResponse;
-/**
- * Created by 10037 on 20-Nov-17.
- */
+
 public class InvoiceActivity extends GenericActivity implements YPCHeadlessCallback {
     //To send Image while generating Invoice
     private static final int CAMERA_REQUEST = 123;
@@ -85,8 +86,8 @@ public class InvoiceActivity extends GenericActivity implements YPCHeadlessCallb
     String mobno_str, amount_str, invoiceNo, remarks_str, fullName, emailID, whatsAppNo = "", send_mobno_str;
     TextView description_text, merchant_edit_description_text, send_link_text;
     int RQS_PICK_CONTACT = 1, RQS_PICK_CONTACT_SEND_TO = 5;
-    LinearLayout  merchant_edit_description_linear, invoice_choose_language_layout, invoice_hospital_layout, email_layout,
-             invoice_emailid_edit_layout;
+    LinearLayout merchant_edit_description_linear, invoice_choose_language_layout, invoice_hospital_layout, email_layout,
+            invoice_emailid_edit_layout;
     Spinner invoice_choose_language_spinner, invoice_choose_send_link;
     String[] languages = {"English", " عربي"};
 
@@ -105,9 +106,9 @@ public class InvoiceActivity extends GenericActivity implements YPCHeadlessCallb
         //Setting language
         String[] sendLinkType;
         if (((CoreApplication) getApplication()).isPOS() || ((CoreApplication) getApplication()).isNewPOS()) {
-            sendLinkType = new String[]{ getString(R.string.SMS) };
+            sendLinkType = new String[]{getString(R.string.SMS)};
         } else {
-            sendLinkType = new String[]{ getString(R.string.WhatsApp), getString(R.string.SMS) };
+            sendLinkType = new String[]{getString(R.string.WhatsApp), getString(R.string.SMS)};
         }
 
         selectedLanguage = CustomSharedPreferences.getStringData(getApplicationContext(), CustomSharedPreferences.SP_KEY.LANGUAGE);
@@ -133,7 +134,15 @@ public class InvoiceActivity extends GenericActivity implements YPCHeadlessCallb
         invoice_mobileno_edit.addTextChangedListener(new TextWatcher() {
 
             @Override
-            public void afterTextChanged(Editable s) {}
+            public void afterTextChanged(Editable s) {
+                Log.e("Testing", "afterTextChanged " + s.toString());
+                String str = FilterNumber(invoice_mobileno_edit.getText().toString());
+                if (!str.equals(invoice_mobileno_edit.getText().toString())) {
+                    invoice_mobileno_edit.removeTextChangedListener(this);
+                    invoice_mobileno_edit.setText(str);
+                    invoice_mobileno_edit.addTextChangedListener(this);
+                }
+            }
 
             @Override
             public void beforeTextChanged(CharSequence s, int start,
@@ -151,7 +160,7 @@ public class InvoiceActivity extends GenericActivity implements YPCHeadlessCallb
             final int DRAWABLE_RIGHT = 2;
             if (motionEvent.getAction() == MotionEvent.ACTION_UP) {
                 if (motionEvent.getRawX() >= (invoice_mobileno_edit.getRight() - invoice_mobileno_edit.getCompoundDrawables()[DRAWABLE_RIGHT].getBounds().width())) {
-                    invoice_mobileno_edit.setFilters(new InputFilter[]{new InputFilter.LengthFilter(8)});
+                    //invoice_mobileno_edit.setFilters(new InputFilter[]{new InputFilter.LengthFilter(8)});
                     internationalMobile = false;
                     Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
                     intent.setType(ContactsContract.CommonDataKinds.Phone.CONTENT_ITEM_TYPE);
@@ -166,7 +175,7 @@ public class InvoiceActivity extends GenericActivity implements YPCHeadlessCallb
             final int DRAWABLE_RIGHT = 2;
             if (motionEvent.getAction() == MotionEvent.ACTION_UP) {
                 if (motionEvent.getRawX() >= (invoice_mobileno_send.getRight() - invoice_mobileno_send.getCompoundDrawables()[DRAWABLE_RIGHT].getBounds().width())) {
-                    invoice_mobileno_send.setFilters(new InputFilter[]{new InputFilter.LengthFilter(8)});
+                   // invoice_mobileno_send.setFilters(new InputFilter[]{new InputFilter.LengthFilter(8)});
                     internationalMobile = false;
                     Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
                     intent.setType(ContactsContract.CommonDataKinds.Phone.CONTENT_ITEM_TYPE);
@@ -349,7 +358,7 @@ public class InvoiceActivity extends GenericActivity implements YPCHeadlessCallb
             public void onClick(View v) {
                 mobno_str = invoice_mobileno_edit.getText().toString().trim();
                 send_mobno_str = invoice_mobileno_send.getText().toString().trim();
-                if(send_mobno_str.length() == 8)
+                if (send_mobno_str.length() == 8)
                     whatsAppNo = "965" + send_mobno_str;
                 amount_str = invoice_amount_edit.getText().toString().trim();
                 invoiceNo = merchant_inv_no.getText().toString().trim();
@@ -451,22 +460,14 @@ public class InvoiceActivity extends GenericActivity implements YPCHeadlessCallb
 
     private void alertDialog() {
         LayoutInflater li = LayoutInflater.from(this);
-        View promptsView = li.inflate(R.layout.custom_alert_image, null);
+        View promptsView = li.inflate(R.layout.pick_attachment, null);
         AlertDialog.Builder alertDialog = new AlertDialog.Builder(InvoiceActivity.this);
         alertDialog.setView(promptsView);
         alertDialog.setPositiveButton(getString(R.string.camera), new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int which) {
-                if (!checkPermissionForCamera()) {
-                    Log.i("IF", "if");
-                    requestPermissionForCamera(CAMERA_REQUEST);
-                } else {
-                    Log.i("ELSE", "else");
+                if (checkPermissionForCamera()) {
                     Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-                    if (takePictureIntent.resolveActivity(getPackageManager()) != null) {
-                        startActivityForResult(takePictureIntent, CAMERA_REQUEST);
-                    } else {
-                        Toast.makeText(getBaseContext(), "Your camera can't able to take the data of picture ", Toast.LENGTH_SHORT).show();
-                    }
+                    startActivityForResult(takePictureIntent, CAMERA_REQUEST);
                 }
             }
         });
@@ -476,27 +477,44 @@ public class InvoiceActivity extends GenericActivity implements YPCHeadlessCallb
                         checkSelfPermission(android.Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
                     requestPermissions(new String[]{android.Manifest.permission.WRITE_EXTERNAL_STORAGE}, PICK_FROM_GALLERY);
                 } else {
-                    Intent photoPickerIntent = new Intent(Intent.ACTION_PICK);
-                    photoPickerIntent.setType("image/*");
-                    startActivityForResult(photoPickerIntent, PICK_FROM_GALLERY);
+                    Intent galleryIntent = new Intent(Intent.ACTION_PICK);
+                    galleryIntent.setType("image/*");
+                    startActivityForResult(galleryIntent, PICK_FROM_GALLERY);
                 }
             }
         });
         alertDialog.show();
     }
 
-    public boolean checkPermissionForCamera() {
-        Log.i("checkPermission", "checkPermissionForCamera");
-        int result = ContextCompat.checkSelfPermission(InvoiceActivity.this, android.Manifest.permission.CAMERA);
-        return result == PackageManager.PERMISSION_GRANTED;
-    }
-
-    public void requestPermissionForCamera(int requestCode) {
-        if (ActivityCompat.shouldShowRequestPermissionRationale(InvoiceActivity.this, android.Manifest.permission.CAMERA)) {
-            Toast.makeText(this, "Camera permission needed. Please allow in App Settings for additional functionality.", Toast.LENGTH_LONG).show();
+    private boolean checkPermissionForCamera() {
+        Log.e("permission.CAMERA", "-" + ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA));
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA) == PackageManager.PERMISSION_DENIED) {
+            if (ActivityCompat.shouldShowRequestPermissionRationale(this, Manifest.permission.CAMERA)) {
+                ActivityCompat.requestPermissions(InvoiceActivity.this, new String[]{Manifest.permission.CAMERA}, CAMERA_REQUEST);
+            } else {
+                // No explanation needed, we can request the permission.
+                ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.CAMERA}, CAMERA_REQUEST);
+            }
+            return false;
         } else {
-            ActivityCompat.requestPermissions(InvoiceActivity.this, new String[]{android.Manifest.permission.CAMERA}, requestCode);
+            return true;
         }
+    }
+    public String FilterNumber (String number) {
+        Log.e("Number", number);
+        String str = number.replaceAll(" ", "").trim();
+        if (str.length() == 8) {
+        } else if (str.startsWith("965")) {
+            str = str.replaceAll("965", "");
+        } else if (str.startsWith("+965")) {
+            str = str.replaceAll("\\+965", "");
+        } else if (str.startsWith("00965")) {
+            str = str.substring(5,13);
+        } else {
+            str = str.replaceAll("\\D", "");
+        }
+        Log.e("Number", str);
+        return str;
     }
 
     @Override
@@ -526,22 +544,11 @@ public class InvoiceActivity extends GenericActivity implements YPCHeadlessCallb
                     Cursor cursor = managedQuery(contactData, null, null, null, null);
                     cursor.moveToFirst();
                     String number = cursor.getString(cursor.getColumnIndexOrThrow(ContactsContract.CommonDataKinds.Phone.NUMBER));
-                    String str = number.replaceAll(" ", "").trim();
-                    if (str.length() == 8) {
-                        invoice_mobileno_edit.setText(str);
-                        invoice_mobileno_send.setText(str);
-                    } else if (str.startsWith("+965")) {
-                        str = str.replaceAll("\\+965", "");
-                        invoice_mobileno_edit.setText(str);
-                        invoice_mobileno_send.setText(str);
-                    } else {
-                        str = str.replaceAll("\\D", "");
-                        invoice_mobileno_edit.setFilters(new InputFilter[]{new InputFilter.LengthFilter(str.length())});
-                        invoice_mobileno_edit.setText(str);
-                        invoice_mobileno_send.setFilters(new InputFilter[]{new InputFilter.LengthFilter(str.length())});
-                        invoice_mobileno_send.setText(str);
+                    String str = FilterNumber(number);
+                    invoice_mobileno_edit.setText(str);
+                    invoice_mobileno_send.setText(str);
+                    if (str.length() > 8)
                         internationalMobile = true;
-                    }
                 }
             }
             if (requestCode == RQS_PICK_CONTACT_SEND_TO) {
@@ -550,19 +557,11 @@ public class InvoiceActivity extends GenericActivity implements YPCHeadlessCallb
                     Cursor cursor = managedQuery(contactData, null, null, null, null);
                     cursor.moveToFirst();
                     String number = cursor.getString(cursor.getColumnIndexOrThrow(ContactsContract.CommonDataKinds.Phone.NUMBER));
-                    String str = number.replaceAll(" ", "").trim();
-                    invoice_mobileno_send.setFilters(new InputFilter[]{new InputFilter.LengthFilter(8)});
-                    if (str.length() == 8) {
-                        invoice_mobileno_send.setText(str);
-                    } else if (str.startsWith("+965")) {
-                        str = str.replaceAll("\\+965", "");
-                        invoice_mobileno_send.setText(str);
-                    } else {
-                        str = str.replaceAll("\\D", "");
-                        invoice_mobileno_send.setFilters(new InputFilter[]{new InputFilter.LengthFilter(str.length())});
-                        invoice_mobileno_send.setText(str);
+                    String str = FilterNumber(number);
+                    invoice_mobileno_send.setFilters(new InputFilter[]{new InputFilter.LengthFilter(str.length())});
+                    invoice_mobileno_send.setText(str);
+                    if (str.length() > 8)
                         internationalMobile = true;
-                    }
                 }
             }
         } catch (Exception e) {
@@ -629,7 +628,7 @@ public class InvoiceActivity extends GenericActivity implements YPCHeadlessCallb
         startActivityForResult(cropIntent, 0);
     }
 
-    private void submitRequest(String mobno_str,String send_mobno_str, String amount_str, String invoiceNo, String remarks_str, String fullName, String emailID, String selected_language) {
+    private void submitRequest(String mobno_str, String send_mobno_str, String amount_str, String invoiceNo, String remarks_str, String fullName, String emailID, String selected_language) {
         CustomSharedPreferences.saveStringData(getApplicationContext(), invoiceNo, CustomSharedPreferences.SP_KEY.RECENT_INVOICE_NO);
         CustomSharedPreferences.saveStringData(getApplicationContext(), amount_str, CustomSharedPreferences.SP_KEY.RECENT_INVOICE_AMOUNT);
         CustomSharedPreferences.saveStringData(getApplicationContext(), mobno_str, CustomSharedPreferences.SP_KEY.RECENT_INVOICE_MOBILE_NO);
@@ -683,7 +682,7 @@ public class InvoiceActivity extends GenericActivity implements YPCHeadlessCallb
         progress.show(getFragmentManager(), "progress_dialog");
     }
 
-    private void pendingEditRequest(String mobno_str,String send_mobno_str, String amount_str, String invoiceNo, String remarks_str, String fullName, String emailID) {
+    private void pendingEditRequest(String mobno_str, String send_mobno_str, String amount_str, String invoiceNo, String remarks_str, String fullName, String emailID) {
         InvoiceRequest invoiceRequest = new InvoiceRequest();
         invoiceRequest.setInvoiceNo(invoiceNo);
         invoiceRequest.setAmount(Double.parseDouble(amount_str));

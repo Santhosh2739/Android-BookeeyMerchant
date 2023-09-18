@@ -15,10 +15,7 @@ import wallet.ooredo.com.live.R;
 import wallet.ooredo.com.live.application.CoreApplication;
 
 
-/**
- * Created by munireddy on 5/3/2016.
- */
-public class OfferRedeemSuccessFinal extends GenericActivity implements View.OnClickListener{
+public class OfferRedeemSuccessFinal extends GenericActivity implements View.OnClickListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,7 +23,7 @@ public class OfferRedeemSuccessFinal extends GenericActivity implements View.OnC
         setContentView(R.layout.offer_redeem_success);
 //        enableUndoBar();
 
-        ImageView payment_success_img_id = (ImageView)findViewById(R.id.payment_success_img_id);
+        ImageView payment_success_img_id = (ImageView) findViewById(R.id.payment_success_img_id);
         payment_success_img_id.setOnClickListener(this);
 
     }
@@ -35,7 +32,7 @@ public class OfferRedeemSuccessFinal extends GenericActivity implements View.OnC
     public void onClick(View v) {
 
 
-        switch (v.getId()){
+        switch (v.getId()) {
             case R.id.payment_success_img_id:
 
                 finish();
@@ -43,17 +40,20 @@ public class OfferRedeemSuccessFinal extends GenericActivity implements View.OnC
         }
 
     }
+
     @Override
     protected void onResume() {
         super.onResume();
 
         final ImageView back_logo = (ImageView) findViewById(R.id.back_logo);
-         back_logo.setImageBitmap(((CoreApplication) getApplication()).getMerchnat_logo()); ;
+        back_logo.setImageBitmap(((CoreApplication) getApplication()).getMerchnat_logo());
+        ;
 //        MerchantLoginRequestResponse merchantLoginRequestResponse = ((CoreApplication) getApplication()).getMerchantLoginRequestResponse();
 //        new DownloadImageTask(back_logo).execute(merchantLoginRequestResponse.getMerchantLogo());
 
 
     }
+
     class DownloadImageTask extends AsyncTask<String, Void, Bitmap> {
         ImageView bmImage;
 

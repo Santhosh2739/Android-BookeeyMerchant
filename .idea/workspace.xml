@@ -44,150 +44,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6da1e20e-09e9-4f58-b3c3-3646bc8f5f73" name="Default Changelist" comment="git workspace change">
-      <change afterPath="$PROJECT_DIR$/app/google-services.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_scan_barcode.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/pick_attachment.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/app/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/libs/SDK4EmvBinderV2.1.4.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/libs/SDK4KeyManagerBinderV2.1.4.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/br/com/google/zxing/client/android/CaptureActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/br/com/google/zxing/client/android/CaptureActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/coreframework/barcodeclient/BarCodeTimeParser.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/release/release/app-release.apk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/release/release/output-metadata.json" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/coreframework/connection/Config.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/coreframework/connection/Config.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/coreframework/processing/CheckForUpdateProcessing.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/coreframework/processing/DecodeIncomingQrPaymentCode.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/coreframework/processing/DecodeIncomingQrPaymentCode.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/coreframework/processing/InvoiceExpiryProcessing.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/coreframework/processing/InvoiceExpiryProcessing.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/coreframework/processing/InvoiceProcessing.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/coreframework/processing/InvoiceProcessing.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/coreframework/processing/MerchantInfoProcessing.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/coreframework/processing/MerchantInfoProcessing.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/coreframework/processing/MerchantLoginProcessing.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/coreframework/processing/MerchantLoginProcessing.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/coreframework/processing/OffersProcessing.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/coreframework/processing/OffersProcessing.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/coreframework/processing/PayToMerchantPhase1Processing.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/coreframework/processing/PayToMerchantPhase1Processing.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/coreframework/processing/PayToMerchantPhase2Processing.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/coreframework/processing/PayToMerchantPhase2Processing.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/coreframework/processing/ReminderProcessing.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/coreframework/processing/ReminderProcessing.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/coreframework/processing/logout/LogoutProcessing.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/coreframework/processing/logout/LogoutProcessing.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/coreframework/taskframework/HandleUncaughtException.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/coreframework/taskframework/HandleUncaughtException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/coreframework/taskframework/MainGenericActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/coreframework/taskframework/MainGenericActivity.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/coreframework/utils/TransType.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/coreframework/utils/TransType.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/push_notifications/GcmBroadcastReceiver.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/push_notifications/GcmIntentService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/push_notifications/SendingVersionNumberProcessing.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/wallet/ooredo/com/live/Splash.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/wallet/ooredo/com/live/Splash.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/wallet/ooredo/com/live/application/CoreApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/wallet/ooredo/com/live/application/CoreApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/wallet/ooredo/com/live/application/SyncService.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/wallet/ooredo/com/live/application/SyncService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/wallet/ooredo/com/live/barcodepaymentcollection/DisplayAmountToMerchantActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/wallet/ooredo/com/live/barcodepaymentcollection/DisplayAmountToMerchantActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/wallet/ooredo/com/live/barcodepaymentcollection/DisplayAmountToMerchantActivityDummy.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/wallet/ooredo/com/live/barcodepaymentcollection/DisplayAmountToMerchantActivityDummy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/wallet/ooredo/com/live/barcodepaymentcollection/QRCodePaymentCollectionFinalScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/wallet/ooredo/com/live/barcodepaymentcollection/QRCodePaymentCollectionFinalScreen.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/wallet/ooredo/com/live/barcodepaymentcollection/QRCodePaymentCollectionLeg1Response.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/wallet/ooredo/com/live/barcodepaymentcollection/QRCodePaymentCollectionLeg2RequestScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/wallet/ooredo/com/live/barcodepaymentcollection/QRCodePaymentCollectionLeg2RequestScreen.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/wallet/ooredo/com/live/consolidatedreports/Consolidated_Reports_Selection.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/wallet/ooredo/com/live/consolidatedreports/Consolidated_Reports_Selection.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/wallet/ooredo/com/live/consolidatedreports/Consolidated_Reports_Selection_Display.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/wallet/ooredo/com/live/consolidatedreports/Consolidated_Reports_Selection_Display.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/wallet/ooredo/com/live/invoice/InvoiceActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/wallet/ooredo/com/live/invoice/InvoiceActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/wallet/ooredo/com/live/invoice/InvoiceSuccess.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/wallet/ooredo/com/live/invoice/InvoiceSuccess.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/wallet/ooredo/com/live/invoice/LanguageType.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/wallet/ooredo/com/live/invoice/LanguageType.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/wallet/ooredo/com/live/invoice/SendLinkType.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/wallet/ooredo/com/live/invoice/SendLinkType.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/wallet/ooredo/com/live/mainmenu/CheckForUpdatesActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/wallet/ooredo/com/live/mainmenu/CheckForUpdatesActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/wallet/ooredo/com/live/mainmenu/Contact_Us_Activity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/wallet/ooredo/com/live/mainmenu/Contact_Us_Activity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/wallet/ooredo/com/live/mainmenu/CustomViewGroup.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/wallet/ooredo/com/live/mainmenu/KioskMode.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/wallet/ooredo/com/live/mainmenu/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/wallet/ooredo/com/live/mainmenu/MainActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/wallet/ooredo/com/live/mainmenu/MainActivity_Old.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/wallet/ooredo/com/live/mainmenu/MainActivity_Old.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/wallet/ooredo/com/live/mainmenu/MainMenuGridViewAdapter.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/wallet/ooredo/com/live/mainmenu/MerchantInfoActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/wallet/ooredo/com/live/mainmenu/MerchantInfoActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/wallet/ooredo/com/live/mainmenu/MySharedPreferences.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/wallet/ooredo/com/live/mainmenu/SettingFragment.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/wallet/ooredo/com/live/merchantlogin/MerchantLoginActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/wallet/ooredo/com/live/merchantlogin/MerchantLoginActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/wallet/ooredo/com/live/merchantregistration/MerchantRegistrationActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/wallet/ooredo/com/live/merchantregistration/MerchantRegistrationActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/wallet/ooredo/com/live/offer_redeem/OfferRedeemFinalScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/wallet/ooredo/com/live/offer_redeem/OfferRedeemFinalScreen.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/wallet/ooredo/com/live/offer_redeem/OfferRedeemSuccessFinal.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/wallet/ooredo/com/live/offer_redeem/OfferRedeemSuccessFinal.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/wallet/ooredo/com/live/offer_redeem/OfferValidateResponseDisplay.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/wallet/ooredo/com/live/offer_redeem/OfferValidateResponseDisplay.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/wallet/ooredo/com/live/offers/OffersListActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/wallet/ooredo/com/live/offers/OffersListActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/wallet/ooredo/com/live/registration/AgentAuthResponse.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/wallet/ooredo/com/live/registration/Success_screen.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/wallet/ooredo/com/live/service/SchedulerJobService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/wallet/ooredo/com/live/service/ServiceToUpdateDeviceInfo.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/wallet/ooredo/com/live/service/Util.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/wallet/ooredo/com/live/utils/FileUtils.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/wallet/ooredo/com/live/utils/GenericFileProvider.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/wallet/ooredo/com/live/utils/MyIntentChooserReceiver.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/ycash/wallet/json/pojo/TelephonyInfo.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/ycash/wallet/json/pojo/consolidatedreports/MerchantReportRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/ycash/wallet/json/pojo/consolidatedreports/MerchantReportRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/ycash/wallet/json/pojo/consolidatedreports/MerchantReportResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/ycash/wallet/json/pojo/consolidatedreports/MerchantReportResponse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/ycash/wallet/json/pojo/decodedbarcode/DecodedQrPojo.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/ycash/wallet/json/pojo/decodedbarcode/DecodedQrPojo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/ycash/wallet/json/pojo/generic/GenericRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/ycash/wallet/json/pojo/generic/GenericRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/ycash/wallet/json/pojo/generic/GenericResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/ycash/wallet/json/pojo/generic/GenericResponse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/ycash/wallet/json/pojo/invoice_pojo/InvoiceRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/ycash/wallet/json/pojo/invoice_pojo/InvoiceRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/ycash/wallet/json/pojo/invoice_pojo/InvoiceTranHistoryResponsePojo.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/ycash/wallet/json/pojo/invoice_pojo/InvoiceTranHistoryResponsePojo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/ycash/wallet/json/pojo/pushnotification/SendVersionNumber.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/ycash/wallet/json/pojo/registration/CustomerRegistrationRequest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/ycash/wallet/json/pojo/registration/RegisterNUpdateResponse.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable-hdpi/about_us.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable-hdpi/bookeey_icon.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable-hdpi/bookeey_latest_icon.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable-hdpi/bookeey_notification.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable-hdpi/help.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable-hdpi/ic_launcher.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable-hdpi/icon.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable-hdpi/kuwait.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-hdpi/kuwait.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable-hdpi/splash.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable-hdpi/transaction_history.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable-hdpi/usa.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-hdpi/usa.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable-ldpi/bookeey_latest_icon.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable-ldpi/icon.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable-mdpi/bookeey_icon.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable-mdpi/bookeey_latest_icon.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable-mdpi/ic_launcher.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable-mdpi/icon.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable-xhdpi/bookeey_icon.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable-xhdpi/bookeey_latest_icon.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable-xhdpi/bookeeynewicon.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable-xhdpi/ic_launcher.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable-xhdpi/icon.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable-xhdpi/splash.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable-xxhdpi/bookeey_icon.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable-xxhdpi/bookeey_latest_icon.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable-xxhdpi/ic_launcher.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable-xxhdpi/icon.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/bookeey_icon.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/bookeey_latest_icon.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/bookeey_medium_with_space.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/calendr.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/icon.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/kuwait.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/kuwait.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/mer_rejected.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/mer_yellow.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/powered_by.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/time.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/usa.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/usa.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/usa_old.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout-large-land/txn_history_list.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout-large-land/txn_history_list.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout-large/common_header_fragment_ooredoo.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout-large/common_header_fragment_ooredoo.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout-large/welcome.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout-large/welcome.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout-small/common_header_fragment_ooredoo.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout-small/common_header_fragment_ooredoo.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout-small/welcome.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout-small/welcome.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/actionbar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/actionbar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/capture_flip.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/capture_flip.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/common_header_fragment_ooredoo.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/common_header_fragment_ooredoo.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/invoice_activity.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/invoice_activity.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/main_menu_profile_offers_fragment_layout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/main_menu_profile_offers_fragment_layout.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/prompts.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/txn_history_list.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/txn_history_list.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/welcome.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/welcome.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/values-ar/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values-ar/strings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gradle.properties" beforeDir="false" afterPath="$PROJECT_DIR$/gradle.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" afterPath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[]" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[7929cb75]" />
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
@@ -242,7 +114,7 @@
   </component>
   <component name="GenerateSignedApkSettings">
     <option name="EXPORT_PRIVATE_KEY" value="false" />
-    <option name="KEY_STORE_PATH" value="D:\Bookeey\Key\bookeeymerchant_key.jks" />
+    <option name="KEY_STORE_PATH" value="C:\Bookeey\New folder\Key\bookeeymerchant_key.jks" />
     <option name="KEY_ALIAS" value="bookeeymerchant" />
     <option name="REMEMBER_PASSWORDS" value="true" />
     <option name="BUILD_TARGET_KEY" value="apk" />
@@ -264,24 +136,24 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ApkExportedModule&quot;: &quot;BookeeyMerchant.app&quot;,
-    &quot;ExportApk.ApkPathForBookeeyMerchant.app&quot;: &quot;C:\\Bookeey\\BookeeyMerchant\\app&quot;,
-    &quot;RunOnceActivity.cidr.known.project.marker&quot;: &quot;true&quot;,
-    &quot;android-custom-viewC:/Bookeey/BookeeyMerchant/app/src/main/java/wallet/ooredo/com/live/supportinterfaces/FontedTextView.java_SELECTED&quot;: &quot;FontedTextView&quot;,
-    &quot;cidr.known.project.marker&quot;: &quot;true&quot;,
-    &quot;com.google.services.firebase.aqiPopupShown&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Bookeey/BookeeyMerchantAPI&quot;,
-    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;memory.settings&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ApkExportedModule": "BookeeyMerchant.app",
+    "ExportApk.ApkPathForBookeeyMerchant.app": "C:\\Bookeey\\BookeeyMerchant\\app",
+    "RunOnceActivity.cidr.known.project.marker": "true",
+    "android-custom-viewC:/Bookeey/BookeeyMerchant/app/src/main/java/wallet/ooredo/com/live/supportinterfaces/FontedTextView.java_SELECTED": "FontedTextView",
+    "cidr.known.project.marker": "true",
+    "com.google.services.firebase.aqiPopupShown": "true",
+    "last_opened_file_path": "C:/Bookeey/New folder/Key/bookeeymerchant_key.jks",
+    "run.code.analysis.last.selected.profile": "pProject Default",
+    "settings.editor.selected.configurable": "memory.settings"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;ExportApk.BuildVariants&quot;: [
-      &quot;release&quot;
+  "keyToStringList": {
+    "ExportApk.BuildVariants": [
+      "release"
     ]
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="ycash.wallet.json.pojo.transactionhistory" />

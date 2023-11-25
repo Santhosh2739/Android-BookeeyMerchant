@@ -3,9 +3,9 @@ package coreframework.utils;
 public enum TransType {
 
     //DEMO
-    ADDRESS_BASE("https://demo.bookeey.com/mno/ooredooServerRequest"),
+    //ADDRESS_BASE("https://demo.bookeey.com/mno/ooredooServerRequest"),
     //LIVE
-    //ADDRESS_BASE("https://api.bookeey.com/mno/ooredooServerRequest"),
+    ADDRESS_BASE("https://api.bookeey.com/mno/ooredooServerRequest"),
 
     PAY_TO_MERCHANT(ADDRESS_BASE.getURL()),
     LOGIN_MERCHANT(ADDRESS_BASE.getURL()),

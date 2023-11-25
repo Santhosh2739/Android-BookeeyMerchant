@@ -8,8 +8,8 @@ android {
         applicationId 'wallet.ooredo.com.ooredolive.mx'
         minSdkVersion 21
         targetSdkVersion 33
-        versionCode 56
-        versionName "6.6"
+        versionCode 57
+        versionName "6.7"
     }
     buildTypes {
         release {

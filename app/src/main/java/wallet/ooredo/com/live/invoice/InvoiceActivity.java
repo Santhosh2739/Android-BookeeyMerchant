@@ -141,6 +141,7 @@ public class InvoiceActivity extends GenericActivity implements YPCHeadlessCallb
                     invoice_mobileno_edit.removeTextChangedListener(this);
                     invoice_mobileno_edit.setText(str);
                     invoice_mobileno_edit.addTextChangedListener(this);
+                    internationalMobile = invoice_mobileno_edit.getText().length() > 8;
                 }
             }
 
@@ -241,33 +242,6 @@ public class InvoiceActivity extends GenericActivity implements YPCHeadlessCallb
             public void onNothingSelected(AdapterView<?> parent) {
             }
         });
-        //float max_amount = Float.valueOf(invoice_amount_edit.getText().toString());
-        //float max_amount =100;
-
-        /*invoice_amount_edit.setFilters(new InputFilter[]{new DecimalDigitsInputFilter(5, 3)});
-        invoice_amount_edit.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-            }
-
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-            }
-            @Override
-            public void afterTextChanged(Editable s) {
-                amount_str = invoice_amount_edit.getText().toString().trim();
-                int indexofDesc = amount_str.indexOf(".");
-                if (indexofDesc > 4) {
-                    invoice_amount_edit.setInputType(InputType.TYPE_NULL);
-                }
-                try {
-                    amount_str = amount_str.toString();
-
-                } catch (NumberFormatException e) {
-                    e.printStackTrace();
-                }
-            }
-        });*/
         Bundle bundle = getIntent().getExtras();
         if (bundle != null) {
             reject_edit_response = bundle.getString("INVOICE_EDIT_DETAILS");
@@ -357,9 +331,9 @@ public class InvoiceActivity extends GenericActivity implements YPCHeadlessCallb
             @Override
             public void onClick(View v) {
                 mobno_str = invoice_mobileno_edit.getText().toString().trim();
-                send_mobno_str = invoice_mobileno_send.getText().toString().trim();
-                if (send_mobno_str.length() == 8)
-                    whatsAppNo = "965" + send_mobno_str;
+                //send_mobno_str = invoice_mobileno_send.getText().toString().trim();
+                if (mobno_str.length() == 8)
+                    whatsAppNo = "965" + mobno_str;
                 amount_str = invoice_amount_edit.getText().toString().trim();
                 invoiceNo = merchant_inv_no.getText().toString().trim();
                 fullName = invoice_fullname_edit.getText().toString().trim();
@@ -377,17 +351,17 @@ public class InvoiceActivity extends GenericActivity implements YPCHeadlessCallb
                 } else if (!internationalMobile && invoice_mobileno_edit.getText().toString().length() != 8) {
 //                    showNeutralDialogue("Alert!", "Please enter valid mobile number...");
                     showNeutralDialogue("Alert!", getString(R.string.please_enter_valid_mobile_number));
-                } else if (invoice_mobileno_send.getText().toString().length() == 0) {
+                } /*else if (invoice_mobileno_send.getText().toString().length() == 0) {
 //                    showNeutralDialogue("Alert!", "Please enter mobile number");
                     showNeutralDialogue("Alert!", getString(R.string.please_enter_mobile_number));
                 } else if (!internationalMobile && invoice_mobileno_send.getText().toString().length() != 8) {
 //                    showNeutralDialogue("Alert!", "Please enter valid mobile number...");
                     showNeutralDialogue("Alert!", getString(R.string.please_enter_valid_mobile_number));
-                } else if (invoice_mobileno_edit.getText().toString().length() < 8) {
+                }*/ else if (invoice_mobileno_edit.getText().toString().length() < 8) {
                     showNeutralDialogue(getString(R.string.alert), getString(R.string.please_enter_valid_mobile_number));
-                } else if (invoice_mobileno_send.getText().toString().length() < 8) {
+                } /*else if (invoice_mobileno_send.getText().toString().length() < 8) {
                     showNeutralDialogue(getString(R.string.alert), getString(R.string.please_enter_valid_mobile_number));
-                } else if (invoice_amount_edit.getText().toString().length() == 0) {
+                }*/ else if (invoice_amount_edit.getText().toString().length() == 0) {
 //                    showNeutralDialogue("Alert!", "Please enter amount");
                     showNeutralDialogue("Alert!", getString(R.string.please_enter_amount));
                 } else if (invoice_hospital_layout.getVisibility() == View.VISIBLE) {
